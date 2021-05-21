@@ -1,0 +1,155 @@
+<body>
+    <p style="align-content: center">
+
+        <img *ngIf="carregando" class="rounded mx-auto d-block" src="assets/img/loading.gif">
+      </p>
+
+    <div [hidden]="carregando" class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
+          <form class="mt-5" [formGroup]="form" >
+            <div class="container">
+              <div class="row">
+                
+                  <!--div class="col-12">
+                      <h3>Cadastro</h3>
+                    </div-->        
+          
+                <div class="col-12">
+                  <p *ngFor="let alert of alerts">
+                    <ngb-alert [type]="alert.type" (close)="close(alert)">
+                      <div [innerHTML]="alert.message"></div>
+                    </ngb-alert>
+                  </p>
+        
+                  <p *ngIf="carregando"  style="align-content: center">
+                      <img  class="rounded mx-auto d-block" src="assets/img/loading.gif">
+                   </p>
+                </div>
+         
+                <div class="col-12 col-sm-12"  style="margin-top:10px">
+                  <div class="card bg-light mb-12">
+                      <div style="cursor: pointer;" (click)="show('ocultarDadosPessoais')">
+                        <div class="card-header alert-primary"><i class="fa fa-user-tie"></i> Dados Pessoais </div>   
+                    </div>
+                    <div [hidden]="ocultarDadosPessoais" class="card-body">
+                      <div class="row">
+                        <div class=" col-md-4" >
+                          <label>{{getLabelField('cpf')}}</label>
+                          <input  type="text" matInput mask="000.000.000-00" formControlName="cpf"  class="form-control"
+                            placeholder=""  tabindex="0" />
+                        </div>
+                        <div class=" col-md-4" >
+                          <label>{{getLabelField('celular')}}</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon1"><i class="fa fa-mobile-alt"></i> </span>
+                            </div>
+                            <input type="text" formControlName="celular" class="form-control" placeholder="" matInput
+                              mask="(00) 00000-0000" aria-label="Celular" aria-describedby="basic-addon1">
+                          </div>
+                        </div>
+                        <div class=" col-md-4">
+                          <label>{{getLabelField('email')}}</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"></i> </span>
+                            </div>
+                            <input type="text" formControlName="email" class="form-control" placeholder="" aria-label="Email"
+                              aria-describedby="basic-addon1">
+                          </div>
+                        </div>
+        
+                        <div class=" col-md-12">
+                          <label>{{getLabelField('nome')}}</label>
+                          <input type="text" formControlName="nome" class="form-control" placeholder="" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12"  style="margin-top:10px" >
+                  <div class="card bg-light mb-12">
+                      <div style="cursor: pointer;" (click)="show('ocultarEndereco')">            
+                        <div class="card-header alert-primary"><i class="fa fa-home"></i> Endereço</div>
+                      </div>
+                    <div [hidden]="ocultarEndereco" class="card-body">
+                      <div class="row">
+                        <div class=" col-md-3">
+                          <label>{{getLabelField('cep')}}</label>
+                          <input type="text" formControlName="cep" id="cep" matInput mask="00.000-000" class="form-control"
+                            placeholder="" />
+                        </div>
+                        <div class=" col-md-3">
+                          <label>{{getLabelField('uf')}}</label>
+                          <select formControlName="uf" class="form-control" placeholder="">
+                            <option *ngFor="let estado of estados" [value]="estado.sigla">{{ estado.sigla }}</option>
+                          </select>
+                        </div>
+                        <div class=" col-md-6">
+                          <label>{{getLabelField('cidade')}}</label>
+                          <select formControlName="cidade" class="form-control" placeholder="">
+                            <option *ngFor="let cidade of cidades" [value]="cidade.nome">{{ cidade.nome }}</option>
+                          </select>
+                        </div>
+                        <div class=" col-md-6">
+                          <label>{{getLabelField('bairro')}}</label>
+                          <input type="text" formControlName="bairro" class="form-control" placeholder="" />
+                        </div>
+                        <div class=" col-md-6">
+                          <label>{{getLabelField('logradouro')}}</label>
+                          <input type="text" formControlName="logradouro" class="form-control" placeholder="" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12"  style="margin-top:10px" >
+                    <div class="card bg-light mb-12">
+                        <div style="cursor: pointer;" (click)="show('ocultarOuvidoria')">
+                          <div class="card-header alert-primary"><i class="fa fa-calendar-alt"></i> Categoria:</div>
+                        </div>
+                      <div [hidden]="ocultarOuvidoria" class="card-body">
+                        <div class="row">
+                          <div class=" col-md-6">
+                            <label>{{getLabelField('tipo')}}</label>
+                            <select formControlName="categoria" class="form-control" placeholder="">
+                              <option *ngFor="let t of listaTipos" [value]="t.descricao">{{ t.descricao }}</option>
+                            </select>
+                          </div>
+                          <div class=" col-md-6">
+                            <label>{{getLabelField('ies_empresa')}}</label>
+                            <input type="text" formControlName="origem" class="form-control" placeholder="" />
+                          </div>
+                          <div class=" col-md-6">
+                            <label>{{getLabelField('senha')}}</label>
+                            <input type="password" formControlName="senha" id="senha" class="form-control" required placeholder="" />
+                          </div>
+                          <div class=" col-md-6">
+                            <label>{{getLabelField('repita_senha')}}</label>
+                            <input type="password" formControlName="senha_repita" id="senha_repita" class="form-control"  placeholder="" />
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+        
+                <div class="col-12 col-sm-12">
+        
+                  <div class="mx-auto"><br> <button type="submit" (click)="salvar()" class="btn btn-primary text-right"  [disabled]="id !== 0">Salvar</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="submit" (click)="voltar()" class="btn btn-secondary text-right"  >VOLTAR</button>      
+                    <br><br><br>                    
+                    <hr>
+                  </div>
+        
+                </div>
+              </div>
+            </div>
+          </form>
+        
+        </div>
+      </div>
+    </div>
+</body>

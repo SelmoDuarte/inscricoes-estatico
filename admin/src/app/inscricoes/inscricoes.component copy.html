@@ -1,0 +1,368 @@
+<body>
+   <form [formGroup]="form">
+      <div  class="container">
+         <div class="row" [hidden]="checkoutEmAndamento">
+            <div class="col-12">
+               <p *ngFor="let alert of alerts"><br>
+                  <ngb-alert [type]="alert.type" (close)="close(alert)">
+               <div [innerHTML]="alert.message"></div>
+               </ngb-alert>
+               </p>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
+               <div class="container">
+                  <div class="row">
+                     <!--div class="col-12">
+                        <h3>Cadastro</h3>
+                        </div-->        
+                     <div class="col-12 col-sm-12"  style="margin-top:10px">
+                        <div class="card bg-light mb-12">
+                           <div style="cursor: pointer;" (click)="show('ocultarDadosPessoais')">
+                              <div class="card-header alert-primary"><i class="fa fa-user-tie"></i> - <b>Selecione o(s) seu(s) evento(s)</b> </div>
+                           </div>
+                           <div [hidden]="ocultarDadosPessoais" class="card-body">
+                              <div class="row">
+                                 <div class="col-12 table-responsive-xl">
+                                    <table class="table table-striped" width="100%">
+                                       <thead>
+                                          <tr>
+                                             <th scope="col">#</th>
+                                             <th scope="col" sortable="area" (sort)="onSort($event)">Descrição</th>
+                                             <th scope="col" sortable="name" (sort)="onSort($event)">Valor</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr *ngFor="let reg of lista">
+                                             <td   class="align-middle" style=" background: transparent;">
+                                                <div [ngClass]="reg.status">
+                                                <div class="custom-control custom-checkbox" id="div{{reg.id}}">
+                                                   <input type="checkbox" class="custom-control-input" id="id{{reg.id}}" (change)="calcularValor()" >
+                                                   <label class="custom-control-label" for="id{{reg.id}}" > - </label>
+                                                </div>
+                                                </div>
+                                             </td>
+                                             <td class="align-middle">
+                                                <ngb-highlight  [result]="reg.descricao" [term]="queryBusca"></ngb-highlight><br>
+                                                <i  class="text-secondary">{{reg.detalhe}}</i>                                       
+                                             </td>
+                                             <td class="float-right">
+                                                <ngb-highlight [hidden]="reg.status=='AUTHORIZED'" [result]="reg.valor" [term]="queryBusca"></ngb-highlight><br>
+                                                <span class="alert-success" [hidden]="reg.status!='AUTHORIZED'"><b>CONFIRMADO</b></span>
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                    <div class="alert alert-dark" role="alert">
+                                       <div class="row">
+                                          <div class="col-12 col-sm-9">
+                                             <b>TOTAL</b>
+                                          </div>
+                                          <div class="col-12  col-sm-3">
+                                             <div class="float-right">
+                                                <span class="float-right"><b> R$ {{valor}}</b><br></span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-12">
+                        <div class="mx-auto">
+                           <br> <button type="button" (click)="proximo()" class="btn btn-primary text-right" >PROXIMO</button>
+                           &nbsp;&nbsp;&nbsp;&nbsp;
+                           <button type="button" (click)="voltar()" class="btn btn-secondary text-right"  >VOLTAR</button>      
+                           <br><br><br>                    
+                           <hr>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div [hidden]="! checkoutEmAndamento" class="container">
+         <div class="col-12">
+            <p *ngFor="let alert of alerts"><br>
+               <ngb-alert [type]="alert.type" (close)="close(alert)">
+            <div [innerHTML]="alert.message"></div>
+            </ngb-alert>
+            </p>
+            <div *ngIf="carregando"  style="align-content: center">
+               <br><br><br><br><br><br>
+               <div class="card bg-light mb-12">
+                  <div class="card-body">
+                     <br><br>
+                     <img  class="rounded mx-auto d-block" src="assets/img/processando.gif"><br><br>
+                     <p class="text-center text-secondary"><b>Por favor, aguarde enquanto o seu pagamento é processado !!!</b>
+                  </div>
+               </div>
+               <br><br><br><br>
+            </div>
+            <!--DIV MOSTRA TELA PAGAMENTO CONFIRMADO-->
+            <div *ngIf="pagamentoConfirmado"  style="align-content: center">
+               <br><br><br><br>
+               <div  class="card bg-light mb-12">
+                  <!--CARTAO-->
+                  <div [hidden]="true" class="card-body">
+                     <br><br>
+                     <div class="text-center">
+                        <img  class="rounded mx-auto d-block" src="assets/img/pagamentoConfirmado.png" class="img-fluid" style="max-width: 200px"><br><br>
+                     </div>
+                     <p class="text-center text-secondary">
+                        <b>
+                     <h3>PAGAMENTO CONFIRMADO</h3></b></p>
+                     <p class="text-center text-secondary">
+                        <b>
+                     <h1>MUITO OBRIGADO</h1></b></p>
+                     <div class="col-12 col-sm-12">
+                        <div class="text-center">
+                           <br>
+                           <hr>
+                           <button type="button" (click)="sair()" class="btn btn-secondary text-right"  >VOLTAR</button>      
+                           <br><br><br>                    
+                        </div>
+                     </div>
+                  </div>
+                  <!--BOLETO-->
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-12">
+                           <h1 class="text-secondary"><i class="fas fa-barcode"></i>   BOLETO BANCÁRIO </h1>
+                           <hr>
+                        </div>
+                        <div class="col-12">
+                           <h3 class="text-dark text-center" ><i class="fas fa-barcode"></i> Linha digitável</h3>
+                           <h3 class="text-info text-center" >34191.09032 79220.290195 61309.830000 9 86310000008000</h3>
+                           <hr>
+                           <p class="text-secondary"><strong>Vencimento: </strong>  <span data-apply-date="">25/05/2021</span></p>
+                           <p class="text-secondary"><strong>Valor total: </strong>  <span data-apply-total="">R$ 80.00</span></p>
+                           <p class="text-secondary">O prazo para a compensação do boleto pode ser de até 2 dias úteis.</p>
+                           <hr>
+                        </div>
+                        <div class="col-4 text-center">
+                           <button type="button" class="btn btn-primary" (click)="copyToClipBoard('34191090327922029019561309830000986310000008000')"><i class="far fa-copy"></i> Copiar linha digitável</button>
+                        </div>
+                        <div class="col-4 text-center">
+                           <button type="button" class="btn btn-primary" (click)="openUrl('')" ><i class="fas fa-external-link-alt"></i>Acessar Link Boleto</button>
+                        </div>
+                        <div class="col-4 text-center">
+                           <button type="button" (click)="sair()" class="btn btn-secondary text-right"  ><i class="fas fa-external-link-alt"></i>VOLTAR</button><br> <br>                                      
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <br><br>
+            </div>
+            <!--DIV MOSTRA TELA ERRO PAGAMENTO-->
+            <div *ngIf="pagamentoErro"  style="align-content: center">
+               <br><br><br><br>
+               <div class="card bg-light mb-12">
+                  <div class="card-body">
+                     <br><br>
+                     <div class="text-center">
+                        <img  class="rounded mx-auto d-block" src="assets/img/pagamentoErro.png" class="img-fluid" style="max-width: 200px"><br><br>
+                     </div>
+                     <p class="text-center text-danger">
+                        <b>
+                     <h3>PAGAMENTO NÃO CONFIRMADO</h3></b></p>
+                     <div class="text-center text-secondary">
+                        <p *ngFor="let alert of alertsPagamento">
+                           <ngb-alert [type]="alert.type" (close)="close(alert)">
+                        <div [innerHTML]="alert.message"></div>
+                        </ngb-alert>
+                        </p>
+                     </div>
+                     <div class="col-12 col-sm-12">
+                        <div class="text-center">
+                           <br>
+                           <hr>
+                           <button type="button" (click)="sair()" class="btn btn-secondary text-right"  >VOLTAR</button>      
+                           <br><br><br>                    
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <br><br>
+            </div>
+
+            <p><br></p>
+         </div>
+         <div [hidden]="pagamentoProcessado" class="card bg-light mb-12">
+               <div style="cursor: pointer;" (click)="show('ocultarDadosPessoais')">
+                  <div class="card-header alert-primary"><i class="fab fa-amazon-pay"></i> <b> - Finalizar compra</b> </div>
+               </div>
+               <div [hidden]="ocultarDadosPessoais" class="card-body">
+                  <div class="row">
+                     <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
+                        <main class="mt-5 pt-4">
+                           <div class="container wow fadeIn">
+                              <div class="row">
+                                 <div class="col-md-8 mb-4">
+                                    <div class="card">
+                                       <div class="row">
+                                          <div class="col-md-6 mb-2">
+                                             <label>{{getLabelField('nome')}}</label>
+                                             <input type="text" formControlName="nome" class="form-control">
+                                          </div>
+                                          <div class="col-md-6 mb-2">
+                                             <label>{{getLabelField('email')}}</label>
+                                             <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                   <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"></i> </span>
+                                                </div>
+                                                <input type="text" formControlName="email" class="form-control" placeholder="" aria-label="Email"
+                                                   aria-describedby="basic-addon1">
+                                             </div>
+                                          </div>
+                                          <div class=" col-md-3">
+                                             <label>{{getLabelField('cep')}}</label>
+                                             <input type="text" formControlName="cep" id="cep" matInput mask="00.000-000" class="form-control"
+                                                placeholder="" />
+                                          </div>
+                                          <div class=" col-md-3">
+                                             <label>{{getLabelField('uf')}}</label>
+                                             <select formControlName="uf" class="form-control" placeholder="">
+                                             <option *ngFor="let estado of estados" [value]="estado.sigla">{{ estado.sigla }}</option>
+                                             </select>
+                                          </div>
+                                          <div class=" col-md-6">
+                                             <label>{{getLabelField('cidade')}}</label>
+                                             <select formControlName="cidade" class="form-control" placeholder="">
+                                             <option *ngFor="let cidade of cidades" [value]="cidade.nome">{{ cidade.nome }}</option>
+                                             </select>
+                                          </div>
+                                          <div class=" col-md-6">
+                                             <label>{{getLabelField('bairro')}}</label>
+                                             <input type="text" formControlName="bairro" class="form-control" placeholder="" />
+                                          </div>
+                                          <div class=" col-md-6">
+                                             <label>{{getLabelField('logradouro')}}</label>
+                                             <input type="text" formControlName="logradouro" class="form-control" placeholder="" />
+                                          </div>
+                                       </div>
+                                       <hr>
+                                       <div class="d-block my-3">
+                                          <div class="col-12 col-sm-12">
+                                             <label><b>Pagar com:</b></label><br>                  
+                                             <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" class="custom-control-input" id="boleto" name="meioPagamento" value="1" (change)="selecionarPagamento()" checked>
+                                                <label class="custom-control-label" for="boleto"><i class="fa fa-file-invoice-dollar"></i> - Boleto</label>
+                                             </div>
+                                             <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" class="custom-control-input" id="cartao" name="meioPagamento" value="2" (change)="selecionarPagamento()">
+                                                <label class="custom-control-label" for="cartao"><i class="fa fa-credit-card"></i> - Cartão</label>
+                                             </div>
+                                             <br>
+                                          </div>
+                                       </div>
+                                       <div class="row" [hidden]="isBoleto">
+                                          <div class="col-12">
+                                             <hr>
+                                          </div>
+                                          <div class="col-md-6 mb-3">
+                                             <label for="cc-name">Nome no cartão</label>
+                                             <input type="text" class="form-control" formControlName="cc_nome" id="cc-name"  placeholder="" required>
+                                             <small class="text-muted">Nome conforme exibido no cartão</small>
+                                             <div class="invalid-feedback">
+                                                Nome conforme exibido no cartão
+                                             </div>
+                                          </div>
+                                          <div class="col-md-6 mb-3" >
+                                             <label for="cc-number">Numero do cartão</label>
+                                             <input type="text" class="form-control" matInput mask="0000 0000 0000 0000" formControlName="cc_numero"  id="cc-number" placeholder="" required>
+                                             <div class="invalid-feedback">
+                                                O número do cartão de crédito é obrigatório
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="row" [hidden]="isBoleto">
+                                          <div class="col-md-3 mb-3">
+                                             <label for="cc-expiration">Data de Vencimento</label>
+                                             <input type="text" class="form-control" matInput mask="00/00" formControlName="cc_expiracao" id="cc-expiration"  placeholder="" required>
+                                             <div class="invalid-feedback">
+                                                Data de Vencimento obrigatório
+                                             </div>
+                                          </div>
+                                          <div class="col-md-3 mb-3">
+                                             <label for="cc-expiration">CVV</label>
+                                             <input type="text" class="form-control" matInput mask="000" formControlName="cc_cod_seguranca" id="cc-cvv"  placeholder="" required>
+                                             <div class="invalid-feedback">
+                                                Codigo de segurança obrigatório
+                                             </div>
+                                          </div>
+                                          <div class="col-md-3 mb-3">
+                                             <label for="cc-expiration">Qtd de Parcelas</label>
+                                             <select formControlName="cc_qtd_parcelas" class="form-control" placeholder="">
+                                                <option *ngFor="let t of listaQtdParcelas" [value]="t.codigo">{{ t.descricao }}</option>
+                                              </select>
+                                          </div>
+                                       </div>
+                                       <div class="col-12 col-sm-12">
+                                          <div class="mx-auto">
+                                             <br> <button type="button" (click)="checkOut()"  id="btnCheckout" class="btn btn-primary text-right" >FINALIZAR</button>
+                                             &nbsp;&nbsp;&nbsp;&nbsp;
+                                             <button type="button" (click)="voltar()" class="btn btn-secondary text-right"  >VOLTAR</button>      
+                                             <br><br><br>                    
+                                             <hr>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <!--/.Card-->
+                                 </div>
+                                 <!--Grid column-->
+                                 <!--Grid column-->
+                                 <div class="col-md-4 mb-4">
+                                    <!-- Heading -->
+                                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                       <span class="text-muted">Seu Carrinho</span>
+                                       <span class="badge badge-secondary badge-pill">{{listaCarrinho.length}}</span>
+                                    </h4>
+                                    <!-- Cart -->
+                                    <ul *ngFor="let reg of listaCarrinho" class="list-group mb-3 z-depth-1">
+                                       <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                          <div>
+                                             <h6 class="my-0">{{reg.descricao}}</h6>
+                                             <!--small class="text-muted">{{reg.detalhe}}</small-->
+                                          </div>
+                                          <span class="text-muted">R$ {{reg.valor}}</span>
+                                       </li>
+                                    </ul>
+                                    <ul class="list-group mb-3 z-depth-1">
+                                       <li  class="list-group-item d-flex justify-content-between bg-light">
+                                          <div [hidden]= "! cupomValido" class="text-success">
+                                             <h6 class="my-0">Desconto</h6>
+                                             <small>CUPOM Promocional</small>
+                                          </div>
+                                          <span [hidden]= "! cupomValido" class="text-success">-$R$ {{valorCupom}}</span>
+                                       </li>
+                                       <li class="list-group-item d-flex justify-content-between">
+                                          <span>Total (R$)</span>
+                                          <strong>{{valor}}</strong>
+                                       </li>
+                                    </ul>
+                                    <!-- Cart -->
+                                    <!-- Promo code -->
+                                    <div class="input-group">
+                                       <input type="text" class="form-control" formControlName="cupom" id="cupom" placeholder="Possui um cupom de desconto ?" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                       <div class="input-group-append">
+                                          <button type="button" class="btn btn-outline-primary" (click)="getCupom()" title="Atualizar"><i class="fas fa-sync-alt fa-lg"></i></button>                                
+                                       </div>
+                                    </div>
+                                    <!-- Promo code -->
+                                 </div>
+                                 <!--Grid column-->
+                              </div>
+                              <!--Grid row-->
+                           </div>
+                        </main>
+                        <!--Main layout-->
+                     </div>
+                  </div>
+               </div>
+            </div>
+      </div>
+   </form>
+</body>

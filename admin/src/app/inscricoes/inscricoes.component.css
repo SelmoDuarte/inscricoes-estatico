@@ -1,0 +1,11 @@
+.IN_ANALYSIS{
+    color:red;
+}
+.AUTHORIZED{
+    display: none;
+}
+.text-AUTHORIZED{
+    color:green;
+    font-weight: bold;
+}
+

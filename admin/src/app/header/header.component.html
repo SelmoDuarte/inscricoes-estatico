@@ -1,0 +1,99 @@
+<!--nav *ngIf="mostrarMenu" >
+  <div class="nav-wrapper">
+      <a routerLink="" class="brand-logo right">Rotas Ng2</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
+      <li routerLinkActive="active"><a routerLink="">Home</a></li>
+      <li routerLinkActive="active"><a routerLink="/cursos" [queryParams]="{pagina:1}">Cursos</a></li>  
+      <li routerLinkActive="active"><a routerLink="/alunos" >Alunos</a></li>  
+      <li routerLinkActive="active"><a routerLink="/entidades" >Entidades</a></li>  
+      </ul>
+  </div>
+</nav-->
+
+<nav class="navbar navbar-expand-lg navbar-primary alert-primary" *ngIf="userAutenticado()">
+  <h3>Área do Participante</h3><br><br>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="navbar-nav mr-auto">
+      <!--li routerLinkActive="active">
+        <a class="nav-link" routerLink="/registroPf">| REGISTRO PF</a>
+      </li>
+      <li routerLinkActive="active">
+          <a class="nav-link" routerLink="/estudante">| ESTUDANTE</a>
+      </li-->
+
+    
+      </ul>
+      <div class="float-right"><a  href="#" (click)="logoff()" ><p class="alert-primary">{{usuarioLogado}}<br>LOGOFF</p></a></div>
+  </div>
+</nav>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Alterar Senha</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('EXIT')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-12">
+      <p *ngFor="let alert of alerts">
+        <ngb-alert [type]="alert.type" (close)="close(alert)">
+          <div [innerHTML]="alert.message"></div>
+        </ngb-alert>
+      </p>
+    </div>
+
+    <div class="col-12 col-sm-12" style="margin-top:10px">
+      <div class="card bg-light mb-12">
+        <div style="cursor: pointer;" (click)="show('ocultarDadosPessoais')">
+          <div class="card-header alert-primary"><i class="fa fa-user-tie"></i> Dados do Usuário </div>
+        </div>
+        <div [hidden]="ocultarDadosPessoais" class="card-body">
+          <div class="row">
+            <div class=" col-md-12" >
+              <div class="form-label-group">
+                <label for="inputEmail">Usuário</label>
+                <input #loginField [(ngModel)]="usuario.login" type="text" class="form-control" required value="" disabled 
+                  autocomplete="off">
+              </div>
+          
+              <div class="form-label-group">
+                <label for="inputPassword">Senha Anterior</label>
+                <input [(ngModel)]="usuario.password_anterior" type="password" id="inputPassword" class="form-control"
+                  placeholder="Password" required>
+              </div>
+            </div>
+            <div class=" col-md-6" >
+
+              <div class="form-label-group">
+                <label for="inputPassword">Nova Senha</label>
+                <input [(ngModel)]="usuario.password" type="password" id="inputPassword" class="form-control"
+                  placeholder="Password" required>
+              </div>
+            </div>
+            <div class=" col-md-6" >
+
+              <div class="form-label-group">
+                <label for="inputPassword">Repita Nova Senha</label>
+                <input [(ngModel)]="usuario.password_conferir" type="password" id="inputPassword" class="form-control"
+                  placeholder="Password" required>
+              </div>
+            </div>
+          
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>     
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('SAVE')">Confirmar</button>
+  </div>
+</ng-template>
