@@ -56,11 +56,12 @@
         <!-- Cart -->
         <ul *ngFor="let reg of listaMeusEventos" class="list-group mb-3 z-depth-1">
            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                 <h6 class="my-0">{{reg.descricao}}</h6>
-                 <!--small class="text-muted">{{reg.detalhe}}</small-->
-              </div>
-              <span  [ngClass]="reg.status" >{{reg.status_descricao}}</span>
+               <div class="col-sm-8 col-md-8 col-lg-8">
+                  <h6 class="my-0">{{reg.descricao}}</h6>
+               </div>
+               <div class="col-sm-4 col-md-4 col-lg-4 text-center align-middle">
+                     <p style="font-size: 80%;" [ngClass]="reg.status" >{{reg.status_descricao}}</p>
+               </div>
            </li>
         </ul>
         <ul class="list-group mb-3 z-depth-1">
