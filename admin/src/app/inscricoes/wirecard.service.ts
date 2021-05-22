@@ -12,14 +12,15 @@ import { MoipCreditCard } from 'moip-sdk-js';
 })
 export class WireCardService {
 
-  private readonly API_NOVO_USUARIO = 'https://sandbox.moip.com.br/v2/customers';  
-  private readonly API_NOVO_PEDIDO = 'https://sandbox.moip.com.br/v2/orders';  
-  private readonly API_NOVO_PAGAMENTO = 'https://sandbox.moip.com.br/v2/orders';    
-  private readonly API_GET_CUPOM = `${environment.API}inscricoes/getCupom.php`;  
-  private readonly API_SALVAR_INSCRICAO = `${environment.API}inscricoes/getEventos.php`;  
-  private readonly API_CONSULTA_PEDIDOS = 'https://sandbox.moip.com.br/v2/orders?q=';  
-  private readonly API_GET_PEDIDO = 'https://sandbox.moip.com.br/v2/orders/';  
-  private readonly API_SETAR_NOTIFICACOES = 'https://sandbox.moip.com.br/v2/preferences/notifications';  
+//DESENV  private readonly API_URL_BASE = "https://sandbox.moip.com.br/v2/";
+  private readonly API_URL_BASE = "https://api.moip.com.br/v2/";
+
+  private readonly API_NOVO_USUARIO = this.API_URL_BASE + 'customers';  
+  private readonly API_NOVO_PEDIDO = this.API_URL_BASE + 'orders';  
+  private readonly API_NOVO_PAGAMENTO = this.API_URL_BASE + 'orders';    
+  private readonly API_CONSULTA_PEDIDOS = this.API_URL_BASE +'orders?q=';  
+  private readonly API_GET_PEDIDO = this.API_URL_BASE + 'orders/';  
+  private readonly API_SETAR_NOTIFICACOES = this.API_URL_BASE + 'preferences/notifications';  
   
 
 
@@ -27,7 +28,8 @@ export class WireCardService {
     headers: new HttpHeaders({
       'X-Requested-With': 'XMLHttpRequest',
       'Cache-Control':	'no-cache',
-      'Authorization':	'Basic ' + "U1NXTE4yM0lCUFVZTFNNWFJFQUtVSTdaNllFM01aQ1c6VFdIVkdRRVBKWEpOWEw2MUZWSVBRVklEUTlCM0lOQTVNM1Y0UTc1Rw==",
+//DESENV      'Authorization':	'Basic ' + "U1NXTE4yM0lCUFVZTFNNWFJFQUtVSTdaNllFM01aQ1c6VFdIVkdRRVBKWEpOWEw2MUZWSVBRVklEUTlCM0lOQTVNM1Y0UTc1Rw==",
+      'Authorization':	'Basic ' + "WVRDT0dQS1JPNExCUDQyV1pLRERIRE5DMktET1dDU1U6REtBRFNONzJLR1VFRk8zTUJVSk5GQUVNR0c4TDhDVVA0VFg5VUFRVw==",
       'Content-Type': 'application/json; charset=utf-8'
     })
   };
