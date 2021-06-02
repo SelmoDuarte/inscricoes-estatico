@@ -5,68 +5,21 @@
   !*** ./src/$$_lazy_route_resource lazy namespace object ***!
   \**********************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-var map = {
-	"app/controleEventos/controleEventos.module": [
-		"./src/app/controleEventos/controleEventos.module.ts",
-		"default~app-controleEventos-controleEventos-module~app-estudante-estudante-module~app-faleConosco-fa~e59aec28",
-		"common",
-		"app-controleEventos-controleEventos-module"
-	],
-	"app/estudante/estudante.module": [
-		"./src/app/estudante/estudante.module.ts",
-		"default~app-controleEventos-controleEventos-module~app-estudante-estudante-module~app-faleConosco-fa~e59aec28",
-		"common",
-		"app-estudante-estudante-module"
-	],
-	"app/faleConosco/faleConosco.module": [
-		"./src/app/faleConosco/faleConosco.module.ts",
-		"default~app-controleEventos-controleEventos-module~app-estudante-estudante-module~app-faleConosco-fa~e59aec28",
-		"default~app-faleConosco-faleConosco-module~app-ouvidoria-ouvidoria-module~app-toDo-toDo-module",
-		"common",
-		"app-faleConosco-faleConosco-module"
-	],
-	"app/ouvidoria/ouvidoria.module": [
-		"./src/app/ouvidoria/ouvidoria.module.ts",
-		"default~app-controleEventos-controleEventos-module~app-estudante-estudante-module~app-faleConosco-fa~e59aec28",
-		"default~app-faleConosco-faleConosco-module~app-ouvidoria-ouvidoria-module~app-toDo-toDo-module",
-		"common",
-		"app-ouvidoria-ouvidoria-module"
-	],
-	"app/registropf/registropf.module": [
-		"./src/app/registropf/registropf.module.ts",
-		"default~app-controleEventos-controleEventos-module~app-estudante-estudante-module~app-faleConosco-fa~e59aec28",
-		"common",
-		"app-registropf-registropf-module"
-	],
-	"app/toDo/toDo.module": [
-		"./src/app/toDo/toDo.module.ts",
-		"default~app-controleEventos-controleEventos-module~app-estudante-estudante-module~app-faleConosco-fa~e59aec28",
-		"default~app-faleConosco-faleConosco-module~app-ouvidoria-ouvidoria-module~app-toDo-toDo-module",
-		"common",
-		"app-toDo-toDo-module"
-	]
-};
-function webpackAsyncContext(req) {
-	var ids = map[req];
-	if(!ids) {
-		return Promise.resolve().then(function() {
-			var e = new Error("Cannot find module '" + req + "'");
-			e.code = 'MODULE_NOT_FOUND';
-			throw e;
-		});
-	}
-	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
-		var id = ids[0];
-		return __webpack_require__(id);
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncaught exception popping up in devtools
+	return Promise.resolve().then(function() {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
 	});
 }
-webpackAsyncContext.keys = function webpackAsyncContextKeys() {
-	return Object.keys(map);
-};
-webpackAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
-module.exports = webpackAsyncContext;
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
@@ -170,12 +123,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ng2-file-upload */ "../node_modules/ng2-file-upload/index.js");
 /* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(ng2_file_upload__WEBPACK_IMPORTED_MODULE_16__);
 /* harmony import */ var _modal_acessoNegado_modal_acessoNegado_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./modal-acessoNegado/modal-acessoNegado.component */ "./src/app/modal-acessoNegado/modal-acessoNegado.component.ts");
+/* harmony import */ var _usuario_usuario_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./usuario/usuario.component */ "./src/app/usuario/usuario.component.ts");
+/* harmony import */ var _areaParticipante_areaParticipante_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./areaParticipante/areaParticipante.component */ "./src/app/areaParticipante/areaParticipante.component.ts");
+/* harmony import */ var _inscricoes_inscricoes_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./inscricoes/inscricoes.component */ "./src/app/inscricoes/inscricoes.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -203,6 +162,9 @@ var AppModule = /** @class */ (function () {
                 _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
                 _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_8__["LoginComponent"],
+                _usuario_usuario_component__WEBPACK_IMPORTED_MODULE_18__["UsuarioComponent"],
+                _areaParticipante_areaParticipante_component__WEBPACK_IMPORTED_MODULE_19__["AreaParticipanteComponent"],
+                _inscricoes_inscricoes_component__WEBPACK_IMPORTED_MODULE_20__["InscricoesComponent"],
                 _pagina_nao_encontrada_pagina_nao_encontrada_component__WEBPACK_IMPORTED_MODULE_11__["PaginaNaoEncontradaComponent"],
                 _header_header_component__WEBPACK_IMPORTED_MODULE_12__["HeaderComponent"],
                 _modal_acessoNegado_modal_acessoNegado_component__WEBPACK_IMPORTED_MODULE_17__["ModalAcessoNegadoComponent"]
@@ -251,12 +213,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./guards/auth.guard */ "./src/app/guards/auth.guard.ts");
+/* harmony import */ var _usuario_usuario_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./usuario/usuario.component */ "./src/app/usuario/usuario.component.ts");
+/* harmony import */ var _areaParticipante_areaParticipante_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./areaParticipante/areaParticipante.component */ "./src/app/areaParticipante/areaParticipante.component.ts");
+/* harmony import */ var _inscricoes_inscricoes_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./inscricoes/inscricoes.component */ "./src/app/inscricoes/inscricoes.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -276,43 +244,10 @@ var appRoutes = [
     //        canActivate: [AuthGuard],
     //        canLoad: [AuthGuard]
     //    },
-    {
-        path: 'registroPf',
-        loadChildren: 'app/registropf/registropf.module#RegistroPfModule',
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]],
-        canLoad: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
-    },
-    {
-        path: 'estudante',
-        loadChildren: 'app/estudante/estudante.module#EstudanteModule',
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]],
-        canLoad: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
-    },
-    {
-        path: 'toDo',
-        loadChildren: 'app/toDo/toDo.module#ToDoModule',
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]],
-        canLoad: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
-    },
-    {
-        path: 'faleConosco',
-        loadChildren: 'app/faleConosco/faleConosco.module#FaleConoscoModule',
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]],
-        canLoad: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
-    },
-    {
-        path: 'ouvidoria',
-        loadChildren: 'app/ouvidoria/ouvidoria.module#OuvidoriaModule',
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]],
-        canLoad: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
-    },
-    {
-        path: 'eventos',
-        loadChildren: 'app/controleEventos/controleEventos.module#ControleEventosModule',
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]],
-        canLoad: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
-    },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
+    { path: 'usuario', component: _usuario_usuario_component__WEBPACK_IMPORTED_MODULE_5__["UsuarioComponent"] },
+    { path: 'areaParticipante', component: _areaParticipante_areaParticipante_component__WEBPACK_IMPORTED_MODULE_6__["AreaParticipanteComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]] },
+    { path: 'inscricoes', component: _inscricoes_inscricoes_component__WEBPACK_IMPORTED_MODULE_7__["InscricoesComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]] },
     {
         path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"],
     },
@@ -329,6 +264,254 @@ var AppRoutingModule = /** @class */ (function () {
         })
     ], AppRoutingModule);
     return AppRoutingModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/areaParticipante/areaParticipante.component.css":
+/*!*****************************************************************!*\
+  !*** ./src/app/areaParticipante/areaParticipante.component.css ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".IN_ANALYSIS{\r\n    color:red;\r\n}\r\n.AUTHORIZED{\r\n   font-weight: bold;\r\n    color: #155724;\r\n \r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXJlYVBhcnRpY2lwYW50ZS9hcmVhUGFydGljaXBhbnRlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxTQUFTO0FBQ2I7QUFDQTtHQUNHLGlCQUFpQjtJQUNoQixjQUFjOztBQUVsQiIsImZpbGUiOiJzcmMvYXBwL2FyZWFQYXJ0aWNpcGFudGUvYXJlYVBhcnRpY2lwYW50ZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLklOX0FOQUxZU0lTe1xyXG4gICAgY29sb3I6cmVkO1xyXG59XHJcbi5BVVRIT1JJWkVEe1xyXG4gICBmb250LXdlaWdodDogYm9sZDtcclxuICAgIGNvbG9yOiAjMTU1NzI0O1xyXG4gXHJcbn0iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/areaParticipante/areaParticipante.component.html":
+/*!******************************************************************!*\
+  !*** ./src/app/areaParticipante/areaParticipante.component.html ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<body>\r\n  <div class=\"container\">\r\n  <p style=\"align-content: center\">\r\n     <img *ngIf=\"carregando\" class=\"rounded mx-auto d-block\" src=\"assets/img/loading.gif\">\r\n  </p>\r\n  <div class=\"row\">\r\n     <div class=\"col-sm-3 col-md-3 col-lg-3\">\r\n        <nav class=\"navbar alert-primary\">\r\n           <a class=\"nav-link\" routerLink=\"/inscricoes\"> <i class=\"fa fa-cart-plus\"></i> - INSCRICOES PAGAMENTOS </a>\r\n        </nav>\r\n        <br>\r\n        <nav class=\"navbar alert-primary\">\r\n           <button type=\"button\" (click)=\"alterarSenha(content)\" class=\"btn btn-link\"><i class=\"fa fa-unlock-alt\"></i> - ALTERAR SENHA</button>\r\n        </nav>\r\n        <br>\r\n        <nav class=\"navbar alert-primary\">\r\n           <a class=\"nav-link\" routerLink=\"/usuario\"> <i class=\"fa fa-users-cog\"></i> - ATUALIZAR DADOS </a>\r\n        </nav>\r\n        <br>\r\n        <nav class=\"navbar alert-primary\">\r\n           <a class=\"nav-link\" href=\"#\" (click)=\"acessoNegado()\" > <i class=\"fa fa-flag-checkered\"></i> - CERTIFICADO </a>\r\n        </nav>\r\n        <br>\r\n        <nav class=\"navbar alert-primary\">\r\n           <a class=\"nav-link\" href=\"#\" (click)=\"acessoNegado()\"> <i class=\"fa fa-file-pdf\"></i> - ENVIAR TRABALHO </a>\r\n        </nav>\r\n        <br>\r\n        <nav class=\"navbar alert-primary\">\r\n           <a class=\"nav-link\"  href=\"#\" (click)=\"logoff()\"> <i class=\"fa fa-sign-out-alt\"></i> - LOGOFF </a>\r\n        </nav>\r\n     </div>\r\n     <div class=\"col-sm-5 col-md-5 col-lg-5\">\r\n        <h3>Seja Bem Vindo</h3>\r\n        <hr>\r\n        <p><b>Datas Importantes:</b></p>\r\n        <ul>\r\n           <li>Submissão de Trabalho<br>\r\n              28/11/2020 a 21/02/2021\r\n           <li>Resultado das avaliações dos artigos:<br>\r\n              05/04/2021\r\n           <li>Inicio das incrições<br>\r\n              28/11/2020\r\n           <li>Data limite para pagamento das inscrições dos autores com trabalhos aprovados:<br>\r\n              20/04/2021\r\n           <li>Data limite para pagamento das inscrições dos congressistas em geral:<br>\r\n              1° Lote: até 20/04/2021\r\n              2º Lote: 21/04/2021 até 09/06/2021\r\n        </ul>\r\n     </div>\r\n     <div class=\"col-sm-4 col-md-4 col-lg-4\">\r\n        <!-- Heading -->\r\n        <h4 class=\"d-flex justify-content-between align-items-center mb-3\">\r\n           <span class=\"text-muted\">Meus Eventos</span>\r\n           <span class=\"badge badge-secondary badge-pill\">{{listaMeusEventos.length}}</span>\r\n        </h4>\r\n        <!-- Cart -->\r\n        <ul *ngFor=\"let reg of listaMeusEventos\" class=\"list-group mb-3 z-depth-1\">\r\n           <li class=\"list-group-item d-flex justify-content-between lh-condensed\">\r\n              <div>\r\n                 <h6 class=\"my-0\">{{reg.descricao}}</h6>\r\n                 <!--small class=\"text-muted\">{{reg.detalhe}}</small-->\r\n              </div>\r\n              <span  [ngClass]=\"reg.status\" >{{reg.status_descricao}}</span>\r\n           </li>\r\n        </ul>\r\n        <ul class=\"list-group mb-3 z-depth-1\">\r\n           <li  class=\"list-group-item d-flex justify-content-between bg-light\">\r\n              <div [hidden]= \"! cupomValido\" class=\"text-success\">\r\n                 <h6 class=\"my-0\">Desconto</h6>\r\n                 <small>CUPOM Promocional</small>\r\n              </div>\r\n              <span [hidden]= \"! cupomValido\" class=\"text-success\">-$R$ {{valorCupom}}</span>\r\n           </li>\r\n           <li class=\"list-group-item d-flex justify-content-between\">\r\n              <span></span>\r\n              <strong></strong>\r\n           </li>\r\n        </ul>\r\n     </div>\r\n  </div>\r\n</div>  \r\n\r\n<ng-template #content let-c=\"close\" let-d=\"dismiss\">\r\n   <div class=\"modal-header\">\r\n     <h4 class=\"modal-title\" id=\"modal-basic-title\">Alterar Senha</h4>\r\n     <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"d('EXIT')\">\r\n       <span aria-hidden=\"true\">&times;</span>\r\n     </button>\r\n   </div>\r\n   <div class=\"modal-body\">\r\n     <div class=\"col-12\">\r\n       <p *ngFor=\"let alert of alerts\">\r\n         <ngb-alert [type]=\"alert.type\" (close)=\"close(alert)\">\r\n           <div [innerHTML]=\"alert.message\"></div>\r\n         </ngb-alert>\r\n       </p>\r\n     </div>\r\n \r\n     <div class=\"col-12 col-sm-12\" style=\"margin-top:10px\">\r\n       <div class=\"card bg-light mb-12\">\r\n         <div style=\"cursor: pointer;\" (click)=\"show('ocultarDadosPessoais')\">\r\n           <div class=\"card-header alert-primary\"><i class=\"fa fa-user-tie\"></i> Dados do Usuário </div>\r\n         </div>\r\n         <div [hidden]=\"ocultarDadosPessoais\" class=\"card-body\">\r\n           <div class=\"row\">\r\n             <div class=\" col-md-12\" >\r\n               <div class=\"form-label-group\">\r\n                 <label for=\"inputEmail\">Usuário</label>\r\n                 <input #loginField [(ngModel)]=\"usuario.login\" type=\"text\" class=\"form-control\" required value=\"\" disabled \r\n                   autocomplete=\"off\">\r\n               </div>\r\n           \r\n               <div class=\"form-label-group\">\r\n                 <label for=\"inputPassword\">Senha Anterior</label>\r\n                 <input [(ngModel)]=\"usuario.password_anterior\" type=\"password\" id=\"inputPassword\" class=\"form-control\"\r\n                   placeholder=\"Password\" required>\r\n               </div>\r\n             </div>\r\n             <div class=\" col-md-6\" >\r\n \r\n               <div class=\"form-label-group\">\r\n                 <label for=\"inputPassword\">Nova Senha</label>\r\n                 <input [(ngModel)]=\"usuario.password\" type=\"password\" id=\"inputPassword\" class=\"form-control\"\r\n                   placeholder=\"Password\" required>\r\n               </div>\r\n             </div>\r\n             <div class=\" col-md-6\" >\r\n \r\n               <div class=\"form-label-group\">\r\n                 <label for=\"inputPassword\">Repita Nova Senha</label>\r\n                 <input [(ngModel)]=\"usuario.password_conferir\" type=\"password\" id=\"inputPassword\" class=\"form-control\"\r\n                   placeholder=\"Password\" required>\r\n               </div>\r\n             </div>\r\n           \r\n             </div>\r\n           </div>\r\n         </div>\r\n       </div>\r\n     </div>     \r\n \r\n   <div class=\"modal-footer\">\r\n     <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"c('SAVE')\">Confirmar</button>\r\n   </div>\r\n </ng-template>\r\n \r\n\r\n\r\n</body>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/areaParticipante/areaParticipante.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/areaParticipante/areaParticipante.component.ts ***!
+  \****************************************************************/
+/*! exports provided: AreaParticipanteComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AreaParticipanteComponent", function() { return AreaParticipanteComponent; });
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/forms */ "../node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _shared_services_dropdown_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/services/dropdown.service */ "./src/app/shared/services/dropdown.service.ts");
+/* harmony import */ var _shared_services_consulta_cep_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/services/consulta-cep.service */ "./src/app/shared/services/consulta-cep.service.ts");
+/* harmony import */ var _shared_form_validation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../shared/form-validation */ "./src/app/shared/form-validation.ts");
+/* harmony import */ var _areaParticipante_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./areaParticipante.service */ "./src/app/areaParticipante/areaParticipante.service.ts");
+/* harmony import */ var _login_auth_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../login/auth.service */ "./src/app/login/auth.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _login_usuario__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../login/usuario */ "./src/app/login/usuario.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
+/* harmony import */ var _modal_acessoNegado_modal_acessoNegado_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../modal-acessoNegado/modal-acessoNegado.component */ "./src/app/modal-acessoNegado/modal-acessoNegado.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+var AreaParticipanteComponent = /** @class */ (function () {
+    function AreaParticipanteComponent(fb, dropdownService, authService, router, cepService, service, http, modalService) {
+        this.fb = fb;
+        this.dropdownService = dropdownService;
+        this.authService = authService;
+        this.router = router;
+        this.cepService = cepService;
+        this.service = service;
+        this.http = http;
+        this.modalService = modalService;
+        this.usuario = new _login_usuario__WEBPACK_IMPORTED_MODULE_9__["Usuario"]();
+        this.submitted = false;
+        this.alerts = [];
+        this.tiposEntidade = [];
+        this.tiposRegistro = [];
+        this.situacoesRegistro = [];
+        this.paises = [];
+        this.estados = [];
+        this.cidades = [];
+        this.listaTipos = [{ codigo: '1', descricao: 'Administrador e Tecnólogo' }, { codigo: '2', descricao: 'Estudante' }, { codigo: '3', descricao: 'Outros Profissionais' }];
+        this.listaMeusEventos = [];
+        this.carregando = true;
+        this.ocultarDadosPessoais = false;
+        this.ocultarEndereco = false;
+        this.ocultarOuvidoria = false;
+        this.ocultarAnexos = false;
+        this.id = 0;
+    }
+    // @ViewChild('cpf') firstNameElement: ElementRef;
+    AreaParticipanteComponent.prototype.ngAfterViewInit = function () {
+        //    this.firstNameElement.nativeElement.focus();
+    };
+    AreaParticipanteComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.getMeusEventos()
+            .subscribe(function (response) {
+            _this.carregando = false;
+            _this.listaMeusEventos = response.dados;
+        }, function (err) {
+            _this.carregando = false;
+            _this.alerts = Array.from([{ type: 'danger', message: err.message }]);
+        });
+    };
+    AreaParticipanteComponent.prototype.close = function (alert) {
+        this.alerts.splice(this.alerts.indexOf(alert), 1);
+    };
+    AreaParticipanteComponent.prototype.getLabelField = function (fieldName) {
+        return Object(_shared_form_validation__WEBPACK_IMPORTED_MODULE_5__["getLabelAllFields"])(fieldName);
+    };
+    AreaParticipanteComponent.prototype.validarData = function (control) {
+        var v = control.value;
+        if (null != v && v.length == 8) {
+            var data = v.substr(0, 2) + "/" + v.substr(2, 2) + "/" + v.substr(4, 4);
+            var patternData = /^(((0[1-9]|[12][0-9]|3[01])([-.\/])(0[13578]|10|12)([-.\/])(\d{4}))|(([0][1-9]|[12][0-9]|30)([-.\/])(0[469]|11)([-.\/])(\d{4}))|((0[1-9]|1[0-9]|2[0-8])([-.\/])(02)([-.\/])(\d{4}))|((29)(\.|-|\/)(02)([-.\/])([02468][048]00))|((29)([-.\/])(02)([-.\/])([13579][26]00))|((29)([-.\/])(02)([-.\/])([0-9][0-9][0][48]))|((29)([-.\/])(02)([-.\/])([0-9][0-9][2468][048]))|((29)([-.\/])(02)([-.\/])([0-9][0-9][13579][26])))$/;
+            if (!patternData.test(data)) {
+                return { dataInvalida: true };
+            }
+        }
+    };
+    AreaParticipanteComponent.prototype.alterarSenha = function (content) {
+        var _this = this;
+        var string = localStorage.getItem("usuario");
+        var obj = JSON.parse(string);
+        this.usuario.login = obj.nome;
+        this.usuario.cpf = obj.cpf;
+        this.usuario.password_anterior = "";
+        this.usuario.password = "";
+        this.usuario.password_conferir = "";
+        var modal = this.modalService.open(content);
+        modal.result.then(function () {
+            console.log('SALVAR');
+            if (_this.usuario.password_anterior == "") {
+                _this.alerts = Array.from([{ type: 'danger', message: 'Senha atual inválida' }]);
+                _this.alterarSenha(content);
+                return;
+            }
+            if (_this.usuario.password == "" || _this.usuario.password != _this.usuario.password_conferir) {
+                _this.alerts = Array.from([{ type: 'danger', message: 'Senha atual diferente nos campos Senha e Repetir Senha' }]);
+                _this.alterarSenha(content);
+                return;
+            }
+            _this.authService.alterarSenha(_this.usuario).subscribe(function (dados) {
+                if (dados.status.codigo == 99) {
+                    _this.alerts = Array.from([{ type: 'danger', message: dados.status.mensagem }]);
+                    _this.alterarSenha(content);
+                }
+                else {
+                    _this.usuario.password = "";
+                    _this.usuario.password_anterior = "";
+                    _this.usuario.password_conferir = "";
+                    console.log("Senha alterada com sucesso");
+                    alert('Senha alterada com sucesso !!!');
+                }
+            });
+        }, function () { console.log('SAIR'); });
+    };
+    AreaParticipanteComponent.prototype.acessoNegado = function () {
+        var modalRef = this.modalService.open(_modal_acessoNegado_modal_acessoNegado_component__WEBPACK_IMPORTED_MODULE_11__["ModalAcessoNegadoComponent"]);
+        return false;
+    };
+    AreaParticipanteComponent.prototype.logoff = function () {
+        this.authService.logoff();
+        this.router.navigate(['/login']);
+    };
+    AreaParticipanteComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-areaParticipante',
+            template: __webpack_require__(/*! ./areaParticipante.component.html */ "./src/app/areaParticipante/areaParticipante.component.html"),
+            styles: [__webpack_require__(/*! ./areaParticipante.component.css */ "./src/app/areaParticipante/areaParticipante.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"],
+            _shared_services_dropdown_service__WEBPACK_IMPORTED_MODULE_3__["DropdownService"],
+            _login_auth_service__WEBPACK_IMPORTED_MODULE_7__["AuthService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"],
+            _shared_services_consulta_cep_service__WEBPACK_IMPORTED_MODULE_4__["ConsultaCepService"],
+            _areaParticipante_service__WEBPACK_IMPORTED_MODULE_6__["AreaParticipanteService"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_10__["NgbModal"]])
+    ], AreaParticipanteComponent);
+    return AreaParticipanteComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/areaParticipante/areaParticipante.service.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/areaParticipante/areaParticipante.service.ts ***!
+  \**************************************************************/
+/*! exports provided: AreaParticipanteService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AreaParticipanteService", function() { return AreaParticipanteService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "../node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var AreaParticipanteService = /** @class */ (function () {
+    function AreaParticipanteService(http) {
+        this.http = http;
+        this.API_GET_MEUS_EVENTOS = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API + "inscricoes/getMeusEventos.php";
+        this.httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+                'X-Requested-With': 'XMLHttpRequest',
+                'Cache-Control': 'no-cache',
+                'Content-Type': 'application/json; charset=utf-8'
+            })
+        };
+    }
+    AreaParticipanteService.prototype.getMeusEventos = function () {
+        var jsonUsuario = JSON.parse(localStorage.getItem("usuario"));
+        return this.http.post(this.API_GET_MEUS_EVENTOS, { cpf: jsonUsuario.cpf }, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(console.log));
+    };
+    AreaParticipanteService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], AreaParticipanteService);
+    return AreaParticipanteService;
 }());
 
 
@@ -511,7 +694,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--nav *ngIf=\"mostrarMenu\" >\r\n  <div class=\"nav-wrapper\">\r\n      <a routerLink=\"\" class=\"brand-logo right\">Rotas Ng2</a>\r\n      <ul id=\"nav-mobile\" class=\"left hide-on-med-and-down\">\r\n      <li routerLinkActive=\"active\"><a routerLink=\"/login\">Login</a></li>\r\n      <li routerLinkActive=\"active\"><a routerLink=\"\">Home</a></li>\r\n      <li routerLinkActive=\"active\"><a routerLink=\"/cursos\" [queryParams]=\"{pagina:1}\">Cursos</a></li>  \r\n      <li routerLinkActive=\"active\"><a routerLink=\"/alunos\" >Alunos</a></li>  \r\n      <li routerLinkActive=\"active\"><a routerLink=\"/entidades\" >Entidades</a></li>  \r\n      </ul>\r\n  </div>\r\n</nav-->\r\n\r\n<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\" *ngIf=\"userAutenticado()\">\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"\r\n    aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <!--li routerLinkActive=\"active\">\r\n        <a class=\"nav-link\" routerLink=\"/registroPf\">| REGISTRO PF</a>\r\n      </li>\r\n      <li routerLinkActive=\"active\">\r\n          <a class=\"nav-link\" routerLink=\"/estudante\">| ESTUDANTE</a>\r\n      </li-->\r\n\r\n      <li routerLinkActive=\"active\">\r\n        <a class=\"nav-link\" routerLink=\"/toDo\"> TO DO </a>\r\n     </li>\r\n  \r\n\r\n      <li routerLinkActive=\"active\">\r\n        <a class=\"nav-link\" routerLink=\"/faleConosco\">| FALE CONOSCO</a>\r\n     </li>\r\n\r\n\r\n   \r\n\r\n      <li routerLinkActive=\"active\">\r\n         <a class=\"nav-link\" routerLink=\"/ouvidoria\">| OUVIDORIA</a>\r\n      </li>\r\n      <li class=\"nav-item dropdown\">\r\n        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\"\r\n          aria-haspopup=\"true\" aria-expanded=\"false\">\r\n          | CONTROLE DE EVENTOS |\r\n        </a>\r\n        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\r\n          <a class=\"dropdown-item\" href=\"#\" routerLink=\"/eventos\" >Eventos</a>\r\n          <!--a class=\"dropdown-item\" href=\"#\">Another action</a>\r\n          <div class=\"dropdown-divider\"></div>\r\n          <a class=\"dropdown-item\" href=\"#\">Something else here</a-->\r\n   \r\n         </div>\r\n      </li>\r\n      <li class=\"nav-item dropdown\">\r\n        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\"\r\n          aria-haspopup=\"true\" aria-expanded=\"false\">\r\n          | FERRAMENTAS |\r\n        </a>\r\n        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\r\n          <button type=\"button\" class=\"dropdown-item\" (click)=\"alterarSenha(content)\">Alterar Senha</button>\r\n          <!--a class=\"dropdown-item\" href=\"#\">Another action</a>\r\n          <div class=\"dropdown-divider\"></div>\r\n          <a class=\"dropdown-item\" href=\"#\">Something else here</a-->\r\n        </div>\r\n      </li>\r\n\r\n      \r\n\r\n\r\n     \r\n  \r\n      <!--li routerLinkActive=\"active\">\r\n        <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" href=\"#\">Link</a>\r\n      </li>\r\n      <li class=\"nav-item dropdown\">\r\n        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\"\r\n          aria-haspopup=\"true\" aria-expanded=\"false\">\r\n          Dropdown\r\n        </a>\r\n        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\r\n          <a class=\"dropdown-item\" href=\"#\">Action</a>\r\n          <a class=\"dropdown-item\" href=\"#\">Another action</a>\r\n          <div class=\"dropdown-divider\"></div>\r\n          <a class=\"dropdown-item\" href=\"#\">Something else here</a>\r\n        </div>\r\n      </li-->\r\n      </ul>\r\n      <div class=\"float-right\"><a  href=\"#\" (click)=\"logoff()\" ><p class=\"text-white bg-dark\">{{usuarioLogado}}<br>LOGOFF</p></a></div>\r\n  </div>\r\n</nav>\r\n\r\n<ng-template #content let-c=\"close\" let-d=\"dismiss\">\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Alterar Senha</h4>\r\n    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"d('EXIT')\">\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <div class=\"col-12\">\r\n      <p *ngFor=\"let alert of alerts\">\r\n        <ngb-alert [type]=\"alert.type\" (close)=\"close(alert)\">\r\n          <div [innerHTML]=\"alert.message\"></div>\r\n        </ngb-alert>\r\n      </p>\r\n    </div>\r\n\r\n    <div class=\"col-12 col-sm-12\" style=\"margin-top:10px\">\r\n      <div class=\"card bg-light mb-12\">\r\n        <div style=\"cursor: pointer;\" (click)=\"show('ocultarDadosPessoais')\">\r\n          <div class=\"card-header alert-primary\"><i class=\"fa fa-user-tie\"></i> Dados do Usuário </div>\r\n        </div>\r\n        <div [hidden]=\"ocultarDadosPessoais\" class=\"card-body\">\r\n          <div class=\"row\">\r\n            <div class=\" col-md-12\" >\r\n              <div class=\"form-label-group\">\r\n                <label for=\"inputEmail\">Usuário</label>\r\n                <input #loginField [(ngModel)]=\"usuario.login\" type=\"text\" class=\"form-control\" required value=\"\" disabled \r\n                  autocomplete=\"off\">\r\n              </div>\r\n          \r\n              <div class=\"form-label-group\">\r\n                <label for=\"inputPassword\">Senha Anterior</label>\r\n                <input [(ngModel)]=\"usuario.password_anterior\" type=\"password\" id=\"inputPassword\" class=\"form-control\"\r\n                  placeholder=\"Password\" required>\r\n              </div>\r\n            </div>\r\n            <div class=\" col-md-6\" >\r\n\r\n              <div class=\"form-label-group\">\r\n                <label for=\"inputPassword\">Nova Senha</label>\r\n                <input [(ngModel)]=\"usuario.password\" type=\"password\" id=\"inputPassword\" class=\"form-control\"\r\n                  placeholder=\"Password\" required>\r\n              </div>\r\n            </div>\r\n            <div class=\" col-md-6\" >\r\n\r\n              <div class=\"form-label-group\">\r\n                <label for=\"inputPassword\">Repita Nova Senha</label>\r\n                <input [(ngModel)]=\"usuario.password_conferir\" type=\"password\" id=\"inputPassword\" class=\"form-control\"\r\n                  placeholder=\"Password\" required>\r\n              </div>\r\n            </div>\r\n          \r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>     \r\n\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"c('SAVE')\">Confirmar</button>\r\n  </div>\r\n</ng-template>\r\n"
+module.exports = "<!--nav *ngIf=\"mostrarMenu\" >\r\n  <div class=\"nav-wrapper\">\r\n      <a routerLink=\"\" class=\"brand-logo right\">Rotas Ng2</a>\r\n      <ul id=\"nav-mobile\" class=\"left hide-on-med-and-down\">\r\n      <li routerLinkActive=\"active\"><a routerLink=\"/login\">Login</a></li>\r\n      <li routerLinkActive=\"active\"><a routerLink=\"\">Home</a></li>\r\n      <li routerLinkActive=\"active\"><a routerLink=\"/cursos\" [queryParams]=\"{pagina:1}\">Cursos</a></li>  \r\n      <li routerLinkActive=\"active\"><a routerLink=\"/alunos\" >Alunos</a></li>  \r\n      <li routerLinkActive=\"active\"><a routerLink=\"/entidades\" >Entidades</a></li>  \r\n      </ul>\r\n  </div>\r\n</nav-->\r\n\r\n<nav class=\"navbar navbar-expand-lg navbar-primary alert-primary\" *ngIf=\"userAutenticado()\">\r\n  <h3>Área do Participante</h3><br><br>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"\r\n    aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <!--li routerLinkActive=\"active\">\r\n        <a class=\"nav-link\" routerLink=\"/registroPf\">| REGISTRO PF</a>\r\n      </li>\r\n      <li routerLinkActive=\"active\">\r\n          <a class=\"nav-link\" routerLink=\"/estudante\">| ESTUDANTE</a>\r\n      </li-->\r\n\r\n    \r\n      </ul>\r\n      <div class=\"float-right\"><a  href=\"#\" (click)=\"logoff()\" ><p class=\"alert-primary\">{{usuarioLogado}}<br>LOGOFF</p></a></div>\r\n  </div>\r\n</nav>\r\n\r\n<ng-template #content let-c=\"close\" let-d=\"dismiss\">\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Alterar Senha</h4>\r\n    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"d('EXIT')\">\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <div class=\"col-12\">\r\n      <p *ngFor=\"let alert of alerts\">\r\n        <ngb-alert [type]=\"alert.type\" (close)=\"close(alert)\">\r\n          <div [innerHTML]=\"alert.message\"></div>\r\n        </ngb-alert>\r\n      </p>\r\n    </div>\r\n\r\n    <div class=\"col-12 col-sm-12\" style=\"margin-top:10px\">\r\n      <div class=\"card bg-light mb-12\">\r\n        <div style=\"cursor: pointer;\" (click)=\"show('ocultarDadosPessoais')\">\r\n          <div class=\"card-header alert-primary\"><i class=\"fa fa-user-tie\"></i> Dados do Usuário </div>\r\n        </div>\r\n        <div [hidden]=\"ocultarDadosPessoais\" class=\"card-body\">\r\n          <div class=\"row\">\r\n            <div class=\" col-md-12\" >\r\n              <div class=\"form-label-group\">\r\n                <label for=\"inputEmail\">Usuário</label>\r\n                <input #loginField [(ngModel)]=\"usuario.login\" type=\"text\" class=\"form-control\" required value=\"\" disabled \r\n                  autocomplete=\"off\">\r\n              </div>\r\n          \r\n              <div class=\"form-label-group\">\r\n                <label for=\"inputPassword\">Senha Anterior</label>\r\n                <input [(ngModel)]=\"usuario.password_anterior\" type=\"password\" id=\"inputPassword\" class=\"form-control\"\r\n                  placeholder=\"Password\" required>\r\n              </div>\r\n            </div>\r\n            <div class=\" col-md-6\" >\r\n\r\n              <div class=\"form-label-group\">\r\n                <label for=\"inputPassword\">Nova Senha</label>\r\n                <input [(ngModel)]=\"usuario.password\" type=\"password\" id=\"inputPassword\" class=\"form-control\"\r\n                  placeholder=\"Password\" required>\r\n              </div>\r\n            </div>\r\n            <div class=\" col-md-6\" >\r\n\r\n              <div class=\"form-label-group\">\r\n                <label for=\"inputPassword\">Repita Nova Senha</label>\r\n                <input [(ngModel)]=\"usuario.password_conferir\" type=\"password\" id=\"inputPassword\" class=\"form-control\"\r\n                  placeholder=\"Password\" required>\r\n              </div>\r\n            </div>\r\n          \r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>     \r\n\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"c('SAVE')\">Confirmar</button>\r\n  </div>\r\n</ng-template>\r\n"
 
 /***/ }),
 
@@ -690,6 +873,978 @@ var HomeComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/inscricoes/inscricoes.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/inscricoes/inscricoes.component.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".IN_ANALYSIS{\r\n    color:red;\r\n}\r\n.AUTHORIZED{\r\n    display: none;\r\n}\r\n.text-AUTHORIZED{\r\n    color:green;\r\n    font-weight: bold;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaW5zY3JpY29lcy9pbnNjcmljb2VzLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxTQUFTO0FBQ2I7QUFDQTtJQUNJLGFBQWE7QUFDakI7QUFDQTtJQUNJLFdBQVc7SUFDWCxpQkFBaUI7QUFDckIiLCJmaWxlIjoic3JjL2FwcC9pbnNjcmljb2VzL2luc2NyaWNvZXMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5JTl9BTkFMWVNJU3tcclxuICAgIGNvbG9yOnJlZDtcclxufVxyXG4uQVVUSE9SSVpFRHtcclxuICAgIGRpc3BsYXk6IG5vbmU7XHJcbn1cclxuLnRleHQtQVVUSE9SSVpFRHtcclxuICAgIGNvbG9yOmdyZWVuO1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbiJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/inscricoes/inscricoes.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/inscricoes/inscricoes.component.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<body>\r\n   <form [formGroup]=\"form\">\r\n      <div  class=\"container\">\r\n         <div class=\"row\" [hidden]=\"checkoutEmAndamento\">\r\n            <div class=\"col-12\">\r\n               <p *ngFor=\"let alert of alerts\"><br>\r\n                  <ngb-alert [type]=\"alert.type\" (close)=\"close(alert)\">\r\n               <div [innerHTML]=\"alert.message\"></div>\r\n               </ngb-alert>\r\n               </p>\r\n            </div>\r\n            <div class=\"col-sm-12 col-md-12 col-lg-12 mx-auto\">\r\n               <div class=\"container\">\r\n                  <div class=\"row\">\r\n                     <!--div class=\"col-12\">\r\n                        <h3>Cadastro</h3>\r\n                        </div-->        \r\n                     <div class=\"col-12 col-sm-12\"  style=\"margin-top:10px\">\r\n                        <div class=\"card bg-light mb-12\">\r\n                           <div style=\"cursor: pointer;\" (click)=\"show('ocultarDadosPessoais')\">\r\n                              <div class=\"card-header alert-primary\"><i class=\"fa fa-user-tie\"></i> - <b>Selecione o(s) seu(s) evento(s)</b> </div>\r\n                           </div>\r\n                           <div class=\"card-body\">\r\n                              <div class=\"row\">\r\n                                 <div class=\"col-12 table-responsive-xl\">\r\n                                    <table class=\"table table-striped\" width=\"100%\">\r\n                                       <thead>\r\n                                          <tr>\r\n                                             <th scope=\"col\">#</th>\r\n                                             <th scope=\"col\" sortable=\"area\" (sort)=\"onSort($event)\">Descrição</th>\r\n                                             <th scope=\"col\" sortable=\"name\" (sort)=\"onSort($event)\">Valor</th>\r\n                                          </tr>\r\n                                       </thead>\r\n                                       <tbody>\r\n                                          <tr *ngFor=\"let reg of lista\">\r\n                                             <td   class=\"align-middle\" style=\" background: transparent;\">\r\n                                                <div [ngClass]=\"reg.status\">\r\n                                                   <div class=\"custom-control custom-checkbox\" id=\"div{{reg.id}}\">\r\n                                                      <input type=\"checkbox\" class=\"custom-control-input\" id=\"id{{reg.id}}\" (change)=\"calcularValor()\" >\r\n                                                      <label class=\"custom-control-label\" for=\"id{{reg.id}}\" > - </label>\r\n                                                   </div>\r\n                                                </div>\r\n                                             </td>\r\n                                             <td class=\"align-middle\">\r\n                                                <ngb-highlight  [result]=\"reg.descricao\" [term]=\"queryBusca\"></ngb-highlight><br>\r\n                                                <i  class=\"text-secondary\">{{reg.detalhe}}</i>                                       \r\n                                             </td>\r\n                                             <td class=\"float-right\">\r\n                                                <ngb-highlight [hidden]=\"reg.status=='AUTHORIZED'\" [result]=\"reg.valor\" [term]=\"queryBusca\"></ngb-highlight><br>\r\n                                                <span class=\"alert-success\" [hidden]=\"reg.status!='AUTHORIZED'\"><b>CONFIRMADO</b></span>\r\n                                             </td>\r\n                                          </tr>\r\n                                       </tbody>\r\n                                    </table>\r\n                                    <div class=\"alert alert-dark\" role=\"alert\">\r\n                                       <div class=\"row\">\r\n                                          <div class=\"col-12 col-sm-9\">\r\n                                             <b>TOTAL</b>\r\n                                          </div>\r\n                                          <div class=\"col-12  col-sm-3\">\r\n                                             <div class=\"float-right\">\r\n                                                <span class=\"float-right\"><b> R$ {{valor}}</b><br></span>\r\n                                             </div>\r\n                                          </div>\r\n                                       </div>\r\n                                    </div>\r\n                                 </div>\r\n                              </div>\r\n                           </div>\r\n                        </div>\r\n                     </div>\r\n                     <div class=\"col-12 col-sm-12\">\r\n                        <div class=\"mx-auto\">\r\n                           <br> <button type=\"button\" (click)=\"proximo()\" class=\"btn btn-primary text-right\" >PROXIMO</button>\r\n                           &nbsp;&nbsp;&nbsp;&nbsp;\r\n                           <button type=\"button\" (click)=\"voltar()\" class=\"btn btn-secondary text-right\"  >VOLTAR</button>      \r\n                           <br><br><br>                    \r\n                           <hr>\r\n                        </div>\r\n                     </div>\r\n                  </div>\r\n               </div>\r\n            </div>\r\n         </div>\r\n      </div>\r\n      <div [hidden]=\"! checkoutEmAndamento\" class=\"container\">\r\n         <div class=\"col-12\">\r\n            <p *ngFor=\"let alert of alerts\"><br>\r\n               <ngb-alert [type]=\"alert.type\" (close)=\"close(alert)\">\r\n            <div [innerHTML]=\"alert.message\"></div>\r\n            </ngb-alert>\r\n            </p>\r\n            <div *ngIf=\"carregando\"  style=\"align-content: center\">\r\n               <br><br><br><br><br><br>\r\n               <div class=\"card bg-light mb-12\">\r\n                  <div class=\"card-body\">\r\n                     <br><br>\r\n                     <img  class=\"rounded mx-auto d-block\" src=\"assets/img/processando.gif\"><br><br>\r\n                     <p class=\"text-center text-secondary\"><b>Por favor, aguarde enquanto o seu pagamento é processado !!!</b>\r\n                  </div>\r\n               </div>\r\n               <br><br><br><br>\r\n            </div>\r\n            <!--DIV MOSTRA TELA PAGAMENTO CONFIRMADO-->\r\n            <div *ngIf=\"pagamento.confirmado\"  style=\"align-content: center\">\r\n               <br><br><br><br>\r\n               <div  class=\"card bg-light mb-12\">\r\n                  <!--CARTAO-->\r\n                  <div [hidden]=\"pagamento.tipo!='C'\" class=\"card-body\">\r\n                     <br><br>\r\n                     <div class=\"text-center\">\r\n                        <img  class=\"rounded mx-auto d-block\" src=\"assets/img/pagamentoConfirmado.png\" class=\"img-fluid\" style=\"max-width: 200px\"><br><br>\r\n                     </div>\r\n                     <p class=\"text-center text-secondary\">\r\n                        <b>\r\n                     <h3>PAGAMENTO CONFIRMADO</h3></b></p>\r\n                     <p class=\"text-center text-secondary\">\r\n                        <b>\r\n                     <h1>MUITO OBRIGADO</h1></b></p>\r\n                     <div class=\"col-12 col-sm-12\">\r\n                        <div class=\"text-center\">\r\n                           <br>\r\n                           <hr>\r\n                           <button type=\"button\" (click)=\"sair()\" class=\"btn btn-secondary text-right\"  >VOLTAR</button>      \r\n                           <br><br><br>                    \r\n                        </div>\r\n                     </div>\r\n                  </div>\r\n                  <!--BOLETO-->\r\n                  <div [hidden]=\"pagamento.tipo!='B'\" class=\"container\">\r\n                     <div class=\"row\">\r\n                        <div class=\"col-12\">\r\n                           <h1 class=\"text-secondary\"><i class=\"fas fa-barcode\"></i>   BOLETO BANCÁRIO </h1>\r\n                           <hr>\r\n                        </div>\r\n                        <div class=\"col-12\">\r\n                           <h3 class=\"text-dark text-center\" ><i class=\"fas fa-barcode\"></i> Linha digitável</h3>\r\n                           <h3 class=\"text-info text-center\" >{{pagamento.codigoBarras}}</h3>\r\n                           <hr>\r\n                           <p class=\"text-secondary\"><strong>Vencimento: </strong>  <span data-apply-date=\"\">{{pagamento.dataVencimento}}</span></p>\r\n                           <p class=\"text-secondary\"><strong>Valor total: </strong>  <span data-apply-total=\"\">R$ {{pagamento.valor}}</span></p>\r\n                           <p class=\"text-secondary\">O prazo para a compensação do boleto pode ser de até 2 dias úteis.</p>\r\n                           <hr>\r\n                        </div>\r\n                        <div class=\"col-4 text-center\">\r\n                           <button type=\"button\" class=\"btn btn-primary\" (click)=\"copyToClipBoard(pagamento.codigoBarras)\"><i class=\"far fa-copy\"></i> Copiar linha digitável</button>\r\n                        </div>\r\n                        <div class=\"col-4 text-center\">\r\n                           <button type=\"button\" class=\"btn btn-primary\" (click)=\"openUrl(pagamento.url)\" ><i class=\"fas fa-external-link-alt\"></i>Acessar Link Boleto</button>\r\n                        </div>\r\n                        <div class=\"col-4 text-center\">\r\n                           <button type=\"button\" (click)=\"sair()\" class=\"btn btn-secondary text-right\"  ><i class=\"fas fa-external-link-alt\"></i>VOLTAR</button><br> <br>                                      \r\n                        </div>\r\n                     </div>\r\n                  </div>\r\n               </div>\r\n               <br><br>\r\n            </div>\r\n            <!--DIV MOSTRA TELA ERRO PAGAMENTO-->\r\n            <div *ngIf=\"pagamento.erro\"  style=\"align-content: center\">\r\n               <br><br><br><br>\r\n               <div class=\"card bg-light mb-12\">\r\n                  <div class=\"card-body\">\r\n                     <br><br>\r\n                     <div class=\"text-center\">\r\n                        <img  class=\"rounded mx-auto d-block\" src=\"assets/img/pagamentoErro.png\" class=\"img-fluid\" style=\"max-width: 200px\"><br><br>\r\n                     </div>\r\n                     <p class=\"text-center text-danger\">\r\n                        <b>\r\n                     <h3>PAGAMENTO NÃO CONFIRMADO</h3></b></p>\r\n                     <div class=\"text-center text-secondary\">\r\n                        <p *ngFor=\"let alert of pagamento.alerts\">\r\n                           <ngb-alert [type]=\"alert.type\" (close)=\"close(alert)\">\r\n                        <div [innerHTML]=\"alert.message\"></div>\r\n                        </ngb-alert>\r\n                        </p>\r\n                     </div>\r\n                     <div class=\"col-12 col-sm-12\">\r\n                        <div class=\"text-center\">\r\n                           <br>\r\n                           <hr>\r\n                           <button type=\"button\" (click)=\"sair()\" class=\"btn btn-secondary text-right\"  >VOLTAR</button>      \r\n                           <br><br><br>                    \r\n                        </div>\r\n                     </div>\r\n                  </div>\r\n               </div>\r\n               <br><br>\r\n            </div>\r\n            <p><br></p>\r\n         </div>\r\n         <div [hidden]=\"pagamento.processado\" class=\"card bg-light mb-12\">\r\n            <div style=\"cursor: pointer;\" (click)=\"show('ocultarDadosPessoais')\">\r\n               <div class=\"card-header alert-primary\"><i class=\"fab fa-amazon-pay\"></i> <b> - Finalizar compra</b> </div>\r\n            </div>\r\n            <div  class=\"card-body\">\r\n               <div class=\"row\">\r\n                  <div class=\"col-sm-12 col-md-12 col-lg-12 mx-auto\">\r\n                     <main class=\"mt-5 pt-4\">\r\n                        <div class=\"container wow fadeIn\">\r\n                           <div class=\"row\">\r\n                              <div class=\"col-md-8 mb-4\">\r\n                                 <div class=\"card\">\r\n                                    <div class=\"row\">\r\n                                       <div class=\"col-md-6 mb-2\">\r\n                                          <label>{{getLabelField('nome')}}</label>\r\n                                          <input type=\"text\" formControlName=\"nome\" class=\"form-control\">\r\n                                       </div>\r\n                                       <div class=\"col-md-6 mb-2\">\r\n                                          <label>{{getLabelField('email')}}</label>\r\n                                          <div class=\"input-group\">\r\n                                             <div class=\"input-group-prepend\">\r\n                                                <span class=\"input-group-text\" id=\"basic-addon1\"><i class=\"fa fa-envelope\"></i> </span>\r\n                                             </div>\r\n                                             <input type=\"text\" formControlName=\"email\" class=\"form-control\" placeholder=\"\" aria-label=\"Email\"\r\n                                                aria-describedby=\"basic-addon1\">\r\n                                          </div>\r\n                                       </div>\r\n                                       <div class=\" col-md-3\">\r\n                                          <label>{{getLabelField('cep')}}</label>\r\n                                          <input type=\"text\" formControlName=\"cep\" id=\"cep\" matInput mask=\"00.000-000\" class=\"form-control\"\r\n                                             placeholder=\"\" />\r\n                                       </div>\r\n                                       <div class=\" col-md-3\">\r\n                                          <label>{{getLabelField('uf')}}</label>\r\n                                          <select formControlName=\"uf\" class=\"form-control\" placeholder=\"\">\r\n                                          <option *ngFor=\"let estado of estados\" [value]=\"estado.sigla\">{{ estado.sigla }}</option>\r\n                                          </select>\r\n                                       </div>\r\n                                       <div class=\" col-md-6\">\r\n                                          <label>{{getLabelField('cidade')}}</label>\r\n                                          <select formControlName=\"cidade\" class=\"form-control\" placeholder=\"\">\r\n                                          <option *ngFor=\"let cidade of cidades\" [value]=\"cidade.nome\">{{ cidade.nome }}</option>\r\n                                          </select>\r\n                                       </div>\r\n                                       <div class=\" col-md-6\">\r\n                                          <label>{{getLabelField('bairro')}}</label>\r\n                                          <input type=\"text\" formControlName=\"bairro\" class=\"form-control\" placeholder=\"\" />\r\n                                       </div>\r\n                                       <div class=\" col-md-6\">\r\n                                          <label>{{getLabelField('logradouro')}}</label>\r\n                                          <input type=\"text\" formControlName=\"logradouro\" class=\"form-control\" placeholder=\"\" />\r\n                                       </div>\r\n                                    </div>\r\n                                    <hr>\r\n                                    <div class=\"d-block my-3\">\r\n                                       <div class=\"col-12 col-sm-12\">\r\n                                          <label><b>Pagar com:</b></label><br>                  \r\n                                          <div class=\"custom-control custom-radio custom-control-inline\">\r\n                                             <input type=\"radio\" class=\"custom-control-input\" id=\"boleto\" name=\"meioPagamento\" value=\"1\" (change)=\"selecionarTipoPagamento()\" checked>\r\n                                             <label class=\"custom-control-label\" for=\"boleto\"><i class=\"fa fa-file-invoice-dollar\"></i> - Boleto</label>\r\n                                          </div>\r\n                                          <div class=\"custom-control custom-radio custom-control-inline\">\r\n                                             <input type=\"radio\" class=\"custom-control-input\" id=\"cartao\" name=\"meioPagamento\" value=\"2\" (change)=\"selecionarTipoPagamento()\">\r\n                                             <label class=\"custom-control-label\" for=\"cartao\"><i class=\"fa fa-credit-card\"></i> - Cartão</label>\r\n                                          </div>\r\n                                          <br>\r\n                                       </div>\r\n                                    </div>\r\n                                    <div class=\"row\" [hidden]=\"pagamento.tipo=='B'\">\r\n                                       <div class=\"col-12\">\r\n                                          <hr>\r\n                                       </div>\r\n                                       <div class=\"col-md-6 mb-3\">\r\n                                          <label for=\"cc-name\">Nome no cartão</label>\r\n                                          <input type=\"text\" class=\"form-control\" formControlName=\"cc_nome\" id=\"cc-name\"  placeholder=\"\" required>\r\n                                          <small class=\"text-muted\">Nome conforme exibido no cartão</small>\r\n                                          <div class=\"invalid-feedback\">\r\n                                             Nome conforme exibido no cartão\r\n                                          </div>\r\n                                       </div>\r\n                                       <div class=\"col-md-6 mb-3\" >\r\n                                          <label for=\"cc-number\">Numero do cartão</label>\r\n                                          <input type=\"text\" class=\"form-control\" matInput mask=\"0000 0000 0000 0000\" formControlName=\"cc_numero\"  id=\"cc-number\" placeholder=\"\" required>\r\n                                          <div class=\"invalid-feedback\">\r\n                                             O número do cartão de crédito é obrigatório\r\n                                          </div>\r\n                                       </div>\r\n                                    </div>\r\n                                    <div class=\"row\" [hidden]=\"pagamento.tipo=='B'\">\r\n                                       <div class=\"col-md-3 mb-3\">\r\n                                          <label for=\"cc-expiration\">Data de Vencimento</label>\r\n                                          <input type=\"text\" class=\"form-control\" matInput mask=\"00/00\" formControlName=\"cc_expiracao\" id=\"cc-expiration\"  placeholder=\"\" required>\r\n                                          <div class=\"invalid-feedback\">\r\n                                             Data de Vencimento obrigatório\r\n                                          </div>\r\n                                       </div>\r\n                                       <div class=\"col-md-3 mb-3\">\r\n                                          <label for=\"cc-expiration\">CVV</label>\r\n                                          <input type=\"text\" class=\"form-control\" matInput mask=\"000\" formControlName=\"cc_cod_seguranca\" id=\"cc-cvv\"  placeholder=\"\" required>\r\n                                          <div class=\"invalid-feedback\">\r\n                                             Codigo de segurança obrigatório\r\n                                          </div>\r\n                                       </div>\r\n                                       <div class=\"col-md-3 mb-3\">\r\n                                          <label for=\"cc-expiration\">Qtd de Parcelas</label>\r\n                                          <select formControlName=\"cc_qtd_parcelas\" class=\"form-control\" placeholder=\"\">\r\n                                          <option *ngFor=\"let t of listaQtdParcelas\" [value]=\"t.codigo\">{{ t.descricao }}</option>\r\n                                          </select>\r\n                                       </div>\r\n                                    </div>\r\n                                    <div class=\"col-12 col-sm-12\">\r\n                                       <div class=\"mx-auto\">\r\n                                          <br> <button type=\"button\" (click)=\"checkOut()\"  id=\"btnCheckout\" class=\"btn btn-primary text-right\" >FINALIZAR</button>\r\n                                          &nbsp;&nbsp;&nbsp;&nbsp;\r\n                                          <button type=\"button\" (click)=\"voltar()\" class=\"btn btn-secondary text-right\"  >VOLTAR</button>      \r\n                                          <br><br><br>                    \r\n                                          <hr>\r\n                                       </div>\r\n                                    </div>\r\n                                 </div>\r\n                                 <!--/.Card-->\r\n                              </div>\r\n                              <!--Grid column-->\r\n                              <!--Grid column-->\r\n                              <div class=\"col-md-4 mb-4\">\r\n                                 <!-- Heading -->\r\n                                 <h4 class=\"d-flex justify-content-between align-items-center mb-3\">\r\n                                    <span class=\"text-muted\">Seu Carrinho</span>\r\n                                    <span class=\"badge badge-secondary badge-pill\">{{listaCarrinho.length}}</span>\r\n                                 </h4>\r\n                                 <!-- Cart -->\r\n                                 <ul *ngFor=\"let reg of listaCarrinho\" class=\"list-group mb-3 z-depth-1\">\r\n                                    <li class=\"list-group-item d-flex justify-content-between lh-condensed\">\r\n                                       <div>\r\n                                          <h6 class=\"my-0\">{{reg.descricao}}</h6>\r\n                                          <!--small class=\"text-muted\">{{reg.detalhe}}</small-->\r\n                                       </div>\r\n                                       <span class=\"text-muted\">R$ {{reg.valor}}</span>\r\n                                    </li>\r\n                                 </ul>\r\n                                 <ul class=\"list-group mb-3 z-depth-1\">\r\n                                    <li  class=\"list-group-item d-flex justify-content-between bg-light\">\r\n                                       <div [hidden]= \"! cupomValido\" class=\"text-success\">\r\n                                          <h6 class=\"my-0\">Desconto</h6>\r\n                                          <small>CUPOM Promocional</small>\r\n                                       </div>\r\n                                       <span [hidden]= \"! cupomValido\" class=\"text-success\">-$R$ {{valorCupom}}</span>\r\n                                    </li>\r\n                                    <li class=\"list-group-item d-flex justify-content-between\">\r\n                                       <span>Total (R$)</span>\r\n                                       <strong>{{valor}}</strong>\r\n                                    </li>\r\n                                 </ul>\r\n                                 <!-- Cart -->\r\n                                 <!-- Promo code -->\r\n                                 <div class=\"input-group\">\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"cupom\" id=\"cupom\" placeholder=\"Possui um cupom de desconto ?\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\r\n                                    <div class=\"input-group-append\">\r\n                                       <button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"getCupom()\" title=\"Atualizar\"><i class=\"fas fa-sync-alt fa-lg\"></i></button>                                \r\n                                    </div>\r\n                                 </div>\r\n                                 <!-- Promo code -->\r\n                              </div>\r\n                              <!--Grid column-->\r\n                           </div>\r\n                           <!--Grid row-->\r\n                        </div>\r\n                     </main>\r\n                     <!--Main layout-->\r\n                  </div>\r\n               </div>\r\n            </div>\r\n         </div>\r\n      </div>\r\n   </form>\r\n</body>"
+
+/***/ }),
+
+/***/ "./src/app/inscricoes/inscricoes.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/inscricoes/inscricoes.component.ts ***!
+  \****************************************************/
+/*! exports provided: InscricoesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InscricoesComponent", function() { return InscricoesComponent; });
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/forms */ "../node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "../node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "../node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _shared_services_dropdown_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../shared/services/dropdown.service */ "./src/app/shared/services/dropdown.service.ts");
+/* harmony import */ var _shared_services_consulta_cep_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../shared/services/consulta-cep.service */ "./src/app/shared/services/consulta-cep.service.ts");
+/* harmony import */ var _shared_form_validation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../shared/form-validation */ "./src/app/shared/form-validation.ts");
+/* harmony import */ var _login_auth_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../login/auth.service */ "./src/app/login/auth.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _inscricoes_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./inscricoes.service */ "./src/app/inscricoes/inscricoes.service.ts");
+/* harmony import */ var jsencrypt__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! jsencrypt */ "../node_modules/jsencrypt/lib/index.js");
+/* harmony import */ var moip_sdk_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! moip-sdk-js */ "../node_modules/moip-sdk-js/index.js");
+/* harmony import */ var moip_sdk_js__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(moip_sdk_js__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _wirecard_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./wirecard.service */ "./src/app/inscricoes/wirecard.service.ts");
+/* harmony import */ var _wireCardObjects__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./wireCardObjects */ "./src/app/inscricoes/wireCardObjects.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var InscricoesComponent = /** @class */ (function () {
+    function InscricoesComponent(fb, dropdownService, authService, router, cepService, service, serviceWireCard, http) {
+        this.fb = fb;
+        this.dropdownService = dropdownService;
+        this.authService = authService;
+        this.router = router;
+        this.cepService = cepService;
+        this.service = service;
+        this.serviceWireCard = serviceWireCard;
+        this.http = http;
+        this.carregando = false;
+        this.alerts = [];
+        this.paises = [];
+        this.estados = [];
+        this.cidades = [];
+        this.subscription = null;
+        this.lista = [];
+        this.listaCarrinho = [];
+        this.valor = null;
+        this.ocultarCupom = true;
+        this.valorCupom = 0;
+        this.cupomValido = false;
+        this.checkoutEmAndamento = false;
+        //MOSTRA DIV PAGAMENTO CONFIRMADO
+        this.pagamento = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_14__["Pagamento"]();
+        this.listaQtdParcelas = [{ codigo: '1', descricao: 'A Vista' }, { codigo: '2', descricao: '2 x ' }, { codigo: '3', descricao: '3x ' }, { codigo: '4', descricao: '4x ' }];
+    }
+    InscricoesComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        var campoCep = document.getElementById('cep');
+        this.dropdownService.getCidades(this.form.get('uf').value).subscribe(function (dados) {
+            _this.cidades = dados;
+            _this.cepService.consultaCEP(_this.form.get('cep').value).subscribe(function (dados) {
+                _this.populaDadosForm(dados);
+            });
+        });
+    };
+    InscricoesComponent.prototype.ngOnInit = function () {
+        /*
+            this.subscription = this.serviceWireCard.configurarNotificacoes()
+            .subscribe(
+            response => {
+              alert('Deu Certo');
+            },
+            err => {
+              alert('Deu Errado');    });
+        */
+        var _this = this;
+        //MOSTRA DIV PAGAMENTO CONFIRMADO
+        this.pagamento.confirmado = false;
+        this.pagamento.erro = false;
+        this.pagamento.processado = false;
+        this.carregando = true;
+        this.subscription = this.service.getEventos()
+            .subscribe(function (response) {
+            console.log("Status" + response.status);
+            if (response.status.codigo == 0) {
+                _this.lista = response.dados;
+            }
+            else {
+                _this.lista = [];
+                _this.alerts = Array.from([{ type: 'danger', message: response.status.mensagem }]);
+            }
+            _this.carregando = false;
+        }, function (err) {
+            _this.carregando = false;
+            _this.alerts = Array.from([{ type: 'danger', message: err.message }]);
+            console.log(err);
+        });
+        var jsonUsuario;
+        if (localStorage.getItem("usuario") == null) {
+            jsonUsuario = { "cpf": "", "nome": "", "email": "", "sexo": "", "telefone": "", "celular": "", "endereco": "", "bairro": "", "cep": "", "cidade": "", "uf": "", "pais": "", "numRegistro": "", "categoria": "", "origem": "" };
+            jsonUsuario.cpf = localStorage.getItem("cpf");
+        }
+        else {
+            jsonUsuario = JSON.parse(localStorage.getItem("usuario"));
+        }
+        this.form = this.fb.group({
+            nome: [jsonUsuario.nome, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].minLength(3), _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].maxLength(100)]],
+            email: [jsonUsuario.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].email]],
+            categoria: [jsonUsuario.categoria],
+            cpf: [jsonUsuario.cpf],
+            celular: [jsonUsuario.celular],
+            origem: [jsonUsuario.origem],
+            cep: [jsonUsuario.cep, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, _shared_form_validation__WEBPACK_IMPORTED_MODULE_7__["cepValidator"]]],
+            complemento: [jsonUsuario.complemento],
+            logradouro: [jsonUsuario.logradouro, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
+            bairro: [jsonUsuario.bairro, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
+            cidade: [jsonUsuario.cidade, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
+            uf: [jsonUsuario.uf, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
+            cupom: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
+            cc_nome: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
+            cc_numero: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
+            cc_expiracao: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
+            cc_cod_seguranca: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
+            cc_qtd_parcelas: ["1", _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
+        });
+        this.dropdownService.getPaises().subscribe(function (dados) {
+            _this.paises = dados;
+            _this.dropdownService.getEstadosBr().subscribe(function (dados) {
+                _this.estados = dados;
+                _this.carregando = false;
+            });
+        });
+        this.form.get('uf').valueChanges
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (uf) { return console.log('Novo estado: ', uf); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (uf) { return _this.estados.filter(function (e) { return e.sigla === uf; }); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (estados) { return estados && estados.length > 0 ? estados[0].id : Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["empty"])(); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])(function (estadoId) { return _this.dropdownService.getCidades(estadoId); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(console.log)).subscribe(function (cidades) { return _this.cidades = cidades; });
+        this.form.get('cep').statusChanges
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["distinctUntilChanged"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (value) { return console.log('status CEP:', value); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])(function (status) { return status === 'VALID' ?
+            _this.cepService.consultaCEP(_this.form.get('cep').value)
+            : Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["empty"])(); }))
+            .subscribe(function (dados) { return dados ? _this.populaDadosForm(dados) : {}; });
+    };
+    InscricoesComponent.prototype.getCupom = function () {
+        var _this = this;
+        var campoCupom = document.getElementById('cupom');
+        this.subscription = this.service.getCupom(campoCupom.value)
+            .subscribe(function (response) {
+            console.log("Status" + response.status);
+            if (response.status.codigo == 0) {
+                _this.valorCupom = Number(response.dados.valor).toFixed(2);
+                ;
+                _this.cupomValido = true;
+                _this.calcularValor();
+            }
+            else {
+                _this.valorCupom = 0;
+                _this.cupomValido = false;
+                _this.alerts = Array.from([{ type: 'danger', message: response.status.mensagem }]);
+                _this.calcularValor();
+            }
+            _this.carregando = false;
+        }, function (err) {
+            _this.carregando = false;
+            _this.alerts = Array.from([{ type: 'danger', message: err.message }]);
+            console.log(err);
+        });
+    };
+    InscricoesComponent.prototype.selecionarTipoPagamento = function () {
+        var campoCartao = document.getElementById('cartao');
+        if (campoCartao.checked) {
+            this.pagamento.tipo = "C";
+        }
+        else {
+            this.pagamento.tipo = "B";
+        }
+        ;
+    };
+    InscricoesComponent.prototype.populaDadosForm = function (dados) {
+        // this.formulario.setValue({});
+        this.form.patchValue({
+            uf: dados.uf,
+            cidade: dados.localidade,
+            logradouro: dados.logradouro,
+            // cep: dados.cep,
+            complemento: dados.complemento,
+            bairro: dados.bairro,
+        });
+    };
+    InscricoesComponent.prototype.close = function (alert) {
+        this.alerts.splice(this.alerts.indexOf(alert), 1);
+    };
+    InscricoesComponent.prototype.getLabelField = function (fieldName) {
+        return Object(_shared_form_validation__WEBPACK_IMPORTED_MODULE_7__["getLabelAllFields"])(fieldName);
+    };
+    InscricoesComponent.prototype.calcularValor = function () {
+        this.listaCarrinho = [];
+        this.valor = 0;
+        var e;
+        for (var _i = 0, _a = this.lista; _i < _a.length; _i++) {
+            e = _a[_i];
+            var campo = document.getElementById('id' + e.id);
+            if (campo.checked) {
+                this.valor = this.valor + Number(e.valor);
+                this.listaCarrinho.push(e);
+            }
+        }
+        this.valor = Number(this.valor - this.valorCupom).toFixed(2);
+        this.listaQtdParcelas = [{ codigo: '1', descricao: 'A Vista' }];
+        this.listaQtdParcelas.push({ codigo: '2', descricao: '2 x de R$ ' + Number(this.valor / 2).toFixed(2) });
+        this.listaQtdParcelas.push({ codigo: '3', descricao: '3 x de R$ ' + Number(this.valor / 3).toFixed(2) });
+        this.listaQtdParcelas.push({ codigo: '4', descricao: '4 x de R$ ' + Number(this.valor / 4).toFixed(2) });
+    };
+    InscricoesComponent.prototype.ativarCupom = function () {
+        this.ocultarCupom = false;
+    };
+    InscricoesComponent.prototype.proximo = function () {
+        if (Number(this.valor) <= 0) {
+            this.alerts = Array.from([{ type: 'danger', message: 'Para proseguir é necessário selecionar um dos eventos abaixo' }]);
+            return;
+        }
+        this.alerts = [];
+        this.checkoutEmAndamento = true;
+    };
+    InscricoesComponent.prototype.checkOut = function () {
+        var _this = this;
+        this.pagamento.alerts = [];
+        this.desabilitarCampos();
+        this.carregando = true;
+        this.pagamento.processado = true;
+        var jsonUsuario = JSON.parse(localStorage.getItem("usuario"));
+        //VALIDA OS DADOS DO CARTÃO ANTES DE INICIAR
+        if (!this.validarPagamento()) {
+            this.carregando = false;
+            this.pagamento.processado = false;
+            this.habilitarCampos();
+            return false;
+        }
+        // 1 PASSO - VERIFICA SE O USUÁRIO JÁ ESTA CADASTRADO NA WIRECARD
+        if (jsonUsuario.id_wirecard.length <= 0) {
+            // SE O USUARIO NÃO ESTIVER NA BASE DA WIRECARD INSERE
+            this.subscription = this.serviceWireCard.addClienteForm()
+                .subscribe(function (response) {
+                console.log("Status" + response.id);
+                //ATUALIZA O ID_WIRECARD NA TABELA DE PESSOAS
+                _this.service.atualizarID_Wirecard(response.id).subscribe();
+                _this.efetuarPagamento(response.id);
+            }, function (err) {
+                var ownId = _this.form.get('cpf').value + Math.floor(Math.random() * (0 - 99 + 1));
+                _this.subscription = _this.serviceWireCard.addCliente(ownId)
+                    .subscribe(function (response) {
+                    console.log("Status" + response.id);
+                    //ATUALIZA O ID_WIRECARD NA TABELA DE PESSOAS
+                    _this.service.atualizarID_Wirecard(response.id).subscribe();
+                    _this.efetuarPagamento(response.id);
+                }, function (err) {
+                    var erroMensagem = "";
+                    if (typeof err.error.errors == 'undefined') {
+                        erroMensagem = err.error.ERROR;
+                    }
+                    else {
+                        erroMensagem = err.error.errors[0].description;
+                    }
+                    _this.habilitarCampos();
+                    _this.carregando = false;
+                    _this.pagamento.processado = false;
+                    _this.alerts = Array.from([{ type: 'danger', message: erroMensagem }]);
+                });
+            });
+        }
+        else {
+            this.efetuarPagamento(jsonUsuario.id_wirecard);
+        }
+    };
+    InscricoesComponent.prototype.efetuarPagamento = function (id_cliente) {
+        var _this = this;
+        var jsonUsuario = JSON.parse(localStorage.getItem("usuario"));
+        console.log('Adicionar Pedido');
+        // 2 PASSO - CLIENTE JÁ EXISTE NA BASE DA WIRECARD
+        //           INSERE O PEDIDO NA WIRECARD            
+        this.subscription = this.serviceWireCard.addPedido(id_cliente, this.form, this.valorCupom, this.listaCarrinho)
+            .subscribe(function (response) {
+            console.log("Pedido incluido: " + response.id);
+            console.log("Adicionando Pagamento");
+            var campoCartao = document.getElementById('cartao');
+            if (campoCartao.checked) {
+                _this.pagamento.tipo = "C";
+                _this.efetuarPagamentoCartao(response.id);
+            }
+            else {
+                _this.pagamento.tipo = "B";
+                // PAGAMENTO PELO BOLETO
+                _this.efetuarPagamentoBoleto(response.id);
+            }
+            ;
+        }, function (err) {
+            var erroMensagem = "";
+            if (typeof err.error.errors == 'undefined') {
+                erroMensagem = err.error.ERROR;
+            }
+            else {
+                erroMensagem = err.error.errors[0].description;
+            }
+            _this.habilitarCampos();
+            _this.carregando = false;
+            _this.pagamento.processado = false;
+            _this.alerts = Array.from([{ type: 'danger', message: erroMensagem }]);
+        });
+    };
+    InscricoesComponent.prototype.efetuarPagamentoCartao = function (id_pedido) {
+        var _this = this;
+        //DESENV    const pubKey = "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAi3ySIPM5R2khxvvFD0vEskXclzWtRCSl7KRZKxYj0YRkkEcksRQkEaApQzzEC2Ax8Jx9dNM4un0JnpreSMWG4YjAeQioh4L5E3HU5AkcKdvxlx/QaCfIMj0Wi0554ZCmcviJWH8cVyUxTXMqVpAdhN0fX7GvVaPF8IMO5WpG9z1YBTBfaM/XEfk/JPuvJiG0nnD9ME7pQgn0nuA3v5sbUtdenyBukEEf9qPL6AtWaryhPBQJUlPUMwuj+bilegIXufVbZK3jPVanSwVqfFU3+mBBaKbpMUmEfznS3aplLARNI4Uow+DYed8VSfab9/YPfi2IVIKkG/kv8kl8CiVxKQIDAQAB-----END PUBLIC KEY-----";
+        var pubKey = "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmFLYXWpgi6SrYFZNUDu8S2BiaaSKy9jAs/pHu9bVvJdsVzYdG2Ma01uaTPLq/oG2+o25ggQCbfHxWP+wk/ja+YjSgRnmLGUewSVnp2Er+tpmVILCuq3no/P6XA7ama1YOn26viJBxvL+7TBP3atQCSck12EnMlzTXUTUKjzMRfNTHF5j5E1hjrPDr3P+fkj0nP7+D2qnaYww2s3u8PnbGkNLXkcHsmp9aUijwrUR8g98FT8gjSoBUOCWj09NgfVtGOHS/47GFagAbZMVgc9HCCS5pCMKW49+1UO9Y326B+IMWPZFfZHBuh8BqS81dYsTQwW3qf4ERdYReK9xu1ShKQIDAQAB-----END PUBLIC KEY-----";
+        var expiracaoDia = (this.form.get("cc_expiracao").value).substring(0, 2);
+        var expiracaoAno = (this.form.get("cc_expiracao").value).substring(2, 4);
+        // 3 PASSO - GERA O HASH COM OS DADOS DO CARTÃO
+        moip_sdk_js__WEBPACK_IMPORTED_MODULE_12__["MoipCreditCard"]
+            .setEncrypter(jsencrypt__WEBPACK_IMPORTED_MODULE_11__["default"], 'ionic')
+            .setPubKey(pubKey)
+            .setCreditCard({
+            number: this.form.get("cc_numero").value,
+            cvc: this.form.get("cc_cod_seguranca").value,
+            expirationMonth: expiracaoDia,
+            expirationYear: expiracaoAno
+        })
+            .hash()
+            .then(function (hash) {
+            // 4 PASSO - GERA PAGAMENTO PELO CARTÃO DE CRÉDITO
+            _this.subscription = _this.serviceWireCard.addPagamentoCartao(id_pedido, _this.form, hash)
+                .subscribe(function (response) {
+                _this.pagamento.confirmado = true;
+                _this.carregando = false;
+                //ATUALIZA A TABELA DE EVENTOS INSCRITOS
+                _this.service.inscricao(response.id, response.status, _this.listaCarrinho, _this.form.get('cupom').value).subscribe();
+            }, function (err) {
+                var erroMensagem = "";
+                if (typeof err.error.errors == 'undefined') {
+                    erroMensagem = err.error.ERROR;
+                }
+                else {
+                    erroMensagem = err.error.errors[0].description;
+                }
+                _this.habilitarCampos();
+                _this.carregando = false;
+                _this.pagamento.erro = true;
+                _this.pagamento.alerts = Array.from([{ type: 'danger', message: erroMensagem }]);
+            });
+        });
+    };
+    InscricoesComponent.prototype.efetuarPagamentoBoleto = function (id_pedido) {
+        var _this = this;
+        // 4 PASSO - GERA PAGAMENTO PELO CARTÃO DE CRÉDITO
+        this.subscription = this.serviceWireCard.addPagamentoBoleto(id_pedido, this.form)
+            .subscribe(function (response) {
+            _this.pagamento.confirmado = true;
+            _this.carregando = false;
+            //ATUALIZA A TABELA DE EVENTOS INSCRITOS
+            _this.service.inscricao(response.id, response.status, _this.listaCarrinho, _this.form.get('cupom').value).subscribe();
+            _this.pagamento.url = response._links.payBoleto.printHref;
+            var dt = response.fundingInstrument.boleto.expirationDate;
+            var data = dt.substring(8, 10) + "/" + dt.substring(5, 7) + "/" + dt.substring(0, 4);
+            _this.pagamento.dataVencimento = data;
+            _this.pagamento.codigoBarras = response.fundingInstrument.boleto.lineCode;
+            _this.pagamento.valor = Number(response.amount.total / 100).toFixed(2);
+        }, function (err) {
+            var erroMensagem = "";
+            if (typeof err.error.errors == 'undefined') {
+                erroMensagem = err.error.ERROR;
+            }
+            else {
+                erroMensagem = err.error.errors[0].description;
+            }
+            _this.habilitarCampos();
+            _this.carregando = false;
+            _this.pagamento.erro = true;
+            _this.pagamento.alerts = Array.from([{ type: 'danger', message: erroMensagem }]);
+        });
+    };
+    InscricoesComponent.prototype.validarPagamento = function () {
+        var campoCartao = document.getElementById('cartao');
+        if (campoCartao.checked) {
+            // PAGAMENTO PELO CARTÃO DE CRÉDITO
+            if (this.form.get("cc_nome").value == "") {
+                this.carregando = false;
+                this.alerts = Array.from([{ type: 'danger', message: "Nome do titular do cartão não informado" }]);
+                return false;
+            }
+            if (this.form.get("cc_numero").value == "") {
+                this.carregando = false;
+                this.alerts = Array.from([{ type: 'danger', message: "Número do cartão não informado" }]);
+                return false;
+            }
+            if (this.form.get("cc_expiracao").value == "") {
+                this.carregando = false;
+                this.alerts = Array.from([{ type: 'danger', message: "Data de Expiração do cartão não informado" }]);
+                return false;
+            }
+            if (this.form.get("cc_cod_seguranca").value == "") {
+                this.carregando = false;
+                this.alerts = Array.from([{ type: 'danger', message: "Código de segurança do cartão não informado" }]);
+                return false;
+            }
+        }
+        return true;
+    };
+    InscricoesComponent.prototype.logoff = function () {
+        this.authService.logoff();
+        this.router.navigate(['/login']);
+    };
+    InscricoesComponent.prototype.voltar = function () {
+        this.alerts = [];
+        if (this.checkoutEmAndamento) {
+            this.checkoutEmAndamento = false;
+        }
+        else {
+            this.router.navigate(['/areaParticipante']);
+        }
+    };
+    InscricoesComponent.prototype.sair = function () {
+        this.router.navigate(['/areaParticipante']);
+    };
+    InscricoesComponent.prototype.desabilitarCampos = function () {
+        this.form.disable();
+        document.getElementById("btnCheckout").disabled = true;
+    };
+    InscricoesComponent.prototype.habilitarCampos = function () {
+        this.form.enable();
+        document.getElementById("btnCheckout").disabled = false;
+    };
+    InscricoesComponent.prototype.copyToClipBoard = function (val) {
+        var selBox = document.createElement('textarea');
+        selBox.style.position = 'fixed';
+        selBox.style.left = '0';
+        selBox.style.top = '0';
+        selBox.style.opacity = '0';
+        selBox.value = val;
+        document.body.appendChild(selBox);
+        selBox.focus();
+        selBox.select();
+        document.execCommand('copy');
+        document.body.removeChild(selBox);
+    };
+    InscricoesComponent.prototype.openUrl = function (url) {
+        window.open(url, "_blank");
+    };
+    InscricoesComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-inscricoes',
+            template: __webpack_require__(/*! ./inscricoes.component.html */ "./src/app/inscricoes/inscricoes.component.html"),
+            styles: [__webpack_require__(/*! ./inscricoes.component.css */ "./src/app/inscricoes/inscricoes.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"],
+            _shared_services_dropdown_service__WEBPACK_IMPORTED_MODULE_5__["DropdownService"],
+            _login_auth_service__WEBPACK_IMPORTED_MODULE_8__["AuthService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"],
+            _shared_services_consulta_cep_service__WEBPACK_IMPORTED_MODULE_6__["ConsultaCepService"],
+            _inscricoes_service__WEBPACK_IMPORTED_MODULE_10__["InscricoesService"],
+            _wirecard_service__WEBPACK_IMPORTED_MODULE_13__["WireCardService"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"]])
+    ], InscricoesComponent);
+    return InscricoesComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/inscricoes/inscricoes.service.ts":
+/*!**************************************************!*\
+  !*** ./src/app/inscricoes/inscricoes.service.ts ***!
+  \**************************************************/
+/*! exports provided: InscricoesService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InscricoesService", function() { return InscricoesService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "../node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var InscricoesService = /** @class */ (function () {
+    function InscricoesService(http) {
+        this.http = http;
+        this.API_GET_EVENTOS = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API + "inscricoes/getEventos.php";
+        this.API_ATUALIZAR_ID_WIRECARD = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API + "inscricoes/atualizarIdWirecard.php";
+        this.API_GET_CUPOM = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API + "inscricoes/getCupom.php";
+        this.API_SALVAR_INSCRICAO = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API + "inscricoes/getEventos.php";
+        this.API_INSCRICOES = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API + "inscricoes/index.php";
+        this.httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+                'X-Requested-With': 'XMLHttpRequest',
+                'Cache-Control': 'no-cache',
+                'Content-Type': 'application/json; charset=utf-8'
+            })
+        };
+    }
+    InscricoesService.prototype.getEventos = function () {
+        var jsonUsuario = JSON.parse(localStorage.getItem("usuario"));
+        return this.http.post(this.API_GET_EVENTOS, { cpf: jsonUsuario.cpf }, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(console.log));
+    };
+    InscricoesService.prototype.atualizarID_Wirecard = function (id) {
+        var jsonUsuario = JSON.parse(localStorage.getItem("usuario"));
+        return this.http.post(this.API_ATUALIZAR_ID_WIRECARD, { cpf: jsonUsuario.cpf, id_wirecard: id }, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(console.log));
+    };
+    InscricoesService.prototype.inscricao = function (id, status_wirecard, lista, id_cupom) {
+        var id_eventos = "";
+        var e;
+        for (var _i = 0, lista_1 = lista; _i < lista_1.length; _i++) {
+            e = lista_1[_i];
+            id_eventos = id_eventos + e.id + ", ";
+        }
+        var jsonUsuario = JSON.parse(localStorage.getItem("usuario"));
+        return this.http.post(this.API_INSCRICOES, { cpf: jsonUsuario.cpf, id_pagamento_wirecard: id, eventos: id_eventos, status: status_wirecard, cupom: id_cupom }, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(console.log));
+    };
+    InscricoesService.prototype.getCupom = function (nomeCupom) {
+        return this.http.post(this.API_GET_CUPOM, { cupom: nomeCupom }, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(console.log));
+    };
+    InscricoesService.prototype.salvar = function (form) {
+        var formObj = form.getRawValue(); // {name: '', description: ''}
+        var serializedForm = JSON.stringify(formObj);
+        return this.http.post(this.API_SALVAR_INSCRICAO, serializedForm, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(console.log));
+    };
+    InscricoesService.prototype.geBoletoGerado = function (url) {
+        return this.http.get(url, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(console.log));
+    };
+    InscricoesService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], InscricoesService);
+    return InscricoesService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/inscricoes/wireCardObjects.ts":
+/*!***********************************************!*\
+  !*** ./src/app/inscricoes/wireCardObjects.ts ***!
+  \***********************************************/
+/*! exports provided: UsuarioWireCard, TaxDocumentObject, ShippingAddressObject, PedidoWireCard, CustomerObject, AmountObject, SubTotalObject, ProductObject, PagamentoCartaoWireCard, PagamentoBoletoWireCard, FundingInstrumentCartaoObject, FundingInstrumentBoletoObject, CreditCardObject, BoletoObject, InstructionLinesObject, HolderObject, PhoneObject, BillingAddressObject, DeviceObject, GeoLocationObject, Pagamento */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsuarioWireCard", function() { return UsuarioWireCard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaxDocumentObject", function() { return TaxDocumentObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShippingAddressObject", function() { return ShippingAddressObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PedidoWireCard", function() { return PedidoWireCard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CustomerObject", function() { return CustomerObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AmountObject", function() { return AmountObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SubTotalObject", function() { return SubTotalObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductObject", function() { return ProductObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PagamentoCartaoWireCard", function() { return PagamentoCartaoWireCard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PagamentoBoletoWireCard", function() { return PagamentoBoletoWireCard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FundingInstrumentCartaoObject", function() { return FundingInstrumentCartaoObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FundingInstrumentBoletoObject", function() { return FundingInstrumentBoletoObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreditCardObject", function() { return CreditCardObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BoletoObject", function() { return BoletoObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InstructionLinesObject", function() { return InstructionLinesObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HolderObject", function() { return HolderObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PhoneObject", function() { return PhoneObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BillingAddressObject", function() { return BillingAddressObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeviceObject", function() { return DeviceObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GeoLocationObject", function() { return GeoLocationObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Pagamento", function() { return Pagamento; });
+var UsuarioWireCard = /** @class */ (function () {
+    function UsuarioWireCard() {
+    }
+    return UsuarioWireCard;
+}());
+
+var TaxDocumentObject = /** @class */ (function () {
+    function TaxDocumentObject() {
+    }
+    return TaxDocumentObject;
+}());
+
+var ShippingAddressObject = /** @class */ (function () {
+    function ShippingAddressObject() {
+    }
+    return ShippingAddressObject;
+}());
+
+//PEDIDO
+var PedidoWireCard = /** @class */ (function () {
+    function PedidoWireCard() {
+        this.items = new Array();
+    }
+    return PedidoWireCard;
+}());
+
+var CustomerObject = /** @class */ (function () {
+    function CustomerObject() {
+    }
+    return CustomerObject;
+}());
+
+var AmountObject = /** @class */ (function () {
+    function AmountObject() {
+        this.currency = "BRL";
+    }
+    return AmountObject;
+}());
+
+var SubTotalObject = /** @class */ (function () {
+    function SubTotalObject() {
+    }
+    return SubTotalObject;
+}());
+
+var ProductObject = /** @class */ (function () {
+    function ProductObject() {
+        this.category = "OTHER_CATEGORIES";
+        this.quantity = "1";
+    }
+    return ProductObject;
+}());
+
+// PAGAMENTO
+var PagamentoCartaoWireCard = /** @class */ (function () {
+    function PagamentoCartaoWireCard() {
+        this.statementDescriptor = "CONAD 2021";
+    }
+    return PagamentoCartaoWireCard;
+}());
+
+var PagamentoBoletoWireCard = /** @class */ (function () {
+    function PagamentoBoletoWireCard() {
+        this.statementDescriptor = "CONAD 2021";
+    }
+    return PagamentoBoletoWireCard;
+}());
+
+var FundingInstrumentCartaoObject = /** @class */ (function () {
+    function FundingInstrumentCartaoObject() {
+    }
+    return FundingInstrumentCartaoObject;
+}());
+
+var FundingInstrumentBoletoObject = /** @class */ (function () {
+    function FundingInstrumentBoletoObject() {
+    }
+    return FundingInstrumentBoletoObject;
+}());
+
+var CreditCardObject = /** @class */ (function () {
+    function CreditCardObject() {
+        this.store = "false";
+    }
+    return CreditCardObject;
+}());
+
+var BoletoObject = /** @class */ (function () {
+    function BoletoObject() {
+        this.logoUri = "https://conad.adm.br/sistemas/inscricoes-api/img/logo.png";
+    }
+    return BoletoObject;
+}());
+
+var InstructionLinesObject = /** @class */ (function () {
+    function InstructionLinesObject() {
+    }
+    return InstructionLinesObject;
+}());
+
+var HolderObject = /** @class */ (function () {
+    function HolderObject() {
+        this.birthdate = "false";
+    }
+    return HolderObject;
+}());
+
+var PhoneObject = /** @class */ (function () {
+    function PhoneObject() {
+    }
+    return PhoneObject;
+}());
+
+var BillingAddressObject = /** @class */ (function () {
+    function BillingAddressObject() {
+    }
+    return BillingAddressObject;
+}());
+
+var DeviceObject = /** @class */ (function () {
+    function DeviceObject() {
+    }
+    return DeviceObject;
+}());
+
+var GeoLocationObject = /** @class */ (function () {
+    function GeoLocationObject() {
+    }
+    return GeoLocationObject;
+}());
+
+// Dados do Pagamento 
+var Pagamento = /** @class */ (function () {
+    function Pagamento() {
+        this.tipo = "B";
+    }
+    return Pagamento;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/inscricoes/wirecard.service.ts":
+/*!************************************************!*\
+  !*** ./src/app/inscricoes/wirecard.service.ts ***!
+  \************************************************/
+/*! exports provided: WireCardService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WireCardService", function() { return WireCardService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "../node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./wireCardObjects */ "./src/app/inscricoes/wireCardObjects.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var WireCardService = /** @class */ (function () {
+    function WireCardService(http) {
+        this.http = http;
+        //DESENV  private readonly API_URL_BASE = "https://sandbox.moip.com.br/v2/";
+        this.API_URL_BASE = "https://api.moip.com.br/v2/";
+        this.API_NOVO_USUARIO = this.API_URL_BASE + 'customers';
+        this.API_NOVO_PEDIDO = this.API_URL_BASE + 'orders';
+        this.API_NOVO_PAGAMENTO = this.API_URL_BASE + 'orders';
+        this.API_CONSULTA_PEDIDOS = this.API_URL_BASE + 'orders?q=';
+        this.API_GET_PEDIDO = this.API_URL_BASE + 'orders/';
+        this.API_SETAR_NOTIFICACOES = this.API_URL_BASE + 'preferences/notifications';
+        this.httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+                'X-Requested-With': 'XMLHttpRequest',
+                'Cache-Control': 'no-cache',
+                //DESENV      'Authorization':	'Basic ' + "U1NXTE4yM0lCUFVZTFNNWFJFQUtVSTdaNllFM01aQ1c6VFdIVkdRRVBKWEpOWEw2MUZWSVBRVklEUTlCM0lOQTVNM1Y0UTc1Rw==",
+                'Authorization': 'Basic ' + "WVRDT0dQS1JPNExCUDQyV1pLRERIRE5DMktET1dDU1U6REtBRFNONzJLR1VFRk8zTUJVSk5GQUVNR0c4TDhDVVA0VFg5VUFRVw==",
+                'Content-Type': 'application/json; charset=utf-8'
+            })
+        };
+    }
+    WireCardService.prototype.addClienteForm = function () {
+        var formObj = JSON.parse(localStorage.getItem("usuario"));
+        return this.addCliente(formObj.cpf);
+    };
+    WireCardService.prototype.addCliente = function (ownId) {
+        var formObj = JSON.parse(localStorage.getItem("usuario"));
+        var usuarioWireCard = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["UsuarioWireCard"]();
+        usuarioWireCard.ownId = ownId;
+        usuarioWireCard.fullname = formObj.nome;
+        usuarioWireCard.email = formObj.email;
+        usuarioWireCard.birthDate = "1978-03-01";
+        usuarioWireCard.taxDocument = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["TaxDocumentObject"]();
+        usuarioWireCard.taxDocument.type = "CPF";
+        usuarioWireCard.taxDocument.number = formObj.cpf;
+        usuarioWireCard.shippingAddress = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["ShippingAddressObject"]();
+        usuarioWireCard.shippingAddress.city = formObj.cidade;
+        usuarioWireCard.shippingAddress.complement = "";
+        usuarioWireCard.shippingAddress.country = "BR";
+        usuarioWireCard.shippingAddress.district = formObj.bairro;
+        usuarioWireCard.shippingAddress.state = formObj.uf;
+        usuarioWireCard.shippingAddress.street = formObj.endereco;
+        usuarioWireCard.shippingAddress.streetNumber = "";
+        usuarioWireCard.shippingAddress.zipCode = formObj.cep;
+        var serializedForm = JSON.stringify(usuarioWireCard);
+        return this.http.post(this.API_NOVO_USUARIO, serializedForm, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(console.log));
+    };
+    WireCardService.prototype.addPedido = function (id_wirecard, form, valorCupom, listaProdutos) {
+        var jsonUsuario = JSON.parse(localStorage.getItem("usuario"));
+        var formObj = form.getRawValue();
+        var pedidoWireCard = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["PedidoWireCard"]();
+        pedidoWireCard.ownId = formObj.cpf;
+        pedidoWireCard.amount = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["AmountObject"]();
+        pedidoWireCard.amount.subtotals = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["SubTotalObject"]();
+        pedidoWireCard.amount.subtotals.discount = Number(Number(valorCupom) * 100);
+        ;
+        var e;
+        for (var _i = 0, listaProdutos_1 = listaProdutos; _i < listaProdutos_1.length; _i++) {
+            e = listaProdutos_1[_i];
+            var productObject = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["ProductObject"]();
+            productObject.product = e.descricao;
+            productObject.detail = e.detalhe;
+            productObject.price = Number(Number(e.valor) * 100);
+            pedidoWireCard.items.push(productObject);
+        }
+        pedidoWireCard.customer = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["CustomerObject"]();
+        pedidoWireCard.customer.id = id_wirecard;
+        var serializedForm = JSON.stringify(pedidoWireCard);
+        return this.http.post(this.API_NOVO_PEDIDO, serializedForm, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(console.log));
+    };
+    WireCardService.prototype.addPagamentoCartao = function (id_ord, f, hash) {
+        var form = f.getRawValue();
+        var pagamentoWireCard = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["PagamentoCartaoWireCard"]();
+        pagamentoWireCard.installmentCount = form.cc_qtd_parcelas;
+        pagamentoWireCard.fundingInstrument = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["FundingInstrumentCartaoObject"]();
+        pagamentoWireCard.fundingInstrument.method = "CREDIT_CARD";
+        pagamentoWireCard.fundingInstrument.creditCard = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["CreditCardObject"]();
+        pagamentoWireCard.fundingInstrument.creditCard.hash = hash;
+        pagamentoWireCard.fundingInstrument.creditCard.store = "false";
+        pagamentoWireCard.fundingInstrument.creditCard.holder = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["HolderObject"]();
+        pagamentoWireCard.fundingInstrument.creditCard.holder.fullname = form.nome;
+        pagamentoWireCard.fundingInstrument.creditCard.holder.birthdate = "1978-03-01";
+        pagamentoWireCard.fundingInstrument.creditCard.holder.taxDocument = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["TaxDocumentObject"]();
+        pagamentoWireCard.fundingInstrument.creditCard.holder.taxDocument.type = "CPF";
+        pagamentoWireCard.fundingInstrument.creditCard.holder.taxDocument.number = form.cpf;
+        pagamentoWireCard.fundingInstrument.creditCard.holder.phone = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["PhoneObject"]();
+        pagamentoWireCard.fundingInstrument.creditCard.holder.phone.countryCode = "55";
+        pagamentoWireCard.fundingInstrument.creditCard.holder.phone.areaCode = "";
+        pagamentoWireCard.fundingInstrument.creditCard.holder.phone.number = "";
+        pagamentoWireCard.fundingInstrument.creditCard.holder.billingAddress = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["BillingAddressObject"]();
+        pagamentoWireCard.fundingInstrument.creditCard.holder.billingAddress.city = form.cidade;
+        pagamentoWireCard.fundingInstrument.creditCard.holder.billingAddress.district = "";
+        pagamentoWireCard.fundingInstrument.creditCard.holder.billingAddress.street = form.logradouro;
+        pagamentoWireCard.fundingInstrument.creditCard.holder.billingAddress.streetNumber = "";
+        pagamentoWireCard.fundingInstrument.creditCard.holder.billingAddress.zipCode = form.cep.replace(".", "").replace("-", "");
+        pagamentoWireCard.fundingInstrument.creditCard.holder.billingAddress.state = form.uf;
+        pagamentoWireCard.fundingInstrument.creditCard.holder.billingAddress.country = "BRA";
+        pagamentoWireCard.device = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["DeviceObject"]();
+        pagamentoWireCard.device.ip = "127.0.0.1";
+        pagamentoWireCard.device.geolocation = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["GeoLocationObject"]();
+        pagamentoWireCard.device.geolocation.latitude = "-33.867";
+        pagamentoWireCard.device.geolocation.longitude = "151.206";
+        pagamentoWireCard.device.userAgente = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36";
+        pagamentoWireCard.device.fingerprint = "QAZXswedCVGrtgBNHyuj";
+        var serializedForm = JSON.stringify(pagamentoWireCard);
+        return this.http.post(this.API_NOVO_PAGAMENTO + "/" + id_ord + "/payments", serializedForm, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(console.log));
+    };
+    WireCardService.prototype.addPagamentoBoleto = function (id_ord, f) {
+        var diasVencimento = 5;
+        var dataVencimento = new Date(Date.now() + diasVencimento * 24 * 60 * 60 * 1000);
+        var dataAtualFormatada = (this.adicionaZero(dataVencimento.getFullYear().toString()) + "-" + (this.adicionaZero(dataVencimento.getMonth() + 1).toString()) + "-" + this.adicionaZero(dataVencimento.getDate()));
+        var form = f.getRawValue();
+        var pagamentoWireCard = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["PagamentoBoletoWireCard"]();
+        pagamentoWireCard.fundingInstrument = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["FundingInstrumentBoletoObject"]();
+        pagamentoWireCard.fundingInstrument.method = "BOLETO";
+        pagamentoWireCard.fundingInstrument.boleto = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["BoletoObject"]();
+        pagamentoWireCard.fundingInstrument.boleto.expirationDate = dataAtualFormatada;
+        pagamentoWireCard.fundingInstrument.boleto.instructionLines = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["InstructionLinesObject"]();
+        pagamentoWireCard.fundingInstrument.boleto.instructionLines.first = "CONAD 2021 - Congresso Nacional de Administração";
+        pagamentoWireCard.fundingInstrument.boleto.instructionLines.second = "Isncrição para o evento";
+        pagamentoWireCard.fundingInstrument.boleto.instructionLines.third = "";
+        pagamentoWireCard.device = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["DeviceObject"]();
+        pagamentoWireCard.device.ip = "127.0.0.1";
+        pagamentoWireCard.device.geolocation = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["GeoLocationObject"]();
+        pagamentoWireCard.device.geolocation.latitude = "-33.867";
+        pagamentoWireCard.device.geolocation.longitude = "151.206";
+        pagamentoWireCard.device.userAgente = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36";
+        pagamentoWireCard.device.fingerprint = "QAZXswedCVGrtgBNHyuj";
+        var serializedForm = JSON.stringify(pagamentoWireCard);
+        return this.http.post(this.API_NOVO_PAGAMENTO + "/" + id_ord + "/payments", serializedForm, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(console.log));
+    };
+    WireCardService.prototype.consultaPedidos = function (cpf) {
+        return this.http.get(this.API_CONSULTA_PEDIDOS + cpf + "&limit=1", this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(console.log));
+    };
+    WireCardService.prototype.configurarNotificacoes = function () {
+        return this.http.post(this.API_SETAR_NOTIFICACOES, {
+            "events": [
+                "PAYMENT.AUTHORIZED",
+                "PAYMENT.CANCELLED"
+            ],
+            "target": "http://conad.adm.br/sistemas/inscricoes-api/api/inscricoes/notificacoes.php",
+            "media": "WEBHOOK"
+        }, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(console.log));
+    };
+    WireCardService.prototype.getPedido = function (id_pedido) {
+        return this.http.get(this.API_GET_PEDIDO + id_pedido, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(console.log));
+    };
+    WireCardService.prototype.adicionaZero = function (numero) {
+        if (numero <= 9)
+            return "0" + numero;
+        else
+            return numero;
+    };
+    WireCardService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], WireCardService);
+    return WireCardService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/login/auth.service.ts":
 /*!***************************************!*\
   !*** ./src/app/login/auth.service.ts ***!
@@ -725,6 +1880,7 @@ var AuthService = /** @class */ (function () {
         this.router = router;
         this.http = http;
         this.API_LOGIN = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API + "login/index.php";
+        this.API_VALIDAR_CPF = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API + "login/validarCPF.php";
         this.API_ALTERAR_SENHA = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API + "login/alterarSenha.php";
         this.API_RECUPERAR_SENHA = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API + "login/recuperarSenha.php";
         this.httpOptions = {
@@ -739,6 +1895,11 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.login = function (usuario) {
         console.log(usuario);
         return this.http.post(this.API_LOGIN, usuario, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(console.log));
+    };
+    AuthService.prototype.validarCPF = function (usuario) {
+        console.log(usuario);
+        return this.http.post(this.API_VALIDAR_CPF, usuario, this.httpOptions)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(console.log));
     };
     AuthService.prototype.alterarSenha = function (usuario) {
@@ -784,7 +1945,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n    <p style=\"align-content: center\">\r\n\r\n        <img *ngIf=\"carregando\" class=\"rounded mx-auto d-block\" src=\"assets/img/loading.gif\">\r\n      </p>\r\n\r\n    <div [hidden]=\"carregando\" class=\"container\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-9 col-md-7 col-lg-5 mx-auto\">\r\n          <div class=\"card card-signin my-5\">\r\n            <div class=\"card-body\"> <img src=\"assets/img/logoCRAGO.png\" width=\"300px\">\r\n              <div class=\"card-header alert-primary\">\r\n            \r\n                <i class=\"fa fa-sign-in-alt\"></i> INFORME O USUÁRIO E SENHA:</div>\r\n              <div class=\"row\">\r\n                <div class=\"col-12\">\r\n                  <p *ngFor=\"let alert of alerts\">\r\n                    <ngb-alert [type]=\"alert.type\" (close)=\"close(alert)\">\r\n                      <div [innerHTML]=\"alert.message\"></div>\r\n                    </ngb-alert>\r\n                  </p>\r\n\r\n                </div>\r\n              </div>\r\n              <div class=\"form-label-group\">\r\n                <label for=\"inputEmail\">Usuário</label>\r\n                <input #loginField [(ngModel)]=\"usuario.login\"  #cpf type=\"text\" matInput mask=\"000.000.000-00\" class=\"form-control\" required value=\"\"\r\n                  autocomplete=\"off\">\r\n              </div>\r\n\r\n              <div class=\"form-label-group\">\r\n                <label for=\"inputPassword\">Senha</label>\r\n                <input [(ngModel)]=\"usuario.password\" type=\"password\" id=\"inputPassword\" class=\"form-control\"\r\n                  placeholder=\"Password\" required (keyup.enter)=\"login()\">\r\n              </div>\r\n              <div class=\"form-label-group\"><br>\r\n              <button class=\"btn btn-info\" (click)=\"login()\"\r\n                type=\"submit\">ENTRAR</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\r\n                <button class=\"btn btn-link\" (click)=\"recuperarSenha()\"\r\n                type=\"submit\">Recuperar Senha</button>\r\n\r\n                </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n</body>"
+module.exports = "<body>\r\n    <p style=\"align-content: center\">\r\n\r\n        <img *ngIf=\"carregando\" class=\"rounded mx-auto d-block\" src=\"assets/img/loading.gif\">\r\n      </p>\r\n\r\n    <div [hidden]=\"carregando\" class=\"container\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-9 col-md-7 col-lg-5 mx-auto\">\r\n          <div class=\"card card-signin my-5\">\r\n            <div class=\"card-body\"> <img src=\"assets/img/logo.png\" width=\"300px\"><br><br>\r\n              <div class=\"card-header alert-primary\">\r\n            \r\n                <h3>Área do Participante</h3>\r\n                <i class=\"fa fa-sign-in-alt\"></i> Informe seu CPF para prosseguir</div>\r\n              <div class=\"row\">\r\n                <div class=\"col-12\"><br>\r\n                  <p *ngFor=\"let alert of alerts\">\r\n                    <ngb-alert [type]=\"alert.type\" (close)=\"close(alert)\">\r\n                      <div [innerHTML]=\"alert.message\"></div>\r\n                    </ngb-alert>\r\n                  </p>\r\n\r\n                </div>\r\n              </div>\r\n              <div class=\"form-label-group\">\r\n                <label for=\"inputEmail\">CPF:</label>\r\n                <input #loginField [(ngModel)]=\"usuario.login\"  #cpf type=\"text\" matInput mask=\"000.000.000-00\" class=\"form-control\" required value=\"\"\r\n                  autocomplete=\"off\" (keyup.enter)=\"validarCPF()\">\r\n              </div>\r\n\r\n              <div [hidden]=\"cpfNaoCadastrado\" class=\"form-label-group\">\r\n                <label for=\"inputPassword\">Senha</label>\r\n                <input [(ngModel)]=\"usuario.password\" type=\"password\" id=\"inputPassword\" class=\"form-control\"\r\n                  placeholder=\"Password\" required (keyup.enter)=\"login()\">\r\n              </div>\r\n              <div class=\"form-label-group\"><br>\r\n                <button class=\"btn btn-secondary\" (click)=\"proximo()\"\r\n                type=\"submit\">PROXIMO</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\r\n                <button [hidden]=\"cpfNaoCadastrado\" class=\"btn btn-link\" (click)=\"recuperarSenha()\"\r\n                type=\"submit\">Recuperar Senha</button>\r\n\r\n                </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n</body>"
 
 /***/ }),
 
@@ -821,6 +1982,7 @@ var LoginComponent = /** @class */ (function () {
         this.authService = authService;
         this.usuario = new _usuario__WEBPACK_IMPORTED_MODULE_2__["Usuario"]();
         this.carregando = false;
+        this.cpfNaoCadastrado = true;
         this.alerts = [];
     }
     LoginComponent.prototype.ngAfterViewInit = function () {
@@ -843,8 +2005,40 @@ var LoginComponent = /** @class */ (function () {
                 _this.usuario.password = "";
                 localStorage.setItem("usuario", JSON.stringify(resp.dados));
                 console.log("USUARIO AUTENTICADO");
-                _this.router.navigate(['/home']);
+                _this.router.navigate(['/areaParticipante']);
                 //        this.carregando = false;
+            }
+        });
+    };
+    LoginComponent.prototype.proximo = function () {
+        if (this.cpfNaoCadastrado) {
+            this.validarCPF();
+        }
+        else {
+            this.login();
+        }
+    };
+    LoginComponent.prototype.validarCPF = function () {
+        var _this = this;
+        if (this.usuario.login == "") {
+            this.alerts = Array.from([{ type: 'danger', message: 'Informe o seu CPF !!!' }]);
+            return;
+        }
+        if (!this.isValidCPF(this.usuario.login)) {
+            this.alerts = Array.from([{ type: 'danger', message: 'CPF inválido !!!' }]);
+            return;
+        }
+        this.authService.validarCPF(this.usuario).subscribe(function (dados) {
+            if (dados.status.codigo == 99) {
+                localStorage.removeItem("usuario");
+                localStorage.setItem("cpf", _this.usuario.login);
+                _this.carregando = false;
+                _this.router.navigate(['/usuario']);
+            }
+            else {
+                _this.carregando = false;
+                _this.cpfNaoCadastrado = false;
+                document.getElementById("inputPassword").focus();
             }
         });
     };
@@ -867,6 +2061,29 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.close = function (alert) {
         this.alerts.splice(this.alerts.indexOf(alert), 1);
+    };
+    LoginComponent.prototype.isValidCPF = function (number) {
+        var sum;
+        var rest;
+        sum = 0;
+        if (number == "00000000000")
+            return false;
+        for (var i = 1; i <= 9; i++)
+            sum = sum + parseInt(number.substring(i - 1, i)) * (11 - i);
+        rest = (sum * 10) % 11;
+        if ((rest == 10) || (rest == 11))
+            rest = 0;
+        if (rest != parseInt(number.substring(9, 10)))
+            return false;
+        sum = 0;
+        for (i = 1; i <= 10; i++)
+            sum = sum + parseInt(number.substring(i - 1, i)) * (12 - i);
+        rest = (sum * 10) % 11;
+        if ((rest == 10) || (rest == 11))
+            rest = 0;
+        if (rest != parseInt(number.substring(10, 11)))
+            return false;
+        return true;
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('loginField'),
@@ -1039,6 +2256,159 @@ var PaginaNaoEncontradaComponent = /** @class */ (function () {
     return PaginaNaoEncontradaComponent;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/shared/form-validation.ts":
+/*!*******************************************!*\
+  !*** ./src/app/shared/form-validation.ts ***!
+  \*******************************************/
+/*! exports provided: getFormValidationErrors, getErrorMsg, getLabelAllFields, requiredMinCheckbox, cepValidator, equalsTo */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFormValidationErrors", function() { return getFormValidationErrors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getErrorMsg", function() { return getErrorMsg; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLabelAllFields", function() { return getLabelAllFields; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requiredMinCheckbox", function() { return requiredMinCheckbox; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cepValidator", function() { return cepValidator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "equalsTo", function() { return equalsTo; });
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/forms */ "../node_modules/@angular/forms/fesm5/forms.js");
+
+function getFormValidationErrors(controls) {
+    var listErros = [];
+    Object.keys(controls).forEach(function (key) {
+        var control = controls[key];
+        if (control instanceof _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormGroup"]) {
+            listErros = listErros.concat(getFormValidationErrors(control.controls));
+        }
+        var controlErrors = controls[key].errors;
+        if (controlErrors !== null) {
+            Object.keys(controlErrors).forEach(function (keyError) {
+                console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
+                listErros.push({ type: "danger", message: getErrorMsg(key, keyError, controlErrors[keyError]) });
+            });
+        }
+    });
+    console.log(listErros);
+    return listErros;
+}
+function getErrorMsg(fieldName, validatorName, validatorValue) {
+    var config = {
+        'required': getLabelAllFields(fieldName) + " \u00E9 obrigat\u00F3rio.",
+        'dataInvalida': getLabelAllFields(fieldName) + " inv\u00E1lida. (dd/mm/yyyy)",
+        'minlength': getLabelAllFields(fieldName) + " precisa ter no m\u00EDnimo " + validatorValue.requiredLength + " caracteres.",
+        'maxlength': getLabelAllFields(fieldName) + " precisa ter no m\u00E1ximo " + validatorValue.requiredLength + " caracteres.",
+        'cepInvalido': 'CEP inválido.',
+        'emailInvalido': 'Email já cadastrado!',
+        'email': 'Email já cadastrado!',
+        'ngbDate': 'Selecione a data',
+        'equalsTo': 'Campos não são iguais',
+        'pattern': 'Campo inválido'
+    };
+    return config[validatorName];
+}
+function getLabelAllFields(fieldName) {
+    var config = {
+        'cpf': 'CPF',
+        'nome': 'Nome',
+        'tipo': 'Tipo',
+        'codigo': 'Codigo',
+        'email': 'Email',
+        'celular': 'Celular',
+        'dataNascimento': 'Data de Nascimento',
+        'sexo': 'Sexo',
+        'estadoCivil': 'Estado Civil',
+        'pai': 'Pai',
+        'mae': 'Mãe',
+        'nacionalidade': 'Nacionalidade',
+        'naturalidade': 'Naturalidade',
+        'rg': ' Num. RG',
+        'orgaoExpedidor': 'Orgão Expedidor',
+        'dataExpedicao': 'Data Expedição',
+        'tituloEleitor': 'Titulo de Eleitor',
+        'senha': 'Senha',
+        'responsavel': 'Responsável',
+        'tema': 'Tema',
+        'inscricao': 'Inscrição',
+        'situacao': 'Situação',
+        'processo': 'Nº processo',
+        'dataInscricao': 'Data de Inscrição',
+        'habilitacao': 'Habilitação',
+        'vencimento': 'Data Vencimento',
+        'dataCadastro': 'Data do Cadastro',
+        'status': 'Status Atual',
+        'ano_conclusao': 'Ano de Conclusão',
+        'cep': 'CEP',
+        'numero': 'Numero',
+        'complemento': 'Complemento',
+        'rua': 'Rua',
+        'logradouro': 'Logradouro',
+        'bairro': 'Bairro',
+        'cidade': 'Cidade',
+        'uf': 'UF',
+        'ies': 'IES',
+        'curso': 'Curso',
+        'periodo': 'Período',
+        'data': 'Data',
+        'hora': 'Hora',
+        'descricao': 'Descrição',
+        'palestrante': 'Palestrante',
+        'carga_horaria': 'Carga Horária',
+        'inscricoes_abertas': 'Inscrições Abertas ?',
+        'local': 'Local',
+        'prazo': 'Prazo',
+        'ies_empresa': 'IES/Empresa',
+        'repita_senha': 'Repita a Senha',
+    };
+    return config[fieldName];
+}
+function requiredMinCheckbox(min) {
+    if (min === void 0) { min = 1; }
+    var validator = function (formArray) {
+        /* const values = formArray.controls;
+        let totalChecked = 0;
+        for (let i = 0; i < values.length; i++) {
+          if (values[i].value) {
+            totalChecked += 1;
+          }
+        } */
+        var totalChecked = formArray.controls
+            .map(function (v) { return v.value; })
+            .reduce(function (total, current) { return current ? total + current : total; }, 0);
+        return totalChecked >= min ? null : { required: true };
+    };
+    return validator;
+}
+function cepValidator(control) {
+    var cep = control.value;
+    if (cep && cep !== '') {
+        var validacep = /^[0-9]{8}$/;
+        return validacep.test(cep) ? null : { cepInvalido: true };
+    }
+    return null;
+}
+function equalsTo(otherField) {
+    var validator = function (formControl) {
+        if (otherField == null) {
+            throw new Error('É necessário informar um campo.');
+        }
+        if (!formControl.root || !formControl.root.controls) {
+            return null;
+        }
+        var field = formControl.root.get(otherField);
+        if (!field) {
+            throw new Error('É necessário informar um campo válido.');
+        }
+        if (field.value !== formControl.value) {
+            return { equalsTo: otherField };
+        }
+        return null;
+    };
+    return validator;
+}
 
 
 /***/ }),
@@ -2145,6 +3515,489 @@ function _configFactory(initConfig, configValue) {
 
 /***/ }),
 
+/***/ "./src/app/shared/services/consulta-cep.service.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/shared/services/consulta-cep.service.ts ***!
+  \*********************************************************/
+/*! exports provided: ConsultaCepService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConsultaCepService", function() { return ConsultaCepService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "../node_modules/rxjs/_esm5/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ConsultaCepService = /** @class */ (function () {
+    function ConsultaCepService(http) {
+        this.http = http;
+    }
+    ConsultaCepService.prototype.consultaCEP = function (cep) {
+        console.log(cep);
+        // Nova variável "cep" somente com dígitos.
+        cep = cep.replace(/\D/g, '');
+        // Verifica se campo cep possui valor informado.
+        if (cep !== '') {
+            // Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+            // Valida o formato do CEP.
+            if (validacep.test(cep)) {
+                return this.http.get("//viacep.com.br/ws/" + cep + "/json");
+            }
+        }
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])({});
+    };
+    ConsultaCepService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], ConsultaCepService);
+    return ConsultaCepService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/services/dropdown.service.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/shared/services/dropdown.service.ts ***!
+  \*****************************************************/
+/*! exports provided: DropdownService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DropdownService", function() { return DropdownService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "../node_modules/rxjs/_esm5/operators/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DropdownService = /** @class */ (function () {
+    function DropdownService(http) {
+        this.http = http;
+    }
+    DropdownService.prototype.getPaises = function () {
+        return this.http.get('assets/dados/paises-gentilicos-google-maps.json');
+    };
+    DropdownService.prototype.getEstadosBr = function () {
+        return this.http.get('assets/dados/estadosbr.json');
+    };
+    DropdownService.prototype.getCidades = function (idEstado) {
+        return this.http.get('assets/dados/cidades.json')
+            .pipe(
+        // tslint:disable-next-line:triple-equals
+        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (cidades) { return cidades.filter(function (c) { return c.estado == idEstado; }); }));
+    };
+    DropdownService.prototype.getCargos = function () {
+        return [
+            { nome: 'Dev', nivel: 'Junior', desc: 'Dev Jr' },
+            { nome: 'Dev', nivel: 'Pleno', desc: 'Dev Pl' },
+            { nome: 'Dev', nivel: 'Senior', desc: 'Dev Sr' }
+        ];
+    };
+    DropdownService.prototype.getTecnologias = function () {
+        return [
+            { nome: 'java', desc: 'Java' },
+            { nome: 'javascript', desc: 'JavaScript' },
+            { nome: 'php', desc: 'PHP' },
+            { nome: 'ruby', desc: 'Ruby' }
+        ];
+    };
+    DropdownService.prototype.getNewsletter = function () {
+        return [
+            { valor: 's', desc: 'Sim' },
+            { valor: 'n', desc: 'Não' }
+        ];
+    };
+    DropdownService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({ providedIn: 'root' }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], DropdownService);
+    return DropdownService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/usuario/usuario.component.css":
+/*!***********************************************!*\
+  !*** ./src/app/usuario/usuario.component.css ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzdWFyaW8vdXN1YXJpby5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/usuario/usuario.component.html":
+/*!************************************************!*\
+  !*** ./src/app/usuario/usuario.component.html ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<body>\r\n    <p style=\"align-content: center\">\r\n\r\n        <img *ngIf=\"carregando\" class=\"rounded mx-auto d-block\" src=\"assets/img/loading.gif\">\r\n      </p>\r\n\r\n    <div [hidden]=\"carregando\" class=\"container\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-12 col-md-12 col-lg-12 mx-auto\">\r\n          <form class=\"mt-5\" [formGroup]=\"form\" >\r\n            <div class=\"container\">\r\n              <div class=\"row\">\r\n                \r\n                  <!--div class=\"col-12\">\r\n                      <h3>Cadastro</h3>\r\n                    </div-->        \r\n          \r\n                <div class=\"col-12\">\r\n                  <p *ngFor=\"let alert of alerts\">\r\n                    <ngb-alert [type]=\"alert.type\" (close)=\"close(alert)\">\r\n                      <div [innerHTML]=\"alert.message\"></div>\r\n                    </ngb-alert>\r\n                  </p>\r\n        \r\n                  <p *ngIf=\"carregando\"  style=\"align-content: center\">\r\n                      <img  class=\"rounded mx-auto d-block\" src=\"assets/img/loading.gif\">\r\n                   </p>\r\n                </div>\r\n         \r\n                <div class=\"col-12 col-sm-12\"  style=\"margin-top:10px\">\r\n                  <div class=\"card bg-light mb-12\">\r\n                      <div style=\"cursor: pointer;\" (click)=\"show('ocultarDadosPessoais')\">\r\n                        <div class=\"card-header alert-primary\"><i class=\"fa fa-user-tie\"></i> Dados Pessoais </div>   \r\n                    </div>\r\n                    <div [hidden]=\"ocultarDadosPessoais\" class=\"card-body\">\r\n                      <div class=\"row\">\r\n                        <div class=\" col-md-4\" >\r\n                          <label>{{getLabelField('cpf')}}</label>\r\n                          <input  type=\"text\" matInput mask=\"000.000.000-00\" formControlName=\"cpf\"  class=\"form-control\"\r\n                            placeholder=\"\"  tabindex=\"0\" />\r\n                        </div>\r\n                        <div class=\" col-md-4\" >\r\n                          <label>{{getLabelField('celular')}}</label>\r\n                          <div class=\"input-group\">\r\n                            <div class=\"input-group-prepend\">\r\n                              <span class=\"input-group-text\" id=\"basic-addon1\"><i class=\"fa fa-mobile-alt\"></i> </span>\r\n                            </div>\r\n                            <input type=\"text\" formControlName=\"celular\" class=\"form-control\" placeholder=\"\" matInput\r\n                              mask=\"(00) 00000-0000\" aria-label=\"Celular\" aria-describedby=\"basic-addon1\">\r\n                          </div>\r\n                        </div>\r\n                        <div class=\" col-md-4\">\r\n                          <label>{{getLabelField('email')}}</label>\r\n                          <div class=\"input-group\">\r\n                            <div class=\"input-group-prepend\">\r\n                              <span class=\"input-group-text\" id=\"basic-addon1\"><i class=\"fa fa-envelope\"></i> </span>\r\n                            </div>\r\n                            <input type=\"text\" formControlName=\"email\" class=\"form-control\" placeholder=\"\" aria-label=\"Email\"\r\n                              aria-describedby=\"basic-addon1\">\r\n                          </div>\r\n                        </div>\r\n        \r\n                        <div class=\" col-md-12\">\r\n                          <label>{{getLabelField('nome')}}</label>\r\n                          <input type=\"text\" formControlName=\"nome\" class=\"form-control\" placeholder=\"\" />\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-12 col-sm-12\"  style=\"margin-top:10px\" >\r\n                  <div class=\"card bg-light mb-12\">\r\n                      <div style=\"cursor: pointer;\" (click)=\"show('ocultarEndereco')\">            \r\n                        <div class=\"card-header alert-primary\"><i class=\"fa fa-home\"></i> Endereço</div>\r\n                      </div>\r\n                    <div [hidden]=\"ocultarEndereco\" class=\"card-body\">\r\n                      <div class=\"row\">\r\n                        <div class=\" col-md-3\">\r\n                          <label>{{getLabelField('cep')}}</label>\r\n                          <input type=\"text\" formControlName=\"cep\" id=\"cep\" matInput mask=\"00.000-000\" class=\"form-control\"\r\n                            placeholder=\"\" />\r\n                        </div>\r\n                        <div class=\" col-md-3\">\r\n                          <label>{{getLabelField('uf')}}</label>\r\n                          <select formControlName=\"uf\" class=\"form-control\" placeholder=\"\">\r\n                            <option *ngFor=\"let estado of estados\" [value]=\"estado.sigla\">{{ estado.sigla }}</option>\r\n                          </select>\r\n                        </div>\r\n                        <div class=\" col-md-6\">\r\n                          <label>{{getLabelField('cidade')}}</label>\r\n                          <select formControlName=\"cidade\" class=\"form-control\" placeholder=\"\">\r\n                            <option *ngFor=\"let cidade of cidades\" [value]=\"cidade.nome\">{{ cidade.nome }}</option>\r\n                          </select>\r\n                        </div>\r\n                        <div class=\" col-md-6\">\r\n                          <label>{{getLabelField('bairro')}}</label>\r\n                          <input type=\"text\" formControlName=\"bairro\" class=\"form-control\" placeholder=\"\" />\r\n                        </div>\r\n                        <div class=\" col-md-6\">\r\n                          <label>{{getLabelField('logradouro')}}</label>\r\n                          <input type=\"text\" formControlName=\"logradouro\" class=\"form-control\" placeholder=\"\" />\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-12 col-sm-12\"  style=\"margin-top:10px\" >\r\n                    <div class=\"card bg-light mb-12\">\r\n                        <div style=\"cursor: pointer;\" (click)=\"show('ocultarOuvidoria')\">\r\n                          <div class=\"card-header alert-primary\"><i class=\"fa fa-calendar-alt\"></i> Categoria:</div>\r\n                        </div>\r\n                      <div [hidden]=\"ocultarOuvidoria\" class=\"card-body\">\r\n                        <div class=\"row\">\r\n                          <div class=\" col-md-6\">\r\n                            <label>{{getLabelField('tipo')}}</label>\r\n                            <select formControlName=\"categoria\" class=\"form-control\" placeholder=\"\">\r\n                              <option *ngFor=\"let t of listaTipos\" [value]=\"t.descricao\">{{ t.descricao }}</option>\r\n                            </select>\r\n                          </div>\r\n                          <div class=\" col-md-6\">\r\n                            <label>{{getLabelField('ies_empresa')}}</label>\r\n                            <input type=\"text\" formControlName=\"origem\" class=\"form-control\" placeholder=\"\" />\r\n                          </div>\r\n                          <div class=\" col-md-6\">\r\n                            <label>{{getLabelField('senha')}}</label>\r\n                            <input type=\"password\" formControlName=\"senha\" id=\"senha\" class=\"form-control\" required placeholder=\"\" />\r\n                          </div>\r\n                          <div class=\" col-md-6\">\r\n                            <label>{{getLabelField('repita_senha')}}</label>\r\n                            <input type=\"password\" formControlName=\"senha_repita\" id=\"senha_repita\" class=\"form-control\"  placeholder=\"\" />\r\n                          </div>\r\n\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n        \r\n                <div class=\"col-12 col-sm-12\">\r\n        \r\n                  <div class=\"mx-auto\"><br> <button type=\"submit\" (click)=\"salvar()\" class=\"btn btn-primary text-right\"  [disabled]=\"id !== 0\">Salvar</button>\r\n                    &nbsp;&nbsp;&nbsp;&nbsp;\r\n                    <button type=\"submit\" (click)=\"voltar()\" class=\"btn btn-secondary text-right\"  >VOLTAR</button>      \r\n                    <br><br><br>                    \r\n                    <hr>\r\n                  </div>\r\n        \r\n                </div>\r\n              </div>\r\n            </div>\r\n          </form>\r\n        \r\n        </div>\r\n      </div>\r\n    </div>\r\n</body>"
+
+/***/ }),
+
+/***/ "./src/app/usuario/usuario.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/usuario/usuario.component.ts ***!
+  \**********************************************/
+/*! exports provided: UsuarioComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsuarioComponent", function() { return UsuarioComponent; });
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/forms */ "../node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "../node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "../node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _shared_services_dropdown_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../shared/services/dropdown.service */ "./src/app/shared/services/dropdown.service.ts");
+/* harmony import */ var _shared_services_consulta_cep_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../shared/services/consulta-cep.service */ "./src/app/shared/services/consulta-cep.service.ts");
+/* harmony import */ var _shared_form_validation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../shared/form-validation */ "./src/app/shared/form-validation.ts");
+/* harmony import */ var _usuario_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./usuario.service */ "./src/app/usuario/usuario.service.ts");
+/* harmony import */ var _usuario__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./usuario */ "./src/app/usuario/usuario.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+var UsuarioComponent = /** @class */ (function () {
+    function UsuarioComponent(router, fb, dropdownService, cepService, service, http) {
+        this.router = router;
+        this.fb = fb;
+        this.dropdownService = dropdownService;
+        this.cepService = cepService;
+        this.service = service;
+        this.http = http;
+        this.submitted = false;
+        this.alerts = [];
+        this.tiposEntidade = [];
+        this.tiposRegistro = [];
+        this.situacoesRegistro = [];
+        this.usuario = new _usuario__WEBPACK_IMPORTED_MODULE_9__["Usuario"]();
+        this.paises = [];
+        this.estados = [];
+        this.cidades = [];
+        this.listaTipos = [{ codigo: '1', descricao: 'Administrador e Tecnólogo' }, { codigo: '2', descricao: 'Estudante' }, { codigo: '3', descricao: 'Outros Profissionais' }];
+        this.carregando = true;
+        this.ocultarDadosPessoais = false;
+        this.ocultarEndereco = false;
+        this.ocultarOuvidoria = false;
+        this.ocultarAnexos = false;
+        this.id = 0;
+    }
+    UsuarioComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        var campoCep = document.getElementById('cep');
+        this.dropdownService.getCidades(this.form.get('uf').value).subscribe(function (dados) {
+            _this.cidades = dados;
+            _this.cepService.consultaCEP(_this.form.get('cep').value).subscribe(function (dados) {
+                _this.populaDadosForm(dados);
+            });
+        });
+    };
+    UsuarioComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var jsonUsuario;
+        if (localStorage.getItem("usuario") == null) {
+            jsonUsuario = { "cpf": "", "nome": "", "email": "", "sexo": "", "telefone": "", "celular": "", "endereco": "", "bairro": "", "cep": "", "cidade": "", "uf": "", "pais": "", "numRegistro": "", "categoria": "", "origem": "" };
+            jsonUsuario.cpf = localStorage.getItem("cpf");
+        }
+        else {
+            jsonUsuario = JSON.parse(localStorage.getItem("usuario"));
+        }
+        this.form = this.fb.group({
+            nome: [jsonUsuario.nome, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].minLength(3), _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].maxLength(100)]],
+            email: [jsonUsuario.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].email]],
+            categoria: [jsonUsuario.categoria],
+            cpf: [jsonUsuario.cpf],
+            celular: [jsonUsuario.celular],
+            origem: [jsonUsuario.origem],
+            cep: [jsonUsuario.cep, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, _shared_form_validation__WEBPACK_IMPORTED_MODULE_7__["cepValidator"]]],
+            complemento: [jsonUsuario.complemento],
+            logradouro: [jsonUsuario.logradouro, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
+            bairro: [jsonUsuario.bairro, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
+            cidade: [jsonUsuario.cidade, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
+            uf: [jsonUsuario.uf, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
+            senha: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
+            senha_repita: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
+        });
+        this.dropdownService.getPaises().subscribe(function (dados) {
+            _this.paises = dados;
+            _this.dropdownService.getEstadosBr().subscribe(function (dados) {
+                _this.estados = dados;
+                _this.carregando = false;
+            });
+        });
+        this.form.get('uf').valueChanges
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (uf) { return console.log('Novo estado: ', uf); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (uf) { return _this.estados.filter(function (e) { return e.sigla === uf; }); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (estados) { return estados && estados.length > 0 ? estados[0].id : Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["empty"])(); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])(function (estadoId) { return _this.dropdownService.getCidades(estadoId); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(console.log)).subscribe(function (cidades) { return _this.cidades = cidades; });
+        this.form.get('cep').statusChanges
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["distinctUntilChanged"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (value) { return console.log('status CEP:', value); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])(function (status) { return status === 'VALID' ?
+            _this.cepService.consultaCEP(_this.form.get('cep').value)
+            : Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["empty"])(); }))
+            .subscribe(function (dados) { return dados ? _this.populaDadosForm(dados) : {}; });
+    };
+    UsuarioComponent.prototype.populaDadosForm = function (dados) {
+        // this.formulario.setValue({});
+        this.form.patchValue({
+            uf: dados.uf,
+            cidade: dados.localidade,
+            logradouro: dados.logradouro,
+            // cep: dados.cep,
+            complemento: dados.complemento,
+            bairro: dados.bairro,
+        });
+    };
+    UsuarioComponent.prototype.resetaDadosEnderecoForm = function () {
+        this.form.patchValue({
+            rua: null,
+            complemento: null,
+            bairro: null,
+            cidade: null,
+            uf: null
+        });
+    };
+    UsuarioComponent.prototype.close = function (alert) {
+        this.alerts.splice(this.alerts.indexOf(alert), 1);
+    };
+    UsuarioComponent.prototype.getLabelField = function (fieldName) {
+        return Object(_shared_form_validation__WEBPACK_IMPORTED_MODULE_7__["getLabelAllFields"])(fieldName);
+    };
+    UsuarioComponent.prototype.validarData = function (control) {
+        var v = control.value;
+        if (null != v && v.length == 8) {
+            var data = v.substr(0, 2) + "/" + v.substr(2, 2) + "/" + v.substr(4, 4);
+            var patternData = /^(((0[1-9]|[12][0-9]|3[01])([-.\/])(0[13578]|10|12)([-.\/])(\d{4}))|(([0][1-9]|[12][0-9]|30)([-.\/])(0[469]|11)([-.\/])(\d{4}))|((0[1-9]|1[0-9]|2[0-8])([-.\/])(02)([-.\/])(\d{4}))|((29)(\.|-|\/)(02)([-.\/])([02468][048]00))|((29)([-.\/])(02)([-.\/])([13579][26]00))|((29)([-.\/])(02)([-.\/])([0-9][0-9][0][48]))|((29)([-.\/])(02)([-.\/])([0-9][0-9][2468][048]))|((29)([-.\/])(02)([-.\/])([0-9][0-9][13579][26])))$/;
+            if (!patternData.test(data)) {
+                return { dataInvalida: true };
+            }
+        }
+    };
+    UsuarioComponent.prototype.show = function (secao) {
+        if (secao == 'ocultarDadosPessoais') {
+            if (this.ocultarDadosPessoais) {
+                this.ocultarDadosPessoais = false;
+            }
+            else {
+                this.ocultarDadosPessoais = true;
+            }
+        }
+        if (secao == 'ocultarEndereco') {
+            if (this.ocultarEndereco) {
+                this.ocultarEndereco = false;
+            }
+            else {
+                this.ocultarEndereco = true;
+            }
+        }
+        if (secao == 'ocultarOuvidoria') {
+            if (this.ocultarOuvidoria) {
+                this.ocultarOuvidoria = false;
+            }
+            else {
+                this.ocultarOuvidoria = true;
+            }
+        }
+        if (secao == 'ocultarAnexos') {
+            if (this.ocultarAnexos) {
+                this.ocultarAnexos = false;
+            }
+            else {
+                this.ocultarAnexos = true;
+            }
+        }
+    };
+    UsuarioComponent.prototype.salvar = function () {
+        var _this = this;
+        console.log('Salvando Usuario Form');
+        this.alerts = [];
+        this.submitted = true;
+        // stop here if form is invalid
+        if (this.form.invalid) {
+            this.alerts = Object(_shared_form_validation__WEBPACK_IMPORTED_MODULE_7__["getFormValidationErrors"])(this.form.controls);
+            console.log('Formulário inválido');
+            return;
+        }
+        var campoSenha = document.getElementById('senha');
+        var campoSenhaRepita = document.getElementById('senha_repita');
+        if (campoSenha.value != campoSenhaRepita.value) {
+            this.alerts = Array.from([{ type: 'danger', message: 'Senha informadas divergentes nos campos !!!' }]);
+            return;
+        }
+        this.form.disable();
+        this.carregando = true;
+        this.service.salvar(this.form)
+            .subscribe(function (response) {
+            console.log("Status" + response.status);
+            if (response.status.codigo == 0) {
+                var data = null;
+                var xhr = new XMLHttpRequest();
+                xhr.addEventListener("readystatechange", function () {
+                    if (this.readyState === this.DONE) {
+                        console.log(this.responseText);
+                    }
+                });
+                _this.form.disabled;
+                _this.alerts = Array.from([{ type: 'success', message: response.status.mensagem }]);
+            }
+            else {
+                _this.alerts = Array.from([{ type: 'danger', message: response.status.mensagem }]);
+            }
+            _this.carregando = false;
+        }, function (err) {
+            _this.carregando = false;
+            _this.alerts = Array.from([{ type: 'danger', message: err.message }]);
+            console.log(err);
+        });
+    };
+    UsuarioComponent.prototype.voltar = function () {
+        this.router.navigate(['/areaParticipante']);
+    };
+    UsuarioComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-usuario',
+            template: __webpack_require__(/*! ./usuario.component.html */ "./src/app/usuario/usuario.component.html"),
+            styles: [__webpack_require__(/*! ./usuario.component.css */ "./src/app/usuario/usuario.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"],
+            _shared_services_dropdown_service__WEBPACK_IMPORTED_MODULE_5__["DropdownService"],
+            _shared_services_consulta_cep_service__WEBPACK_IMPORTED_MODULE_6__["ConsultaCepService"],
+            _usuario_service__WEBPACK_IMPORTED_MODULE_8__["UsuarioService"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"]])
+    ], UsuarioComponent);
+    return UsuarioComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/usuario/usuario.service.ts":
+/*!********************************************!*\
+  !*** ./src/app/usuario/usuario.service.ts ***!
+  \********************************************/
+/*! exports provided: UsuarioService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsuarioService", function() { return UsuarioService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "../node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var UsuarioService = /** @class */ (function () {
+    function UsuarioService(http) {
+        this.http = http;
+        this.API_SALVAR_USUARIO = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API + "usuario/salvar.php";
+        this.httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+                'X-Requested-With': 'XMLHttpRequest',
+                'Cache-Control': 'no-cache',
+                'Content-Type': 'application/json; charset=utf-8'
+            })
+        };
+    }
+    UsuarioService.prototype.salvar = function (form) {
+        var formObj = form.getRawValue(); // {name: '', description: ''}
+        var serializedForm = JSON.stringify(formObj);
+        return this.http.post(this.API_SALVAR_USUARIO, serializedForm, this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(console.log));
+    };
+    UsuarioService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], UsuarioService);
+    return UsuarioService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/usuario/usuario.ts":
+/*!************************************!*\
+  !*** ./src/app/usuario/usuario.ts ***!
+  \************************************/
+/*! exports provided: Usuario */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Usuario", function() { return Usuario; });
+var Usuario = /** @class */ (function () {
+    function Usuario() {
+    }
+    return Usuario;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/environments/environment.ts":
 /*!*****************************************!*\
   !*** ./src/environments/environment.ts ***!
@@ -2161,7 +4014,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 var environment = {
     production: false,
-    API: 'https://crago.org.br/sistemas/adminweb-api/api/'
+    API: 'https://conad.adm.br/sistemas/inscricoes-api/api/'
     //API: 'http://localhost/adminweb-api-php/api/'
 };
 
@@ -2200,7 +4053,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\SPD\CRA-GO\Projetos\adminweb-estatico\admin\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\CONAD\Projetos\inscricoes-estatico\admin\src\main.ts */"./src/main.ts");
 
 
 /***/ })

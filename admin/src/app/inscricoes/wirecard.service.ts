@@ -12,16 +12,16 @@ import { MoipCreditCard } from 'moip-sdk-js';
 })
 export class WireCardService {
 
-//DESENV  private readonly API_URL_AMBIENTE = "https://sandbox.moip.com.br/v2/";
-private readonly API_URL_AMBIENTE = "https://api.moip.com.br/v2/";
 
-  private readonly API_NOVO_USUARIO = this.API_URL_AMBIENTE + 'customers';  
-  private readonly API_NOVO_PEDIDO = this.API_URL_AMBIENTE + 'orders';  
-  private readonly API_NOVO_PAGAMENTO = this.API_URL_AMBIENTE + 'orders';    
-  private readonly API_CONSULTA_PEDIDOS = this.API_URL_AMBIENTE + 'orders?q=';  
-  private readonly API_GET_PEDIDO = this.API_URL_AMBIENTE + 'orders/';  
-  private readonly API_SETAR_NOTIFICACOES = this.API_URL_AMBIENTE + '/preferences/notifications';  
-  
+//DESENV  private readonly API_URL_BASE = "https://sandbox.moip.com.br/v2/";
+  private readonly API_URL_BASE = "https://api.moip.com.br/v2/";
+
+  private readonly API_NOVO_USUARIO = this.API_URL_BASE + 'customers';  
+  private readonly API_NOVO_PEDIDO = this.API_URL_BASE + 'orders';  
+  private readonly API_NOVO_PAGAMENTO = this.API_URL_BASE + 'orders';    
+  private readonly API_CONSULTA_PEDIDOS = this.API_URL_BASE +'orders?q=';  
+  private readonly API_GET_PEDIDO = this.API_URL_BASE + 'orders/';  
+  private readonly API_SETAR_NOTIFICACOES = this.API_URL_BASE + 'preferences/notifications';  
 
 
   private httpOptions = {

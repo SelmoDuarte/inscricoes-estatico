@@ -313,10 +313,19 @@ export class InscricoesComponent implements OnInit, AfterViewInit {
                 this.efetuarPagamento(response.id);
             },
             err => {
-                    this.habilitarCampos();
-                    this.carregando = false;
-                    this.pagamento.processado = false;            
-                    this.alerts = Array.from([{ type: 'danger', message: err.error.errors[0].description }])
+
+              var erroMensagem: string = "";
+              if(typeof err.error.errors == 'undefined') {
+                  erroMensagem = err.error.ERROR;
+              }else{
+                erroMensagem = err.error.errors[0].description;          
+              }
+      
+              this.habilitarCampos();
+              this.carregando = false;
+              this.pagamento.processado = false;
+              this.alerts = Array.from([{ type: 'danger', message: erroMensagem }])
+      
             });
   
         });
@@ -351,11 +360,18 @@ export class InscricoesComponent implements OnInit, AfterViewInit {
 
     },
     err => {
+        var erroMensagem: string = "";
+        if(typeof err.error.errors == 'undefined') {
+            erroMensagem = err.error.ERROR;
+        }else{
+          erroMensagem = err.error.errors[0].description;          
+        }
+
         this.habilitarCampos();
         this.carregando = false;
         this.pagamento.processado = false;
-        this.alerts = Array.from([{ type: 'danger', message: err.error.errors[0].description }])
-        console.log(err);
+        this.alerts = Array.from([{ type: 'danger', message: erroMensagem }])
+
     });
 
 
@@ -363,8 +379,9 @@ export class InscricoesComponent implements OnInit, AfterViewInit {
 
   efetuarPagamentoCartao(id_pedido){
 
-    // DESENVconst pubKey = "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAi3ySIPM5R2khxvvFD0vEskXclzWtRCSl7KRZKxYj0YRkkEcksRQkEaApQzzEC2Ax8Jx9dNM4un0JnpreSMWG4YjAeQioh4L5E3HU5AkcKdvxlx/QaCfIMj0Wi0554ZCmcviJWH8cVyUxTXMqVpAdhN0fX7GvVaPF8IMO5WpG9z1YBTBfaM/XEfk/JPuvJiG0nnD9ME7pQgn0nuA3v5sbUtdenyBukEEf9qPL6AtWaryhPBQJUlPUMwuj+bilegIXufVbZK3jPVanSwVqfFU3+mBBaKbpMUmEfznS3aplLARNI4Uow+DYed8VSfab9/YPfi2IVIKkG/kv8kl8CiVxKQIDAQAB-----END PUBLIC KEY-----";
-    const pubKey = "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmFLYXWpgi6SrYFZNUDu8S2BiaaSKy9jAs/pHu9bVvJdsVzYdG2Ma01uaTPLq/oG2+o25ggQCbfHxWP+wk/ja+YjSgRnmLGUewSVnp2Er+tpmVILCuq3no/P6XA7ama1YOn26viJBxvL+7TBP3atQCSck12EnMlzTXUTUKjzMRfNTHF5j5E1hjrPDr3P+fkj0nP7+D2qnaYww2s3u8PnbGkNLXkcHsmp9aUijwrUR8g98FT8gjSoBUOCWj09NgfVtGOHS/47GFagAbZMVgc9HCCS5pCMKW49+1UO9Y326B+IMWPZFfZHBuh8BqS81dYsTQwW3qf4ERdYReK9xu1ShKQIDAQAB-----END PUBLIC KEY----";
+
+//DESENV    const pubKey = "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAi3ySIPM5R2khxvvFD0vEskXclzWtRCSl7KRZKxYj0YRkkEcksRQkEaApQzzEC2Ax8Jx9dNM4un0JnpreSMWG4YjAeQioh4L5E3HU5AkcKdvxlx/QaCfIMj0Wi0554ZCmcviJWH8cVyUxTXMqVpAdhN0fX7GvVaPF8IMO5WpG9z1YBTBfaM/XEfk/JPuvJiG0nnD9ME7pQgn0nuA3v5sbUtdenyBukEEf9qPL6AtWaryhPBQJUlPUMwuj+bilegIXufVbZK3jPVanSwVqfFU3+mBBaKbpMUmEfznS3aplLARNI4Uow+DYed8VSfab9/YPfi2IVIKkG/kv8kl8CiVxKQIDAQAB-----END PUBLIC KEY-----";
+    const pubKey = "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmFLYXWpgi6SrYFZNUDu8S2BiaaSKy9jAs/pHu9bVvJdsVzYdG2Ma01uaTPLq/oG2+o25ggQCbfHxWP+wk/ja+YjSgRnmLGUewSVnp2Er+tpmVILCuq3no/P6XA7ama1YOn26viJBxvL+7TBP3atQCSck12EnMlzTXUTUKjzMRfNTHF5j5E1hjrPDr3P+fkj0nP7+D2qnaYww2s3u8PnbGkNLXkcHsmp9aUijwrUR8g98FT8gjSoBUOCWj09NgfVtGOHS/47GFagAbZMVgc9HCCS5pCMKW49+1UO9Y326B+IMWPZFfZHBuh8BqS81dYsTQwW3qf4ERdYReK9xu1ShKQIDAQAB-----END PUBLIC KEY-----";
 
     var expiracaoDia = (this.form.get("cc_expiracao").value).substring(0,2);
     var expiracaoAno = (this.form.get("cc_expiracao").value).substring(2,4);
@@ -392,10 +409,19 @@ export class InscricoesComponent implements OnInit, AfterViewInit {
             this.service.inscricao(response.id, response.status, this.listaCarrinho, this.form.get('cupom').value).subscribe();
 
         },
-        (erroResponse) => {
+        (err) => {
+
+          var erroMensagem: string = "";
+          if(typeof err.error.errors == 'undefined') {
+              erroMensagem = err.error.ERROR;
+          }else{
+            erroMensagem = err.error.errors[0].description;          
+          }
+  
+          this.habilitarCampos();
           this.carregando = false;
           this.pagamento.erro = true;
-          this.pagamento.alerts = Array.from([{ type: 'danger', message: erroResponse.error.errors[0].description }]);
+          this.pagamento.alerts = Array.from([{ type: 'danger', message: erroMensagem }])
         });              
     });
 
@@ -419,10 +445,19 @@ export class InscricoesComponent implements OnInit, AfterViewInit {
             this.pagamento.codigoBarras = response.fundingInstrument.boleto.lineCode;
             this.pagamento.valor= Number(response.amount.total/100).toFixed(2);
         },
-        (erroResponse) => {
+        (err) => {
+          var erroMensagem: string = "";
+          if(typeof err.error.errors == 'undefined') {
+              erroMensagem = err.error.ERROR;
+          }else{
+            erroMensagem = err.error.errors[0].description;          
+          }
+  
+          this.habilitarCampos();
           this.carregando = false;
           this.pagamento.erro = true;
-          this.pagamento.alerts = Array.from([{ type: 'danger', message: erroResponse.error.errors[0].description }])
+          this.pagamento.alerts = Array.from([{ type: 'danger', message: erroMensagem }])
+
         });              
 
   }
