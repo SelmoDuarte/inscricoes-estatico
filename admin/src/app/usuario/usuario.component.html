@@ -39,6 +39,11 @@
                           <input  type="text" matInput mask="000.000.000-00" formControlName="cpf"  class="form-control"
                             placeholder=""  tabindex="0" />
                         </div>
+                        <div class=" col-md-8">
+                          <label>{{getLabelField('nome')}}</label>
+                          <input type="text" formControlName="nome" class="form-control" placeholder="" />
+                        </div>
+
                         <div class=" col-md-4" >
                           <label>{{getLabelField('celular')}}</label>
                           <div class="input-group">
@@ -59,11 +64,12 @@
                               aria-describedby="basic-addon1">
                           </div>
                         </div>
-        
-                        <div class=" col-md-12">
-                          <label>{{getLabelField('nome')}}</label>
-                          <input type="text" formControlName="nome" class="form-control" placeholder="" />
+                        <div class=" col-md-4" >
+                          <label>{{getLabelField('dataNascimento')}}</label>
+                          <input  type="text" matInput mask="00/00/0000" formControlName="dataNascimento"  class="form-control"
+                            placeholder=""  tabindex="0" />
                         </div>
+        
                       </div>
                     </div>
                   </div>

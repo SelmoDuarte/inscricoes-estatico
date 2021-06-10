@@ -6,6 +6,7 @@ export class UsuarioWireCard {
     email: string;
     birthDate: string;
     taxDocument: TaxDocumentObject;
+    phone: PhoneObject;
     shippingAddress: ShippingAddressObject;
    
 
@@ -28,6 +29,9 @@ export class ShippingAddressObject {
     state:  string;
     country:  string;
 }
+
+
+
 //PEDIDO
 
 export class PedidoWireCard {
@@ -107,7 +111,7 @@ export class InstructionLinesObject {
 
 export class HolderObject {
     fullname: string;
-    birthdate: string = "false";
+    birthdate: string;
     taxDocument: TaxDocumentObject;
     phone: PhoneObject;
     billingAddress: BillingAddressObject;

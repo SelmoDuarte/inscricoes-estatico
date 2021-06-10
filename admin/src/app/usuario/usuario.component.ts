@@ -87,6 +87,7 @@ export class UsuarioComponent implements OnInit, AfterViewInit {
           email: [jsonUsuario.email, [Validators.required, Validators.email]],
           categoria: [jsonUsuario.categoria],
           cpf: [jsonUsuario.cpf],
+          dataNascimento: [jsonUsuario.dataNascimentoFormatada],
           celular: [jsonUsuario.celular],
           origem: [jsonUsuario.origem],
           cep: [jsonUsuario.cep, [Validators.required, cepValidator]],

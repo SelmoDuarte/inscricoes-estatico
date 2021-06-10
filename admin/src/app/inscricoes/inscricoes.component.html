@@ -43,10 +43,11 @@
                                              </td>
                                              <td class="align-middle">
                                                 <ngb-highlight  [result]="reg.descricao" [term]="queryBusca"></ngb-highlight><br>
-                                                <i  class="text-secondary">{{reg.detalhe}}</i>                                       
+                                                <i  class="text-secondary">{{reg.detalhe}}</i>
+                                                <i [hidden]= "reg.valor != '0'" class="text-success"><br><b>(Gratuita para participantes do evento principal)</b></i>                                       
                                              </td>
                                              <td class="float-right">
-                                                <ngb-highlight [hidden]="reg.status=='AUTHORIZED'" [result]="reg.valor" [term]="queryBusca"></ngb-highlight><br>
+                                                <span [hidden]="reg.status=='AUTHORIZED'" >{{reg.valor | number : '1.2-2' }}</span><br>
                                                 <span class="alert-success" [hidden]="reg.status!='AUTHORIZED'"><b>CONFIRMADO</b></span>
                                              </td>
                                           </tr>
@@ -200,13 +201,38 @@
                         <div class="container wow fadeIn">
                            <div class="row">
                               <div class="col-md-8 mb-4">
+                                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="text-muted">Dados do Pagador:</span>
+                                </h4>
                                  <div class="card">
+                                    <div class="container">
                                     <div class="row">
-                                       <div class="col-md-6 mb-2">
+                                       <div class="col-md-4 mb-4" >
+                                          <label>{{getLabelField('cpf')}}</label>
+                                          <input  type="text" matInput mask="000.000.000-00" formControlName="cpf"  class="form-control"
+                                            placeholder=""  tabindex="0" />
+                                        </div>
+                                        <div class="col-md-8 mb-8">
                                           <label>{{getLabelField('nome')}}</label>
                                           <input type="text" formControlName="nome" class="form-control">
                                        </div>
-                                       <div class="col-md-6 mb-2">
+                                       <div class=" col-md-4" >
+                                          <label>{{getLabelField('celular')}}</label>
+                                          <div class="input-group">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="basic-addon1"><i class="fa fa-mobile-alt"></i> </span>
+                                            </div>
+                                            <input type="text" formControlName="celular" class="form-control" placeholder="" matInput
+                                              mask="(00) 00000-0000" aria-label="Celular" aria-describedby="basic-addon1">
+                                          </div>
+                                        </div>
+                                        <div class=" col-md-3" >
+                                          <label>Dt Nasc.</label>
+                                          <input  type="text" matInput mask="00/00/0000" formControlName="dataNascimento"  class="form-control"
+                                            placeholder=""  tabindex="0" />
+                                        </div>
+                
+                                       <div class="col-md-5">
                                           <label>{{getLabelField('email')}}</label>
                                           <div class="input-group">
                                              <div class="input-group-prepend">
@@ -216,7 +242,7 @@
                                                 aria-describedby="basic-addon1">
                                           </div>
                                        </div>
-                                       <div class=" col-md-3">
+                                       <div class=" col-md-4">
                                           <label>{{getLabelField('cep')}}</label>
                                           <input type="text" formControlName="cep" id="cep" matInput mask="00.000-000" class="form-control"
                                              placeholder="" />
@@ -227,7 +253,7 @@
                                           <option *ngFor="let estado of estados" [value]="estado.sigla">{{ estado.sigla }}</option>
                                           </select>
                                        </div>
-                                       <div class=" col-md-6">
+                                       <div class=" col-md-5">
                                           <label>{{getLabelField('cidade')}}</label>
                                           <select formControlName="cidade" class="form-control" placeholder="">
                                           <option *ngFor="let cidade of cidades" [value]="cidade.nome">{{ cidade.nome }}</option>
@@ -279,7 +305,7 @@
                                     </div>
                                     <div class="row" [hidden]="pagamento.tipo=='B'">
                                        <div class="col-md-3 mb-3">
-                                          <label for="cc-expiration">Data de Vencimento</label>
+                                          <label for="cc-expiration">Vencimento</label>
                                           <input type="text" class="form-control" matInput mask="00/00" formControlName="cc_expiracao" id="cc-expiration"  placeholder="" required>
                                           <div class="invalid-feedback">
                                              Data de Vencimento obrigatório
@@ -287,7 +313,7 @@
                                        </div>
                                        <div class="col-md-3 mb-3">
                                           <label for="cc-expiration">CVV</label>
-                                          <input type="text" class="form-control" matInput mask="000" formControlName="cc_cod_seguranca" id="cc-cvv"  placeholder="" required>
+                                          <input type="text" class="form-control" matInput mask="0000" formControlName="cc_cod_seguranca" id="cc-cvv"  placeholder="" required>
                                           <div class="invalid-feedback">
                                              Codigo de segurança obrigatório
                                           </div>
@@ -310,6 +336,7 @@
                                     </div>
                                  </div>
                                  <!--/.Card-->
+                                 </div>
                               </div>
                               <!--Grid column-->
                               <!--Grid column-->

@@ -12,16 +12,16 @@ import { MoipCreditCard } from 'moip-sdk-js';
 })
 export class WireCardService {
 
+//  private readonly API_URL_AMBIENTE = "https://sandbox.moip.com.br/v2/";
+  private readonly API_URL_AMBIENTE = "https://api.moip.com.br/v2/";
 
-//DESENV  private readonly API_URL_BASE = "https://sandbox.moip.com.br/v2/";
-  private readonly API_URL_BASE = "https://api.moip.com.br/v2/";
-
-  private readonly API_NOVO_USUARIO = this.API_URL_BASE + 'customers';  
-  private readonly API_NOVO_PEDIDO = this.API_URL_BASE + 'orders';  
-  private readonly API_NOVO_PAGAMENTO = this.API_URL_BASE + 'orders';    
-  private readonly API_CONSULTA_PEDIDOS = this.API_URL_BASE +'orders?q=';  
-  private readonly API_GET_PEDIDO = this.API_URL_BASE + 'orders/';  
-  private readonly API_SETAR_NOTIFICACOES = this.API_URL_BASE + 'preferences/notifications';  
+  private readonly API_NOVO_USUARIO = this.API_URL_AMBIENTE + 'customers';  
+  private readonly API_NOVO_PEDIDO = this.API_URL_AMBIENTE + 'orders';  
+  private readonly API_NOVO_PAGAMENTO = this.API_URL_AMBIENTE + 'orders';    
+  private readonly API_CONSULTA_PEDIDOS = this.API_URL_AMBIENTE + 'orders?q=';  
+  private readonly API_GET_PEDIDO = this.API_URL_AMBIENTE + 'orders/';  
+  private readonly API_SETAR_NOTIFICACOES = this.API_URL_AMBIENTE + '/preferences/notifications';  
+  
 
 
   private httpOptions = {
@@ -36,21 +36,28 @@ export class WireCardService {
     
   constructor(private http: HttpClient) { }
 
-  addClienteForm() {
-    var formObj = JSON.parse(localStorage.getItem("usuario"));  
+  addClienteForm(form) {
 
-    return this.addCliente(formObj.cpf);
+    let formObj = form.getRawValue(); 
+
+    return this.addCliente(formObj.cpf, form);
   }
 
-  addCliente(ownId) {
-    var formObj = JSON.parse(localStorage.getItem("usuario"));  
+  addCliente(ownId, form) {
+//    let formObj = form.getRawValue(); 
+
+    let formObj = JSON.parse(localStorage.getItem("usuario"));        
    
     let usuarioWireCard = new UsuarioWireCard();
 
     usuarioWireCard.ownId = ownId ;
     usuarioWireCard.fullname = formObj.nome;
     usuarioWireCard.email = formObj.email;
-    usuarioWireCard.birthDate = "1978-03-01";
+    usuarioWireCard.phone = new PhoneObject();
+    usuarioWireCard.phone.countryCode = "55";
+    usuarioWireCard.phone.areaCode = formObj.prefixoCelular;
+    usuarioWireCard.phone.number = formObj.numeroCelular;
+    usuarioWireCard.birthDate = formObj.dataNascimento;
     usuarioWireCard.taxDocument = new TaxDocumentObject();    
     usuarioWireCard.taxDocument.type = "CPF";
     usuarioWireCard.taxDocument.number = formObj.cpf;
@@ -75,7 +82,6 @@ export class WireCardService {
 
 
   addPedido(id_wirecard, form, valorCupom, listaProdutos) {
-    var jsonUsuario = JSON.parse(localStorage.getItem("usuario"));  
 
     let formObj = form.getRawValue(); 
 
@@ -118,14 +124,19 @@ export class WireCardService {
       pagamentoWireCard.fundingInstrument.creditCard.store = "false";
       pagamentoWireCard.fundingInstrument.creditCard.holder = new HolderObject();
       pagamentoWireCard.fundingInstrument.creditCard.holder.fullname = form.nome;
-      pagamentoWireCard.fundingInstrument.creditCard.holder.birthdate = "1978-03-01";
+      if (form.dataNascimento.length == 8){
+        pagamentoWireCard.fundingInstrument.creditCard.holder.birthdate = form.dataNascimento.substring(4,8) + "-" + form.dataNascimento.substring(2,4) + "-" + form.dataNascimento.substring(0,2) ;
+      }else{
+        pagamentoWireCard.fundingInstrument.creditCard.holder.birthdate = form.dataNascimento.substring(6,10) + "-" + form.dataNascimento.substring(3,5) + "-" + form.dataNascimento.substring(0,2) ;
+      }
+
       pagamentoWireCard.fundingInstrument.creditCard.holder.taxDocument = new TaxDocumentObject();
       pagamentoWireCard.fundingInstrument.creditCard.holder.taxDocument.type = "CPF";
       pagamentoWireCard.fundingInstrument.creditCard.holder.taxDocument.number = form.cpf;
       pagamentoWireCard.fundingInstrument.creditCard.holder.phone = new PhoneObject();
       pagamentoWireCard.fundingInstrument.creditCard.holder.phone.countryCode = "55";
-      pagamentoWireCard.fundingInstrument.creditCard.holder.phone.areaCode = "";
-      pagamentoWireCard.fundingInstrument.creditCard.holder.phone.number = "";
+      pagamentoWireCard.fundingInstrument.creditCard.holder.phone.areaCode = form.celular.substring(0,2);
+      pagamentoWireCard.fundingInstrument.creditCard.holder.phone.number = form.celular.substring(3,15);
       pagamentoWireCard.fundingInstrument.creditCard.holder.billingAddress = new BillingAddressObject();
       pagamentoWireCard.fundingInstrument.creditCard.holder.billingAddress.city = form.cidade;
       pagamentoWireCard.fundingInstrument.creditCard.holder.billingAddress.district = "";
