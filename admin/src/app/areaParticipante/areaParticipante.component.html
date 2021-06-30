@@ -35,16 +35,13 @@
         <p><b>Datas Importantes:</b></p>
         <ul>
            <li>Submissão de Trabalho<br>
-              28/11/2020 a 21/02/2021
-           <li>Resultado das avaliações dos artigos:<br>
-              05/04/2021
-           <li>Inicio das incrições<br>
-              28/11/2020
-           <li>Data limite para pagamento das inscrições dos autores com trabalhos aprovados:<br>
-              20/04/2021
-           <li>Data limite para pagamento das inscrições dos congressistas em geral:<br>
-              1° Lote: até 20/04/2021
-              2º Lote: 21/04/2021 até 09/06/2021
+              07/06/2021 a 14/08/2021
+           <li>Prazo Final para o Pagamento da Taxa de Avaliação dos Artigos<br>
+              15/08/2021
+           <li>Resultado dos Trabalhos Aceitos para Apresentação / Publicação<br>
+              30/08/2021
+           <li>Prazo Final para Inscrição no 26º CONAD<br>
+              05/09/2021
         </ul>
      </div>
      <div class="col-sm-4 col-md-4 col-lg-4">
@@ -66,17 +63,22 @@
         </ul>
         <ul class="list-group mb-3 z-depth-1">
            <li  class="list-group-item d-flex justify-content-between bg-light">
-              <div [hidden]= "! cupomValido" class="text-success">
-                 <h6 class="my-0">Desconto</h6>
-                 <small>CUPOM Promocional</small>
+              <div [hidden]= "! possuiCaravana()" class="text-success">
+               <p class="text-muted">Minha Caravana</p>
+             
               </div>
-              <span [hidden]= "! cupomValido" class="text-success">-$R$ {{valorCupom}}</span>
+        
            </li>
            <li class="list-group-item d-flex justify-content-between">
               <span></span>
-              <strong></strong>
+              <strong>{{usuarioLogado.caravana}}</strong>
+              <button [hidden]= "! possuiCaravana()" type="button" (click)="sairCaravana()" title="Sair desta Caravana" class="btn btn-link"><i class="fa fa-times"></i></button>
+
            </li>
         </ul>
+        <nav [hidden]= "possuiCaravana()" class="navbar alert-primary">
+         <button type="button" (click)="selecionarCaravana(contentCaravana)" style="text-decoration: none;" class="btn btn-link"><i class="fa fa-bus"></i> - INFORME SUA CARAVANA</button>
+      </nav>        
      </div>
   </div>
 </div>  
@@ -145,6 +147,50 @@
    </div>
  </ng-template>
  
+
+ <ng-template #contentCaravana let-c="close" let-d="dismiss">
+   <div class="modal-header">
+     <h4 class="modal-title" id="modal-basic-title">Caravana Virtual</h4>
+     <button type="button" class="close" aria-label="Close" (click)="d('EXIT')">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+   <div class="modal-body">
+     <div class="col-12">
+       <p *ngFor="let alert of alerts">
+         <ngb-alert [type]="alert.type" (close)="close(alert)">
+           <div [innerHTML]="alert.message"></div>
+         </ngb-alert>
+       </p>
+     </div>
+ 
+     <div class="col-12 col-sm-12" style="margin-top:10px">
+       <div class="card bg-light mb-12">
+         <div style="cursor: pointer;" (click)="show('ocultarDadosPessoais')">
+           <div class="card-header alert-primary"><i class="fa fa-bus"></i> Selecione uma caravana </div>
+         </div>
+         <div [hidden]="ocultarDadosPessoais" class="card-body">
+           <div class="row">
+             <div class=" col-md-12" >
+               <div class="form-label-group">
+                 <label for="inputEmail"></label>
+                   <select  [(ngModel)]="usuario.caravana" class="form-control" placeholder="">
+                     <option *ngFor="let t of listaCaravanas" [value]="t.descricao">{{ t.descricao }}</option>
+                   </select>                   
+               </div>
+           
+            </div>
+           </div>
+         </div>
+         </div>
+     </div>     
+    </div> 
+ 
+   <div class="modal-footer">
+     <button type="button" class="btn btn-outline-dark" (click)="c('SAVE')">Confirmar</button>
+   </div>
+ </ng-template>
+
 
 
 </body>

@@ -150,6 +150,7 @@ export class GeoLocationObject {
 
 export class Pagamento{
     erro: boolean;
+    erroTipo: string;
     confirmado: boolean;
     processado: boolean;
     tipo: string = "B";

@@ -96,8 +96,8 @@ export class UsuarioComponent implements OnInit, AfterViewInit {
           bairro: [jsonUsuario.bairro, Validators.required],
           cidade: [jsonUsuario.cidade, Validators.required],
           uf: [jsonUsuario.uf, Validators.required],
-          senha: [null, Validators.required],
-          senha_repita: [null, Validators.required],
+          senha: [null],
+          senha_repita: [null],
       })
  
       this.dropdownService.getPaises().subscribe(dados =>
@@ -230,6 +230,14 @@ export class UsuarioComponent implements OnInit, AfterViewInit {
       const campoSenha: HTMLInputElement =<HTMLInputElement>document.getElementById('senha');
       const campoSenhaRepita: HTMLInputElement =<HTMLInputElement>document.getElementById('senha_repita');
 
+      if (localStorage.getItem("usuario") == null){
+        if (campoSenha.value.length <= 0){
+            this.alerts = Array.from([{ type: 'danger', message: 'Por favor, informe uma senha de acesso  !!!' }]) ;
+            return;
+          }
+    
+      }         
+
       if (campoSenha.value != campoSenhaRepita.value){
         this.alerts = Array.from([{ type: 'danger', message: 'Senha informadas divergentes nos campos !!!' }]) ;
         return;
@@ -242,6 +250,8 @@ export class UsuarioComponent implements OnInit, AfterViewInit {
               response => {
                   console.log("Status" + response.status);
                   if (response.status.codigo == 0) {
+
+                    localStorage.setItem("usuario", JSON.stringify(response.dados));                    
 
                       var data = null;
 

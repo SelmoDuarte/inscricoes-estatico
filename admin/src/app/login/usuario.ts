@@ -6,4 +6,6 @@ export class Usuario {
     password: string;
     password_anterior: string;
     password_conferir: string;
+    operacao: string;
+    caravana: string;
 }

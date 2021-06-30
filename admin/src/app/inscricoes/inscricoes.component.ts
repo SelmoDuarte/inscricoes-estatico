@@ -79,21 +79,20 @@ export class InscricoesComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
 
-/*    
-    this.subscription = this.serviceWireCard.configurarNotificacoes()
+    
+/*    this.subscription = this.serviceWireCard.configurarNotificacoes()
     .subscribe(
     response => {
       alert('Deu Certo');
     },
     err => {
-      alert('Deu Errado');    });
-*/
+      alert('Deu Errado');    });*/
+
 
     //MOSTRA DIV PAGAMENTO CONFIRMADO
     this.pagamento.confirmado = false;
     this.pagamento.erro = false;
     this.pagamento.processado = false;
-
 
     this.carregando = true;
     this.subscription = this.service.getEventos()
@@ -395,7 +394,7 @@ export class InscricoesComponent implements OnInit, AfterViewInit {
   efetuarPagamentoCartao(id_pedido){
 
    // const pubKey = "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAi3ySIPM5R2khxvvFD0vEskXclzWtRCSl7KRZKxYj0YRkkEcksRQkEaApQzzEC2Ax8Jx9dNM4un0JnpreSMWG4YjAeQioh4L5E3HU5AkcKdvxlx/QaCfIMj0Wi0554ZCmcviJWH8cVyUxTXMqVpAdhN0fX7GvVaPF8IMO5WpG9z1YBTBfaM/XEfk/JPuvJiG0nnD9ME7pQgn0nuA3v5sbUtdenyBukEEf9qPL6AtWaryhPBQJUlPUMwuj+bilegIXufVbZK3jPVanSwVqfFU3+mBBaKbpMUmEfznS3aplLARNI4Uow+DYed8VSfab9/YPfi2IVIKkG/kv8kl8CiVxKQIDAQAB-----END PUBLIC KEY-----";
-    const pubKey = "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmFLYXWpgi6SrYFZNUDu8S2BiaaSKy9jAs/pHu9bVvJdsVzYdG2Ma01uaTPLq/oG2+o25ggQCbfHxWP+wk/ja+YjSgRnmLGUewSVnp2Er+tpmVILCuq3no/P6XA7ama1YOn26viJBxvL+7TBP3atQCSck12EnMlzTXUTUKjzMRfNTHF5j5E1hjrPDr3P+fkj0nP7+D2qnaYww2s3u8PnbGkNLXkcHsmp9aUijwrUR8g98FT8gjSoBUOCWj09NgfVtGOHS/47GFagAbZMVgc9HCCS5pCMKW49+1UO9Y326B+IMWPZFfZHBuh8BqS81dYsTQwW3qf4ERdYReK9xu1ShKQIDAQAB-----END PUBLIC KEY----";
+      const pubKey = "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmFLYXWpgi6SrYFZNUDu8S2BiaaSKy9jAs/pHu9bVvJdsVzYdG2Ma01uaTPLq/oG2+o25ggQCbfHxWP+wk/ja+YjSgRnmLGUewSVnp2Er+tpmVILCuq3no/P6XA7ama1YOn26viJBxvL+7TBP3atQCSck12EnMlzTXUTUKjzMRfNTHF5j5E1hjrPDr3P+fkj0nP7+D2qnaYww2s3u8PnbGkNLXkcHsmp9aUijwrUR8g98FT8gjSoBUOCWj09NgfVtGOHS/47GFagAbZMVgc9HCCS5pCMKW49+1UO9Y326B+IMWPZFfZHBuh8BqS81dYsTQwW3qf4ERdYReK9xu1ShKQIDAQAB-----END PUBLIC KEY-----";
 
     var expiracaoDia = (this.form.get("cc_expiracao").value).substring(0,2);
     var expiracaoAno = (this.form.get("cc_expiracao").value).substring(2,4);
@@ -417,11 +416,35 @@ export class InscricoesComponent implements OnInit, AfterViewInit {
         this.subscription = this.serviceWireCard.addPagamentoCartao(id_pedido, this.form, hash)
         .subscribe(
         response => {
-            this.pagamento.confirmado = true;
-            this.carregando = false;
-            //ATUALIZA A TABELA DE EVENTOS INSCRITOS
-            this.service.inscricao(response.id, response.status, this.listaCarrinho, this.form.get('cupom').value).subscribe();
+            if (response.status == 'CANCELLED'){
+              this.pagamento.confirmado = false;
+              this.carregando = false;
+              this.pagamento.erro = true;
+              this.pagamento.erroTipo = response.status;
+              this.pagamento.alerts = Array.from([{ type: 'danger', message: 'Não foi possível confirmar este pagamento' }]);
+            }
+            if (response.status == 'WAITING'){
+              this.pagamento.confirmado = false;
+              this.carregando = false;
+              this.pagamento.erro = true;
+              this.pagamento.erroTipo = response.status;              
+              this.pagamento.alerts = Array.from([{ type: 'warning', message: 'Ainda não foi possível confirmar este pagamento, estamos aguardando o retorno da operadora de cartão' }]);
+            }
+            if (response.status == 'IN_ANALYSIS'){
+              this.pagamento.confirmado = false;
+              this.carregando = false;
+              this.pagamento.erro = true;
+              this.pagamento.erroTipo = response.status;              
+              this.pagamento.alerts = Array.from([{ type: 'warning', message: 'Ainda não foi possível confirmar este pagamento, estamos aguardando o retorno da operadora de cartão' }]);
+            }
 
+            if (response.status == 'AUTHORIZED'){
+              this.pagamento.erro = false;
+              this.pagamento.confirmado = true;
+              this.carregando = false;
+              //ATUALIZA A TABELA DE EVENTOS INSCRITOS
+            }
+            this.service.inscricao(response.id, response.status, this.listaCarrinho, this.form.get('cupom').value).subscribe();
         },
         (erroResponse) => {
           this.carregando = false;

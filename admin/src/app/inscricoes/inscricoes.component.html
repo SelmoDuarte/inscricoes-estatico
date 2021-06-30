@@ -164,11 +164,13 @@
                   <div class="card-body">
                      <br><br>
                      <div class="text-center">
-                        <img  class="rounded mx-auto d-block" src="assets/img/pagamentoErro.png" class="img-fluid" style="max-width: 200px"><br><br>
+                        <img [hidden]="pagamento.erroTipo != 'CANCELLED' "  class="rounded mx-auto d-block" src="assets/img/pagamentoErro.png" class="img-fluid" style="max-width: 200px"><br><br>
+                        <img [hidden]="pagamento.erroTipo == 'CANCELLED' "  class="rounded mx-auto d-block" src="assets/img/pagamentoAlerta.png" class="img-fluid" style="max-width: 200px"><br><br>
                      </div>
                      <p class="text-center text-danger">
                         <b>
-                     <h3>PAGAMENTO NÃO CONFIRMADO</h3></b></p>
+                     <h3 [hidden]="pagamento.erroTipo != 'CANCELLED' ">PAGAMENTO NÃO CONFIRMADO</h3>
+                     <h3 [hidden]="pagamento.erroTipo == 'CANCELLED' " style="color:orange">ATENÇÃO !!!</h3></b></p>
                      <div class="text-center text-secondary">
                         <p *ngFor="let alert of pagamento.alerts">
                            <ngb-alert [type]="alert.type" (close)="close(alert)">

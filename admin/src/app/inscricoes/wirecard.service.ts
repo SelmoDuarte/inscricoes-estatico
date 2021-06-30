@@ -209,17 +209,21 @@ export class WireCardService {
   }
 
   configurarNotificacoes() {
-    return this.http.post(this.API_SETAR_NOTIFICACOES, {
+    return this.http.get(this.API_SETAR_NOTIFICACOES , this.httpOptions)
+    .pipe(
+       tap(console.log)
+    );      
+   /*return this.http.post(this.API_SETAR_NOTIFICACOES, {
       "events": [
         "PAYMENT.AUTHORIZED",
         "PAYMENT.CANCELLED"
       ],
-      "target": "http://conad.adm.br/sistemas/inscricoes-api/api/inscricoes/notificacoes.php",
+      "target": "http://conad.adm.br/sistemas/inscricoes-api/api/inscricoes/notificacoesV1.php",
       "media": "WEBHOOK"
     }  , this.httpOptions)
       .pipe(
          tap(console.log)
-    );      
+    );    */  
 }
 
 

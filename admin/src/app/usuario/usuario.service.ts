@@ -24,6 +24,7 @@ export class UsuarioService {
 
   salvar(form) {
     let formObj = form.getRawValue(); // {name: '', description: ''}
+    formObj.operacao = "SALVAR";
 
     let serializedForm = JSON.stringify(formObj);
 
@@ -32,5 +33,12 @@ export class UsuarioService {
        tap(console.log)
     );
   }
-    
+   
+  salvarMinhaCaravana(form) {
+    return this.http.post(this.API_SALVAR_USUARIO, form, this.httpOptions)
+    .pipe(
+       tap(console.log)
+    );
+  }  
+
 }

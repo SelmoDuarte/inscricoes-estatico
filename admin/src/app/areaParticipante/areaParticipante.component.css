@@ -9,4 +9,7 @@
 .WAITING{
     font-weight: bold;
     color:rgb(255, 196, 0);
+}    
+.CANCELLED{
+        color:red; 
 }

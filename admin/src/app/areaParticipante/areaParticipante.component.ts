@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 import { Usuario } from '../login/usuario';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalAcessoNegadoComponent } from '../modal-acessoNegado/modal-acessoNegado.component';
+import { UsuarioService } from '../usuario/usuario.service';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class AreaParticipanteComponent implements OnInit, AfterViewInit {
   form: FormGroup;    
   submitted = false;
   alerts = [];
-  tiposEntidade =  [];
+  listaCaravanas =  [];
   tiposRegistro = [];
   situacoesRegistro = [];
 
@@ -44,9 +45,8 @@ export class AreaParticipanteComponent implements OnInit, AfterViewInit {
   ocultarOuvidoria = false;   
   ocultarAnexos = false;   
   id = 0; 
-
-
-
+  usuarioLogado;
+ 
 
   constructor(
       private fb: FormBuilder,        
@@ -55,6 +55,7 @@ export class AreaParticipanteComponent implements OnInit, AfterViewInit {
       private router: Router,           
       private cepService: ConsultaCepService,
       private service: AreaParticipanteService,      
+      private usuarioService: UsuarioService,      
       private http: HttpClient,
       private modalService: NgbModal             
   ) { }
@@ -72,11 +73,16 @@ export class AreaParticipanteComponent implements OnInit, AfterViewInit {
         response => {
             this.carregando = false;
             this.listaMeusEventos = response.dados;
+            this.listaCaravanas = response.caravanas;
         },
         err => {
             this.carregando = false;
             this.alerts = Array.from([{ type: 'danger', message: err.message }])
         });
+
+     
+
+        this.usuarioLogado = JSON.parse(localStorage.getItem("usuario"));        
 
   }
   
@@ -111,17 +117,7 @@ export class AreaParticipanteComponent implements OnInit, AfterViewInit {
     const modal = this.modalService.open(content);
     modal. result.then(() => { 
       console.log('SALVAR'); 
-      if (this.usuario.password_anterior == ""){
-        this.alerts = Array.from([{ type: 'danger', message: 'Senha atual inválida' }]);
-        this.alterarSenha(content);
-        return;
-      }
-      if (this.usuario.password == "" ||  this.usuario.password != this.usuario.password_conferir){
-        this.alerts = Array.from([{ type: 'danger', message: 'Senha atual diferente nos campos Senha e Repetir Senha' }]);
-        this.alterarSenha(content);
-        return;
-      }
-
+  
       this.authService.alterarSenha(this.usuario).subscribe(dados => {
         if (dados.status.codigo == 99){
           this.alerts = Array.from([{ type: 'danger', message: dados.status.mensagem }]);
@@ -140,6 +136,70 @@ export class AreaParticipanteComponent implements OnInit, AfterViewInit {
 
     }, () => { console.log('SAIR')})
   }
+
+
+  selecionarCaravana(content) {
+    var string = localStorage.getItem("usuario") ;
+    var obj = JSON.parse(string);
+    this.usuario.operacao = "SALVAR_MINHA_CARAVANA";
+    this.usuario.cpf = obj.cpf;
+    const modal = this.modalService.open(content);
+    modal. result.then(() => { 
+      console.log('SALVAR'); 
+      this.usuarioService.salvarMinhaCaravana(this.usuario).subscribe(response => {
+                 console.log("Status" + response.status);
+                if (response.status.codigo == 0) {
+                  localStorage.setItem("usuario", JSON.stringify(response.dados));     
+                  this.usuarioLogado = JSON.parse(localStorage.getItem("usuario"));                      
+                }
+            },
+            err => {
+                this.carregando = false;
+                this.alerts = Array.from([{ type: 'danger', message: err.message }])
+                console.log(err);
+        });
+    
+   
+    }, () => { console.log('SAIR')})
+  }
+
+  possuiCaravana(){
+    if (typeof this.usuarioLogado.caravana == "undefined"){
+      return false;
+    }
+    if (this.usuarioLogado.caravana.length <= 0 ){
+      return false;
+    }else{
+      return true;
+    }
+  }
+
+  sairCaravana() {
+
+    if (! confirm("Deseja não mais fazer parte desta Caravana ?") ) {
+      return;
+    } 
+
+    var string = localStorage.getItem("usuario") ;
+    var obj = JSON.parse(string);
+    this.usuario.operacao = "SALVAR_MINHA_CARAVANA";
+    this.usuario.caravana = "";
+    this.usuario.cpf = obj.cpf;
+     this.usuarioService.salvarMinhaCaravana(this.usuario).subscribe(response => {
+                 console.log("Status" + response.status);
+                if (response.status.codigo == 0) {
+                  localStorage.setItem("usuario", JSON.stringify(response.dados));    
+                  this.usuarioLogado = JSON.parse(localStorage.getItem("usuario"));                                         
+                }
+            },
+            err => {
+                this.carregando = false;
+                this.alerts = Array.from([{ type: 'danger', message: err.message }])
+                console.log(err);
+        });
+  }
+
+
 
   acessoNegado(){
     var modalRef = this.modalService.open(ModalAcessoNegadoComponent);
