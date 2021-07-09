@@ -93,11 +93,13 @@ export class WireCardService {
 
     var e: any;
     for (e of listaProdutos){
-      var productObject: ProductObject = new ProductObject();
-      productObject.product = e.descricao;
-      productObject.detail = e.detalhe;
-      productObject.price = Number(Number(e.valor) * 100);
-      pedidoWireCard.items.push(productObject);
+      if (Number(e.valor) > 0){
+        var productObject: ProductObject = new ProductObject();
+        productObject.product = e.descricao;
+        productObject.detail = e.detalhe;
+        productObject.price = Number(Number(e.valor) * 100);
+        pedidoWireCard.items.push(productObject);
+      }
     }
     pedidoWireCard.customer = new CustomerObject(); 
     pedidoWireCard.customer.id = id_wirecard;
