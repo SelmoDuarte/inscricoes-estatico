@@ -9,7 +9,6 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { AreaParticipanteComponent } from './areaParticipante/areaParticipante.component';
 import { InscricoesComponent } from './inscricoes/inscricoes.component';
 
-
 const appRoutes: Routes = [
 //    {
 //        path: 'cursos',
@@ -42,4 +41,5 @@ const appRoutes: Routes = [
     exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
 

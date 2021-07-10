@@ -1810,11 +1810,13 @@ var WireCardService = /** @class */ (function () {
         var e;
         for (var _i = 0, listaProdutos_1 = listaProdutos; _i < listaProdutos_1.length; _i++) {
             e = listaProdutos_1[_i];
-            var productObject = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["ProductObject"]();
-            productObject.product = e.descricao;
-            productObject.detail = e.detalhe;
-            productObject.price = Number(Number(e.valor) * 100);
-            pedidoWireCard.items.push(productObject);
+            if (Number(e.valor) > 0) {
+                var productObject = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["ProductObject"]();
+                productObject.product = e.descricao;
+                productObject.detail = e.detalhe;
+                productObject.price = Number(Number(e.valor) * 100);
+                pedidoWireCard.items.push(productObject);
+            }
         }
         pedidoWireCard.customer = new _wireCardObjects__WEBPACK_IMPORTED_MODULE_3__["CustomerObject"]();
         pedidoWireCard.customer.id = id_wirecard;

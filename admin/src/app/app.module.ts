@@ -58,3 +58,4 @@ import { InscricoesComponent } from './inscricoes/inscricoes.component';
 })
 export class AppModule { }
 
+
