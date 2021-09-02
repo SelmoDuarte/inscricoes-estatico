@@ -272,7 +272,7 @@
                                     </div>
                                     <hr>
                                     <div class="d-block my-3">
-                                       <div class="col-12 col-sm-12">
+                                       <div class="col-12 col-sm-12" [hidden]= "valor == 0">
                                           <label><b>Pagar com:</b></label><br>                  
                                           <div class="custom-control custom-radio custom-control-inline">
                                              <input type="radio" class="custom-control-input" id="boleto" name="meioPagamento" value="1" (change)="selecionarTipoPagamento()" checked>
@@ -364,7 +364,7 @@
                                           <h6 class="my-0">Desconto</h6>
                                           <small>CUPOM Promocional</small>
                                        </div>
-                                       <span [hidden]= "! cupomValido" class="text-success">-$R$ {{valorCupom}}</span>
+                                       <span [hidden]= "! cupomValido" class="text-success">-{{valorCupom}} %</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
                                        <span>Total (R$)</span>

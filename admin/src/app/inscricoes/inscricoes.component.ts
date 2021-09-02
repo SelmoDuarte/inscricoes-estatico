@@ -260,7 +260,11 @@ export class InscricoesComponent implements OnInit, AfterViewInit {
             this.listaCarrinho.push(e);
         }
     }
-    this.valor = Number(this.valor - this.valorCupom).toFixed(2);
+    if (this.valorCupom > 0){
+      this.valor = Number(this.valor - ((this.valor/this.valorCupom)*100)).toFixed(2);
+    }else{
+      this.valor = Number(this.valor).toFixed(2);
+    }
     this.listaQtdParcelas  = [{ codigo: '1', descricao: 'A Vista' }];
     this.listaQtdParcelas.push({ codigo: '2', descricao: '2 x de R$ ' + Number(this.valor/2).toFixed(2) });
     this.listaQtdParcelas.push({ codigo: '3', descricao: '3 x de R$ ' + Number(this.valor/3).toFixed(2) });
@@ -314,6 +318,15 @@ export class InscricoesComponent implements OnInit, AfterViewInit {
     this.carregando = true;
     this.pagamento.processado = true;
     var jsonUsuario = JSON.parse(localStorage.getItem("usuario"));  
+
+    if (this.valorCupom == 100){
+      this.service.inscricao(0, "AUTHORIZED", this.listaCarrinho, this.form.get('cupom').value).subscribe();
+      this.pagamento.erro = false;
+      this.pagamento.confirmado = true;
+      this.carregando = false;
+      this.pagamento.tipo='C';
+      return;
+    }
 
     //VALIDA OS DADOS DO CARTÃO ANTES DE INICIAR
     if (! this.validarPagamento()){
