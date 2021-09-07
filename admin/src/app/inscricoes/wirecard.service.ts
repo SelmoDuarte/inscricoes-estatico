@@ -166,7 +166,7 @@ export class WireCardService {
 
   addPagamentoBoleto(id_ord, f) {
 
-    var diasVencimento = 5;
+    var diasVencimento = 1;
     var dataVencimento = new Date(Date.now() + diasVencimento * 24*60*60*1000);
     let dataAtualFormatada = (this.adicionaZero(dataVencimento.getFullYear().toString()) + "-" + (this.adicionaZero(dataVencimento.getMonth()+1).toString()) + "-" + this.adicionaZero(dataVencimento.getDate()));
 
