@@ -1,0 +1,196 @@
+<body>
+  <div class="container">
+  <p style="align-content: center">
+     <img *ngIf="carregando" class="rounded mx-auto d-block" src="assets/img/loading.gif">
+  </p>
+  <div class="row">
+     <div class="col-sm-3 col-md-3 col-lg-3">
+        <nav class="navbar alert-primary">
+           <a class="nav-link" routerLink="/inscricoes"> <i class="fa fa-cart-plus"></i> - INSCRICOES PAGAMENTOS </a>
+        </nav>
+        <br>
+        <nav class="navbar alert-primary">
+           <button type="button" (click)="alterarSenha(content)" class="btn btn-link"><i class="fa fa-unlock-alt"></i> - ALTERAR SENHA</button>
+        </nav>
+        <br>
+        <nav class="navbar alert-primary">
+           <a class="nav-link" routerLink="/usuario"> <i class="fa fa-users-cog"></i> - ATUALIZAR DADOS </a>
+        </nav>
+        <br>
+        <nav class="navbar alert-primary">
+           <a class="nav-link" href="#" (click)="acessoNegado()" > <i class="fa fa-flag-checkered"></i> - CERTIFICADO </a>
+        </nav>
+        <br>
+        <nav class="navbar alert-primary">
+           <a class="nav-link" href="https://www.conad.adm.br/ojs/" target="_blank"> <i class="fa fa-file-pdf"></i> - ENVIAR TRABALHO </a>
+        </nav>
+        <br>
+        <nav class="navbar alert-primary">
+           <a class="nav-link"  href="#" (click)="logoff()"> <i class="fa fa-sign-out-alt"></i> - LOGOFF </a>
+        </nav>
+     </div>
+     <div class="col-sm-5 col-md-5 col-lg-5">
+        <h3>Seja Bem Vindo</h3>
+        <hr>
+        <p><b>Datas Importantes:</b></p>
+        <ul>
+           <li>Submissão de Trabalho<br>
+              07/06/2021 a 14/08/2021
+           <li>Prazo Final para o Pagamento da Taxa de Avaliação dos Artigos<br>
+              15/08/2021
+           <li>Resultado dos Trabalhos Aceitos para Apresentação / Publicação<br>
+              30/08/2021
+           <li>Prazo Final para Inscrição no 26º CONAD<br>
+              05/09/2021
+        </ul>
+     </div>
+     <div class="col-sm-4 col-md-4 col-lg-4">
+        <!-- Heading -->
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+           <span class="text-muted">Meus Eventos</span>
+           <span class="badge badge-secondary badge-pill">{{listaMeusEventos.length}}</span>
+        </h4>
+        <!-- Cart -->
+        <ul *ngFor="let reg of listaMeusEventos" class="list-group mb-3 z-depth-1">
+           <li class="list-group-item d-flex justify-content-between lh-condensed">
+               <div class="col-sm-8 col-md-8 col-lg-8">
+                  <h6 class="my-0">{{reg.descricao}}</h6>
+               </div>
+               <div class="col-sm-4 col-md-4 col-lg-4 text-center align-middle">
+                     <p style="font-size: 80%;" [ngClass]="reg.status" >{{reg.status_descricao}}</p>
+               </div>
+           </li>
+        </ul>
+        <ul class="list-group mb-3 z-depth-1">
+           <li  class="list-group-item d-flex justify-content-between bg-light">
+              <div [hidden]= "! possuiCaravana()" class="text-success">
+               <p class="text-muted">Minha Caravana</p>
+             
+              </div>
+        
+           </li>
+           <li class="list-group-item d-flex justify-content-between">
+              <span></span>
+              <strong>{{usuarioLogado.caravana}}</strong>
+              <button [hidden]= "! possuiCaravana()" type="button" (click)="sairCaravana()" title="Sair desta Caravana" class="btn btn-link"><i class="fa fa-times"></i></button>
+
+           </li>
+        </ul>
+        <nav [hidden]= "possuiCaravana()" class="navbar alert-primary">
+         <button type="button" (click)="selecionarCaravana(contentCaravana)" style="text-decoration: none;" class="btn btn-link"><i class="fa fa-bus"></i> - INFORME SUA CARAVANA</button>
+      </nav>        
+     </div>
+  </div>
+</div>  
+
+<ng-template #content let-c="close" let-d="dismiss">
+   <div class="modal-header">
+     <h4 class="modal-title" id="modal-basic-title">Alterar Senha</h4>
+     <button type="button" class="close" aria-label="Close" (click)="d('EXIT')">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+   <div class="modal-body">
+     <div class="col-12">
+       <p *ngFor="let alert of alerts">
+         <ngb-alert [type]="alert.type" (close)="close(alert)">
+           <div [innerHTML]="alert.message"></div>
+         </ngb-alert>
+       </p>
+     </div>
+ 
+     <div class="col-12 col-sm-12" style="margin-top:10px">
+       <div class="card bg-light mb-12">
+         <div style="cursor: pointer;" (click)="show('ocultarDadosPessoais')">
+           <div class="card-header alert-primary"><i class="fa fa-user-tie"></i> Dados do Usuário </div>
+         </div>
+         <div [hidden]="ocultarDadosPessoais" class="card-body">
+           <div class="row">
+             <div class=" col-md-12" >
+               <div class="form-label-group">
+                 <label for="inputEmail">Usuário</label>
+                 <input #loginField [(ngModel)]="usuario.login" type="text" class="form-control" required value="" disabled 
+                   autocomplete="off">
+               </div>
+           
+               <div class="form-label-group">
+                 <label for="inputPassword">Senha Anterior</label>
+                 <input [(ngModel)]="usuario.password_anterior" type="password" id="inputPassword" class="form-control"
+                   placeholder="Password" required>
+               </div>
+             </div>
+             <div class=" col-md-6" >
+ 
+               <div class="form-label-group">
+                 <label for="inputPassword">Nova Senha</label>
+                 <input [(ngModel)]="usuario.password" type="password" id="inputPassword" class="form-control"
+                   placeholder="Password" required>
+               </div>
+             </div>
+             <div class=" col-md-6" >
+ 
+               <div class="form-label-group">
+                 <label for="inputPassword">Repita Nova Senha</label>
+                 <input [(ngModel)]="usuario.password_conferir" type="password" id="inputPassword" class="form-control"
+                   placeholder="Password" required>
+               </div>
+             </div>
+           
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>     
+ 
+   <div class="modal-footer">
+     <button type="button" class="btn btn-outline-dark" (click)="c('SAVE')">Confirmar</button>
+   </div>
+ </ng-template>
+ 
+
+ <ng-template #contentCaravana let-c="close" let-d="dismiss">
+   <div class="modal-header">
+     <h4 class="modal-title" id="modal-basic-title">Caravana Virtual</h4>
+     <button type="button" class="close" aria-label="Close" (click)="d('EXIT')">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+   <div class="modal-body">
+     <div class="col-12">
+       <p *ngFor="let alert of alerts">
+         <ngb-alert [type]="alert.type" (close)="close(alert)">
+           <div [innerHTML]="alert.message"></div>
+         </ngb-alert>
+       </p>
+     </div>
+ 
+     <div class="col-12 col-sm-12" style="margin-top:10px">
+       <div class="card bg-light mb-12">
+         <div style="cursor: pointer;" (click)="show('ocultarDadosPessoais')">
+           <div class="card-header alert-primary"><i class="fa fa-bus"></i> Selecione uma caravana </div>
+         </div>
+         <div [hidden]="ocultarDadosPessoais" class="card-body">
+           <div class="row">
+             <div class=" col-md-12" >
+               <div class="form-label-group">
+                 <label for="inputEmail"></label>
+                   <select  [(ngModel)]="usuario.caravana" class="form-control" placeholder="">
+                     <option *ngFor="let t of listaCaravanas" [value]="t.descricao">{{ t.descricao }}</option>
+                   </select>                   
+               </div>
+           
+            </div>
+           </div>
+         </div>
+         </div>
+     </div>     
+    </div> 
+ 
+   <div class="modal-footer">
+     <button type="button" class="btn btn-outline-dark" (click)="c('SAVE')">Confirmar</button>
+   </div>
+ </ng-template>
+
+
+
+</body>

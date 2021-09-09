@@ -4,53 +4,176 @@
      <img *ngIf="carregando" class="rounded mx-auto d-block" src="assets/img/loading.gif">
   </p>
   <div class="row">
-     <div class="col-sm-3 col-md-3 col-lg-3">
-        <nav class="navbar alert-primary">
-           <a class="nav-link" routerLink="/inscricoes"> <i class="fa fa-cart-plus"></i> - INSCRICOES PAGAMENTOS </a>
-        </nav>
-        <br>
-        <nav class="navbar alert-primary">
-           <button type="button" (click)="alterarSenha(content)" class="btn btn-link"><i class="fa fa-unlock-alt"></i> - ALTERAR SENHA</button>
-        </nav>
-        <br>
-        <nav class="navbar alert-primary">
-           <a class="nav-link" routerLink="/usuario"> <i class="fa fa-users-cog"></i> - ATUALIZAR DADOS </a>
-        </nav>
-        <br>
-        <nav class="navbar alert-primary">
-           <a class="nav-link" href="#" (click)="acessoNegado()" > <i class="fa fa-flag-checkered"></i> - CERTIFICADO </a>
-        </nav>
-        <br>
-        <nav class="navbar alert-primary">
-           <a class="nav-link" href="https://www.conad.adm.br/ojs/" target="_blank"> <i class="fa fa-file-pdf"></i> - ENVIAR TRABALHO </a>
-        </nav>
-        <br>
-        <nav class="navbar alert-primary">
-           <a class="nav-link"  href="#" (click)="logoff()"> <i class="fa fa-sign-out-alt"></i> - LOGOFF </a>
-        </nav>
+
+    <div class="col-sm-9 col-md-9 col-lg-9">
+      <div class="alert alert-primary" role="alert">
+        <b>Agenda de Eventos:</b>  
+      </div>
+        
+        <div class="accordion" id="accordionExample">
+          <div class="card" [hidden]="! evento03">
+            <div class="card-header" id="heading4">
+                <div class="alert alert-dark" style="cursor: pointer;" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4" role="alert">
+                  <b>Apesentação de Trabalhos Científicos</b><p style="font-size: 70%;"><i>16/09 (quinta-feira) 08h às 18h</i></p>                  
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                  </div>                  
+                </div>
+            </div>
+        
+            <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+              <div class="card-body">
+                <ul class="list-group">
+                  <li class="list-group-item" style="cursor: pointer;" title="Click para assitir esta palestra">
+                    <div class="row">
+                      <div class="col-6">
+                        <p><b>Sala GOIÁS</b></p>
+                        <p><button type="button" (click)="acessoStreaming(31)" class="btn btn-outline-success"><i class="far fa-play-circle"></i> Entrar</button></p>
+                      </div>
+                        <div class="col-6">
+                          <p><b>Sala Vila Nova</b></p>
+                          <p><button type="button" (click)="acessoStreaming(32)" class="btn btn-outline-danger"><i class="far fa-play-circle"></i> Entrar</button></p>
+                          </div>
+                          </div>
+                </ul>      
+              </div>
+            </div>
+          </div>
+
+          <div class="card" [hidden]="! evento01">
+            <div class="card-header" id="headingOne">
+                <div class="alert alert-dark" style="cursor: pointer;" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" role="alert">
+                  <b>Painel de Gestão 01</b><p style="font-size: 70%;"><i>17/09 (Sexta) 09h às 12h</i></p>
+                  <div class="progress">
+                    <div id="progressBarPainel01" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 0%;" [attr.aria-valuenow]="assistiuEvento1" aria-valuemin="0" aria-valuemax="100">{{assistiuEvento1}}%</div>
+                  </div>                  
+                </div>
+            </div>
+        
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <ul class="list-group">
+                  <li class="list-group-item" style="cursor: pointer;" (click)="acessoStreaming(11)"  title="Click para assitir esta palestra">
+                    <div class="row">
+                      <div class="col-3">
+                        <img src="https://conad.adm.br/portal/wp-content/uploads/2021/06/Conad-MarcioDourado-1.jpg" class="rounded-circle img-fluid" >
+                      </div>
+                      <div class="col-9" style="font-size:80%;" >
+                        <p ><b>“Investimento na Era Digital: Homebrokers, bancos virtuais de investimentos e as novas formas de investir”</b></p>
+                        <p><i class="fa fa-user-tie" ></i> - Prof. Márcio Dourado</p>
+                        <p><button type="button" class="btn btn-outline-primary"> <i [hidden]="assistiuEvento11" class="far fa-play-circle"></i> <i [hidden]="! assistiuEvento11" class="far fa-check-circle" ></i> Assistir</button></p>
+    
+                      </div>
+                    </div>
+                    <li class="list-group-item" style="cursor: pointer;" (click)="acessoStreaming(12)" title="Click para assitir esta palestra">
+                      <div class="row">
+                        <div class="col-3">
+                          <img src="https://conad.adm.br/portal/wp-content/uploads/2021/06/IvanLourenco-2.jpg" class="rounded-circle img-fluid">
+                        </div>
+                        <div class="col-9"  style="font-size:80%;">
+                          <p><b>“Como as metodologias ágeis de gerenciamento de projetos podem melhorar os negócios”</b></p>
+                          <p><i class="fa fa-user-tie"></i> - Ivan Lourenço</p>
+                          <p><button type="button" class="btn btn-outline-primary"><i [hidden]="assistiuEvento12" class="far fa-play-circle"></i> <i [hidden]="! assistiuEvento12" class="far fa-check-circle" ></i> Assistir</button></p>
+      
+                        </div>
+                      </div>
+                    <li class="list-group-item" style="cursor: pointer;" (click)="acessoStreaming(13)" title="Click para assitir esta palestra">
+                      <div class="row">
+                        <div class="col-3">
+                          <img src="https://conad.adm.br/portal/wp-content/uploads/2021/06/RejaneDuarte-1.jpg" class="rounded-circle img-fluid">
+                        </div>
+                        <div class="col-9"  style="font-size:80%;">
+                          <p><b>“O Desafio da Implantação das Novas Tecnologias”</b></p>
+                          <p><i class="fa fa-user-tie"></i> - Rejane Duarte</p>
+                          <p><button type="button" class="btn btn-outline-primary"><i [hidden]="assistiuEvento13" class="far fa-play-circle"></i> <i [hidden]="! assistiuEvento13" class="far fa-check-circle" ></i> Assistir</button></p>
+ 
+                        </div>
+                      </div>
+                </ul>      
+              </div>
+            </div>
+          </div>
+          <div class="card" [hidden]="! evento02">
+            <div class="card-header" id="headingTwo">
+                  <div class="alert alert-dark" style="cursor: pointer;" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" role="alert">
+                    <b>Painel de Gestão 02</b><p style="font-size: 70%;"><i>17/09 (Sexta) 14h às 18h</i></p>                    
+                    <div class="progress">
+                      <div id="progressBarPainel02" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 0%;" [attr.aria-valuenow]="assistiuEvento2" aria-valuemin="0" aria-valuemax="100">{{assistiuEvento2}}%</div>
+                    </div>                  
+                  </div>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                <ul class="list-group">
+                 
+                  <li class="list-group-item" style="cursor: pointer;" (click)="acessoStreaming(21)" title="Click para assitir esta palestra">
+                    <div class="row">
+                      <div class="col-3">
+                        <img src="https://conad.adm.br/portal/wp-content/uploads/2021/06/FelipeDaumas-1.jpg" class="rounded-circle img-fluid">
+                      </div>
+                      <div class="col-9"  style="font-size:80%;">
+                        <p><b>“Estratégias de Comunicação e Vendas na Internet”</b></p>
+                        <p><i class="fa fa-user-tie"></i> - Filipe Daumas</p>
+                        <p><button type="button" class="btn btn-outline-primary"><i [hidden]="assistiuEvento21" class="far fa-play-circle"></i> <i [hidden]="! assistiuEvento21" class="far fa-check-circle" ></i> Assistir</button></p>
+    
+                      </div>
+                    </div>
+                    <li class="list-group-item" style="cursor: pointer;" (click)="acessoStreaming(22)" title="Click para assitir esta palestra">
+                      <div class="row">
+                        <div class="col-3">
+                          <img src="https://conad.adm.br/portal/wp-content/uploads/2021/06/RafaelMaciel-1.jpg" class="rounded-circle img-fluid">
+                        </div>
+                        <div class="col-9"  style="font-size:80%;">
+                          <p><b>“Desafios da LGPD nos primeiros anos de sua vigência”</b></p>
+                          <p><i class="fa fa-user-tie"></i> - Rafael Maciel</p>
+                          <p><button type="button" class="btn btn-outline-primary"><i [hidden]="assistiuEvento22" class="far fa-play-circle"></i> <i [hidden]="! assistiuEvento22" class="far fa-check-circle" ></i> Assistir</button></p>
+      
+                        </div>
+                      </div>
+                    <li class="list-group-item" style="cursor: pointer;" (click)="acessoStreaming(23)" title="Click para assitir esta palestra">
+                      <div class="row">
+                        <div class="col-3">
+                          <img src="https://conad.adm.br/portal/wp-content/uploads/2021/06/AdrianoSouza-1.jpg" class="rounded-circle img-fluid">
+                        </div>
+                        <div class="col-9" style="font-size:80%;">
+                          <p><b>“Panorama e Tendências da automação de processos de negócios”</b></p>
+                          <p><i class="fa fa-user-tie"></i> - Adriano Souza Pereira</p>
+                          <p><button type="button" class="btn btn-outline-primary"><i [hidden]="assistiuEvento23" class="far fa-play-circle"></i> <i [hidden]="! assistiuEvento23" class="far fa-check-circle" ></i> Assistir</button></p>
+      
+                        </div>
+                      </div>
+                </ul>      
+              </div>
+            </div>
+          </div>
+          <div class="card" [hidden]="! evento99">
+            <div class="card-header" id="headingThree">
+                <div class="alert alert-danger" style="cursor: pointer;" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" role="alert">
+                  <b>Evento Principal  (Ao Vivo)</b><p style="font-size: 70%;"><i>faltam:  <span id="days"> {{daysToDday}} </span>dia(s)  <span id="hours"> {{hoursToDday}} </span>hrs  <span id="minutes"> {{minutesToDday}} </span>Min <span id="seconds"> {{secondsToDday}} </span>S</i></p>                  
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                  </div>                  
+                </div>
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+
+                </button>
+              </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div class="card-body">
+                <p><button type="button" class="btn btn-outline-primary"><i class="far fa-play-circle"></i>Assistir</button></p>
+    
+              </div>
+            </div>
+          </div>
+        </div>
      </div>
-     <div class="col-sm-5 col-md-5 col-lg-5">
-        <h3>Seja Bem Vindo</h3>
-        <hr>
-        <p><b>Datas Importantes:</b></p>
-        <ul>
-           <li>Submissão de Trabalho<br>
-              07/06/2021 a 14/08/2021
-           <li>Prazo Final para o Pagamento da Taxa de Avaliação dos Artigos<br>
-              15/08/2021
-           <li>Resultado dos Trabalhos Aceitos para Apresentação / Publicação<br>
-              30/08/2021
-           <li>Prazo Final para Inscrição no 26º CONAD<br>
-              05/09/2021
-        </ul>
-     </div>
-     <div class="col-sm-4 col-md-4 col-lg-4">
-        <!-- Heading -->
+     <!--div class="col-sm-4 col-md-4 col-lg-4">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
            <span class="text-muted">Meus Eventos</span>
            <span class="badge badge-secondary badge-pill">{{listaMeusEventos.length}}</span>
         </h4>
-        <!-- Cart -->
         <ul *ngFor="let reg of listaMeusEventos" class="list-group mb-3 z-depth-1">
            <li class="list-group-item d-flex justify-content-between lh-condensed">
                <div class="col-sm-8 col-md-8 col-lg-8">
@@ -79,9 +202,67 @@
         <nav [hidden]= "possuiCaravana()" class="navbar alert-primary">
          <button type="button" (click)="selecionarCaravana(contentCaravana)" style="text-decoration: none;" class="btn btn-link"><i class="fa fa-bus"></i> - INFORME SUA CARAVANA</button>
       </nav>        
-     </div>
+     </div-->
+
+
+    <div class="col-sm-3 col-md-3 col-lg-3" >
+      <div class="alert alert-primary" role="alert">
+          <b>Menu:</b>
+      </div>
+      <nav class="navbar alert-primary"  style="font-size:80%;">
+         <a class="nav-link" routerLink="/inscricoes"> <i class="fa fa-cart-plus"></i> - INSCRICOES PAGAMENTOS </a>
+      </nav>
+      <br>
+      <nav class="navbar alert-primary" style="font-size:80%;">
+         <button type="button" (click)="alterarSenha(content)" class="btn btn-link" style="font-size:90%;text-decoration: none;"><i class="fa fa-unlock-alt"></i> - ALTERAR SENHA</button>
+
+      </nav>
+      <br>
+      <nav class="navbar alert-primary" style="font-size:80%;">
+         <a class="nav-link" routerLink="/usuario"> <i class="fa fa-users-cog"></i> - ATUALIZAR DADOS </a>
+      </nav>
+      <br>
+      <nav class="navbar alert-primary" style="font-size:80%;">
+         <a class="nav-link" href="#" (click)="acessoNegado()" > <i class="fa fa-flag-checkered"></i> - CERTIFICADO </a>
+      </nav>
+      <br>
+      <nav class="navbar alert-primary" style="font-size:80%;">
+         <a class="nav-link" href="https://www.conad.adm.br/ojs/" target="_blank"> <i class="fa fa-file-pdf"></i> - ENVIAR TRABALHO </a>
+      </nav>
+      <br>
+      <nav class="navbar alert-primary" style="font-size:80%;">
+        <a class="nav-link" href="#" (click)="acessoNegado()" > <i class="fa fa-flag-checkered"></i> - AVALIAÇÃO </a>
+     </nav>
+      <br>
+      <nav class="navbar alert-primary" style="font-size:80%;">
+         <a class="nav-link"  href="#" (click)="logoff()"> <i class="fa fa-sign-out-alt"></i> - LOGOFF </a>
+      </nav>
+      <br>
+      <nav [hidden]= "possuiCaravana()" class="navbar alert-primary"  style="font-size:80%;">
+        <button type="button" (click)="selecionarCaravana(contentCaravana)" class="btn btn-link"  style="font-size:90%;text-decoration: none;"><i class="fa fa-bus"></i> - INFORME SUA CARAVANA</button>
+     </nav>        
+  
+
+      <ul class="list-group mb-3 z-depth-1">
+        <li  class="list-group-item d-flex justify-content-between bg-light">
+           <div [hidden]= "! possuiCaravana()" class="text-success">
+            <p class="text-muted">Minha Caravana</p>
+          
+           </div>
+     
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+           <span></span>
+           <strong>{{usuarioLogado.caravana}}</strong>
+           <button [hidden]= "! possuiCaravana()" type="button" (click)="sairCaravana()" title="Sair desta Caravana" class="btn btn-link"><i class="fa fa-times"></i></button>
+
+        </li>
+     </ul>
+   </div>
+  
+  </div>  
+  
   </div>
-</div>  
 
 <ng-template #content let-c="close" let-d="dismiss">
    <div class="modal-header">
