@@ -79,7 +79,7 @@ export class InscricoesComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
 
-    
+    this.pagamento.tipo = "C";
 /*    this.subscription = this.serviceWireCard.configurarNotificacoes()
     .subscribe(
     response => {
@@ -288,7 +288,7 @@ export class InscricoesComponent implements OnInit, AfterViewInit {
       for (a of this.listaOriginal){
           const b = a;
           if (a.id == 1 || a.id == 2){
-              a.valor = 25.00;
+              a.valor = 50.00;
           }
           this.lista.push(a);
       }

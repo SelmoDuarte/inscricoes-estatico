@@ -27,11 +27,11 @@
                   <li class="list-group-item" style="cursor: pointer;" title="Click para assitir esta palestra">
                     <div class="row">
                       <div class="col-6">
-                        <p><b>Sala GOIÁS</b></p>
+                        <p><b>Sala Rio Araguaia</b></p>
                         <p><button type="button" (click)="acessoStreaming(31)" class="btn btn-outline-success"><i class="far fa-play-circle"></i> Entrar</button></p>
                       </div>
                         <div class="col-6">
-                          <p><b>Sala Vila Nova</b></p>
+                          <p><b>Sala Serra Dourada</b></p>
                           <p><button type="button" (click)="acessoStreaming(32)" class="btn btn-outline-danger"><i class="far fa-play-circle"></i> Entrar</button></p>
                           </div>
                           </div>
@@ -162,7 +162,7 @@
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
               <div class="card-body">
-                <p><button type="button" class="btn btn-outline-primary"><i class="far fa-play-circle"></i>Assistir</button></p>
+                <p><button type="button" (click)="acessoStreaming(99)" class="btn btn-outline-primary"><i class="far fa-play-circle"></i>Assistir</button></p>
     
               </div>
             </div>
@@ -223,17 +223,22 @@
       </nav>
       <br>
       <nav class="navbar alert-primary" style="font-size:80%;">
-         <a class="nav-link" href="#" (click)="acessoNegado()" > <i class="fa fa-flag-checkered"></i> - CERTIFICADO </a>
+         <button type="button" (click)="certificado()" class="btn btn-link" style="font-size:90%;text-decoration: none;"><i class="fa fa-flag-checkered"></i> - CERTIFICADO</button>
       </nav>
-      <br>
+      <!--br>
       <nav class="navbar alert-primary" style="font-size:80%;">
          <a class="nav-link" href="https://www.conad.adm.br/ojs/" target="_blank"> <i class="fa fa-file-pdf"></i> - ENVIAR TRABALHO </a>
-      </nav>
+      </nav-->
       <br>
       <nav class="navbar alert-primary" style="font-size:80%;">
-        <a class="nav-link" href="#" (click)="acessoNegado()" > <i class="fa fa-flag-checkered"></i> - AVALIAÇÃO </a>
+        <button type="button" (click)="quiz()" class="btn btn-link" style="font-size:90%;text-decoration: none;"><i class="fa fa-question-circle"></i> - QUIZ</button>
      </nav>
       <br>
+      <nav class="navbar alert-primary" style="font-size:80%;">
+        <button type="button" (click)="fichaAvaliacao()" class="btn btn-link" style="font-size:90%;text-decoration: none;"><i class="fa fa-paper-plane"></i> - FICHA DE AVALIAÇÃO</button>
+     </nav>
+      <br>
+
       <nav class="navbar alert-primary" style="font-size:80%;">
          <a class="nav-link"  href="#" (click)="logoff()"> <i class="fa fa-sign-out-alt"></i> - LOGOFF </a>
       </nav>

@@ -277,26 +277,38 @@ export class AreaParticipanteComponent implements OnInit, AfterViewInit, OnDestr
 
  acessoStreaming(id){
    var acesso = false;
-  if (id == "23"){
-    /*Adriano Pereira */
-    window.open("https://www.youtube.com/watch?v=uDBFN-IL96k",'_blank');
+  if (id == "31"){
+    /*Sala Rio Araguaia */
+    window.open("https://us02web.zoom.us/j/89233136882?pwd=eDVjdk15V28xWXF1MEhyWkdtU09MQT09",'_blank');
     acesso = true;
   }
-  if (id == "13"){
-    /*Rejane Duarte*/
-    window.open("https://www.youtube.com/watch?v=cAdKZcjgMBM",'_blank');
+  if (id == "32"){
+    /*Serra Dourada */
+    window.open("https://us02web.zoom.us/j/84385404274?pwd=SjBDR00wT2IzejFwdXV2OUlQZkU2UT09",'_blank');
     acesso = true;
   }
-  if (id == "21"){
-    /*Filipe Dunas*/
-    window.open("https://www.youtube.com/watch?v=IkHYzF5qfik",'_blank');
-    acesso = true;
-  }
-  if (id == "21"){
-    /*Marcio DOurado*/
-    window.open("https://www.youtube.com/watch?v=kwqGBFxbeLY",'_blank');
-    acesso = true;
-  }
+
+
+ // if (id == "23"){
+ //   /*Adriano Pereira */
+ //   window.open("https://www.youtube.com/watch?v=uDBFN-IL96k",'_blank');
+//    acesso = true;
+//  }
+//  if (id == "13"){
+//    /*Rejane Duarte*/
+//    window.open("https://www.youtube.com/watch?v=cAdKZcjgMBM",'_blank');
+//    acesso = true;
+//  }
+//  if (id == "21"){
+//    /*Filipe Dunas*/
+//    window.open("https://www.youtube.com/watch?v=IkHYzF5qfik",'_blank');
+//    acesso = true;
+//  }
+//  if (id == "21"){
+//    /*Marcio DOurado*/
+//    window.open("https://www.youtube.com/watch?v=kwqGBFxbeLY",'_blank');
+//    acesso = true;
+//  }
   if(! acesso){
     alert('ATENÇÃO, Esta Palestra ainda não está disponível !!!')
     return;
@@ -386,6 +398,93 @@ verificarAcessoPalestras(){
   const campo02: HTMLInputElement =<HTMLInputElement>document.getElementById('progressBarPainel02');
   campo02.style.width = this.assistiuEvento2 +'%';
 
+
+}
+
+certificado(){
+
+  var str = "18/09/2021";
+  var date = new Date(str.split('/').reverse().join('/'));
+  var novaData = new Date();
+  if(date > novaData) {
+    alert("ATENÇÃO, certificado disponível somente  a partir do dia 18/09/2021");
+    return;
+   }
+
+  if (! this.assistiuEvento11){
+    alert('ATENÇÃO, sua trilha ainda não foi complentada. É necessário assistir a primeira Palestra do Painel de Gestão 01 !!!')
+    return;    
+  }
+  if (! this.assistiuEvento12){
+    alert('ATENÇÃO, sua trilha ainda não foi complentada. É necessário assistir a segunda Palestra do Painel de Gestão 01 !!!')
+    return;    
+  }
+  if (! this.assistiuEvento13){
+    alert('ATENÇÃO, sua trilha ainda não foi complentada. É necessário assistir a terceira Palestra do Painel de Gestão 01 !!!')
+    return;    
+  }
+  if (! this.assistiuEvento21){
+    alert('ATENÇÃO, sua trilha ainda não foi complentada. É necessário assistir a primeira Palestra do Painel de Gestão 02 !!!')
+    return;    
+  }
+  if (! this.assistiuEvento22){
+    alert('ATENÇÃO, sua trilha ainda não foi complentada. É necessário assistir a segunda Palestra do Painel de Gestão 02 !!!')
+    return;    
+  }
+  if (! this.assistiuEvento23){
+    alert('ATENÇÃO, sua trilha ainda não foi complentada. É necessário assistir a terceira Palestra do Painel de Gestão 03 !!!')
+    return;    
+  }
+  if (! this.assistiuEvento99){
+    alert('ATENÇÃO, sua trilha ainda não foi complentada. É necessário assistir a palestra Principal do evento !!!')
+    return;    
+  } 
+
+  var string = localStorage.getItem("usuario") ;
+  var obj = JSON.parse(string);
+  var id = Number(obj.cpf) + 82984298187;
+  var url = "https://conad.adm.br/sistemas/inscricoes-api/api/certificado/index.php?id=" + id;
+
+  window.open(url,'_blank');
+}
+
+fichaAvaliacao(){
+
+  var str = "18/09/2021";
+  var date = new Date(str.split('/').reverse().join('/'));
+  var novaData = new Date();
+  if(date != novaData) {
+    alert("ATENÇÃO, ficha de avaliação disponível somente  no dia 18/09/2021");
+    return;
+   }
+
+   var string = localStorage.getItem("usuario") ;
+   var obj = JSON.parse(string);
+   var id = Number(obj.cpf) + 82984298187;
+   var url = "https://pt.surveymonkey.com/r/CXL2NYL";
+ 
+   window.open(url,'_blank');
+ 
+
+}
+
+quiz(){
+
+  var str = "18/09/2021";
+  var date = new Date(str.split('/').reverse().join('/'));
+  var novaData = new Date();
+  if(date != novaData) {
+    alert("ATENÇÃO, QUIZ disponível somente  no dia 18/09/2021");
+    return;
+   }
+
+   var string = localStorage.getItem("usuario") ;
+   var obj = JSON.parse(string);
+   var id = Number(obj.cpf) + 82984298187;
+   var url = "https://pt.surveymonkey.com/r/conad";
+ 
+   window.open(url,'_blank');
+ 
 
 }
 

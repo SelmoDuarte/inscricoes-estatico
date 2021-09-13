@@ -275,11 +275,11 @@
                                        <div class="col-12 col-sm-12" [hidden]= "valor == 0">
                                           <label><b>Pagar com:</b></label><br>                  
                                           <div class="custom-control custom-radio custom-control-inline">
-                                             <input type="radio" class="custom-control-input" id="boleto" name="meioPagamento" value="1" (change)="selecionarTipoPagamento()" checked>
+                                             <input type="radio" class="custom-control-input" id="boleto" name="meioPagamento" value="1" (change)="selecionarTipoPagamento()" disabled>
                                              <label class="custom-control-label" for="boleto"><i class="fa fa-file-invoice-dollar"></i> - Boleto</label>
                                           </div>
                                           <div class="custom-control custom-radio custom-control-inline">
-                                             <input type="radio" class="custom-control-input" id="cartao" name="meioPagamento" value="2" (change)="selecionarTipoPagamento()">
+                                             <input type="radio" class="custom-control-input" id="cartao" name="meioPagamento" value="2" (change)="selecionarTipoPagamento()" checked> 
                                              <label class="custom-control-label" for="cartao"><i class="fa fa-credit-card"></i> - Cartão</label>
                                           </div>
                                           <br>
