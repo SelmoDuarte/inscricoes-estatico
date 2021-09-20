@@ -16,7 +16,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalAcessoNegadoComponent } from '../modal-acessoNegado/modal-acessoNegado.component';
 import { UsuarioService } from '../usuario/usuario.service';
 
-
 @Component({
   selector: 'app-areaParticipante',
   templateUrl: './areaParticipante.component.html',
@@ -66,8 +65,10 @@ export class AreaParticipanteComponent implements OnInit, AfterViewInit, OnDestr
   assistiuEvento32 = false;
   assistiuEvento99 = 0;
   
-  
-
+  spinnerEvento01 = false;
+  spinnerEvento02 = false;
+  spinnerEvento03 = false;
+  spinnerEvento99 = false;
 
   private subscription: Subscription;
   
@@ -88,6 +89,37 @@ export class AreaParticipanteComponent implements OnInit, AfterViewInit, OnDestr
     private getTimeDifference () {
         this.timeDifference = this.dDay.getTime() - new  Date().getTime();
         this.allocateTimeUnits(this.timeDifference);
+
+        // Inicializamos o objeto Date() com data e horário atual
+        const date1 = new Date();
+
+        // APRESENTACAO DE TRABALHOS CIENTIFICOS 
+        const date2 = new Date('2021-09-16 08:00:00');
+        const date3 = new Date('2021-09-16 18:00:00');
+        if (date1.getTime() > date2.getTime() && date1.getTime() < date3.getTime()  ) {
+          this.spinnerEvento03 = true;
+        }        
+        // PAINEL DE GESTÃO 01 
+        const date4 = new Date('2021-09-17 09:00:00');
+        const date5 = new Date('2021-09-17 12:00:00');
+        if (date1.getTime() > date4.getTime() &&  date1.getTime() < date5.getTime()  ) {
+          this.spinnerEvento01 = true;
+        }        
+        // PAINEL DE GESTÃO 02 
+        const date6 = new Date('2021-09-17 14:00:00');
+        const date7 = new Date('2021-09-17 18:00:00');
+        if (date1.getTime() > date6.getTime() && date1.getTime() < date7.getTime()  ) {
+          this.spinnerEvento02 = true;
+        }        
+        // EVENTO PRINCIPAL 
+        const date8 = new Date('2021-09-17 19:00:00');
+        const date9 = new Date('2021-09-17 22:00:00');
+        if (date1.getTime() > date8.getTime() && date1.getTime() < date9.getTime()  ) {
+          this.spinnerEvento99 = true;
+        }        
+
+
+
     }
 
   private allocateTimeUnits (timeDifference) {
@@ -138,7 +170,9 @@ export class AreaParticipanteComponent implements OnInit, AfterViewInit, OnDestr
 
      
 
-        this.usuarioLogado = JSON.parse(localStorage.getItem("usuario"));        
+        this.usuarioLogado = JSON.parse(localStorage.getItem("usuario")); 
+        const iframeAoVivo: HTMLInputElement =<HTMLInputElement>document.getElementById('iframeAoVivo');
+        
 
   }
 
@@ -277,43 +311,73 @@ export class AreaParticipanteComponent implements OnInit, AfterViewInit, OnDestr
 
  acessoStreaming(id){
    var acesso = false;
-  if (id == "31"){
+   if (id == "31"){
     /*Sala Rio Araguaia */
     window.open("https://us02web.zoom.us/j/89233136882?pwd=eDVjdk15V28xWXF1MEhyWkdtU09MQT09",'_blank');
-    acesso = true;
-  }
+    return;  }
   if (id == "32"){
     /*Serra Dourada */
-    window.open("https://us02web.zoom.us/j/84385404274?pwd=SjBDR00wT2IzejFwdXV2OUlQZkU2UT09",'_blank');
+    window.open("https://us04web.zoom.us/j/71601576869?pwd=VHhraXdnRVYzcEZUVTBmYjNBTVU2dz09",'_blank');
+                     
+    return;
+  }
+
+  var str = "17/09/2021";
+  var date = new Date(str.split('/').reverse().join('/'));
+  var novaData = new Date();
+  if(date > novaData) {
+    alert("ATENÇÃO, palestra disponível somente  a partir do dia 17/09/2021");
+    return;
+   }
+
+
+
+  if (id == "11"){
+    /*Marcio Dourado*/
+    window.open("https://www.youtube.com/watch?v=6yLiTjmuU4M",'_blank');
+    acesso = true;
+  }
+  if (id == "12"){
+    /*Ivan Lourenço*/
+    window.open("https://www.youtube.com/watch?v=lcypRkq4ezs",'_blank');
+    acesso = true;
+  }
+  if (id == "13"){
+    /*Rejane Duarte*/
+    window.open("https://www.youtube.com/watch?v=RbFsgF7poHc",'_blank');
+    acesso = true;
+  }
+  if (id == "21"){
+    /*Filipe Dunas*/
+    window.open("https://www.youtube.com/watch?v=IkHYzF5qfik",'_blank');
+    acesso = true;
+  }
+ if (id == "22"){
+   /*Rafael Maciel*/
+   window.open("https://www.youtube.com/watch?v=2Z_tnCN5Z1U",'_blank');
+    acesso = true;
+  }
+ if (id == "23"){
+   /*Adriano Pereira */
+   window.open("https://www.youtube.com/watch?v=uDBFN-IL96k",'_blank');
     acesso = true;
   }
 
-
- // if (id == "23"){
- //   /*Adriano Pereira */
- //   window.open("https://www.youtube.com/watch?v=uDBFN-IL96k",'_blank');
-//    acesso = true;
-//  }
-//  if (id == "13"){
-//    /*Rejane Duarte*/
-//    window.open("https://www.youtube.com/watch?v=cAdKZcjgMBM",'_blank');
-//    acesso = true;
-//  }
-//  if (id == "21"){
-//    /*Filipe Dunas*/
-//    window.open("https://www.youtube.com/watch?v=IkHYzF5qfik",'_blank');
-//    acesso = true;
-//  }
-//  if (id == "21"){
-//    /*Marcio DOurado*/
-//    window.open("https://www.youtube.com/watch?v=kwqGBFxbeLY",'_blank');
-//    acesso = true;
-//  }
+  if (id == "99"){
+    /*ONLINE */
+    alert("PARABÉNS, sua presença para esta palestra  \n foi registrada com sucesso !!!");    
+//    window.open("https://www.youtube.com/watch?v=Jm5UgWO4cFU",'_blank');
+     acesso = true;
+   }
+   if (id == "98"){
+    window.open("https://www.youtube.com/live_chat?is_popout=1&v=Jm5UgWO4cFU",'_blank','width=800,height=600');
+     acesso = true;
+   }
+  
   if(! acesso){
     alert('ATENÇÃO, Esta Palestra ainda não está disponível !!!')
     return;
   }
-
 
   this.service.registrarVisualizacaoVideo(id).subscribe(resp => {
     this.listaAcessoPalestra = resp.dados;
@@ -403,13 +467,17 @@ verificarAcessoPalestras(){
 
 certificado(){
 
-  var str = "18/09/2021";
-  var date = new Date(str.split('/').reverse().join('/'));
-  var novaData = new Date();
-  if(date > novaData) {
-    alert("ATENÇÃO, certificado disponível somente  a partir do dia 18/09/2021");
-    return;
-   }
+    // Inicializamos o objeto Date() com data e horário atual
+    const date1 = new Date();
+
+    // Inicializamos uma data no passado
+    const date2 = new Date('2021-09-18 16:00:00');
+  
+    if (date1.getTime() < date2.getTime() ) {
+      alert("ATENÇÃO, CERTIFICADO disponível a partir do dia: \n \n 18/09/2021 às 16:00hs");
+      return;
+    }
+ 
 
   if (! this.assistiuEvento11){
     alert('ATENÇÃO, sua trilha ainda não foi complentada. É necessário assistir a primeira Palestra do Painel de Gestão 01 !!!')
@@ -450,13 +518,19 @@ certificado(){
 
 fichaAvaliacao(){
 
-  var str = "18/09/2021";
-  var date = new Date(str.split('/').reverse().join('/'));
-  var novaData = new Date();
-  if(date != novaData) {
-    alert("ATENÇÃO, ficha de avaliação disponível somente  no dia 18/09/2021");
+  // Inicializamos o objeto Date() com data e horário atual
+  const date1 = new Date();
+
+  // Inicializamos uma data no passado
+  const date2 = new Date('2021-09-18 14:00:00');
+
+  // Inicializamos uma data no passado
+  const date3 = new Date('2021-09-30 01:00:00');
+
+  if (date1.getTime() < date2.getTime() || date1.getTime() > date3.getTime()  ) {
+    alert("ATENÇÃO, ficha de avaliação disponível no período: \n \n de 18/09/2021 às 14:00hs até 30/09/2021 às 00:00hs ");
     return;
-   }
+  }
 
    var string = localStorage.getItem("usuario") ;
    var obj = JSON.parse(string);
@@ -470,13 +544,20 @@ fichaAvaliacao(){
 
 quiz(){
 
-  var str = "18/09/2021";
-  var date = new Date(str.split('/').reverse().join('/'));
-  var novaData = new Date();
-  if(date != novaData) {
-    alert("ATENÇÃO, QUIZ disponível somente  no dia 18/09/2021");
-    return;
+   // Inicializamos o objeto Date() com data e horário atual
+   const date1 = new Date();
+
+   // Inicializamos uma data no passado
+   const date2 = new Date('2021-09-18 09:00:00');
+ 
+   // Inicializamos uma data no passado
+   const date3 = new Date('2021-09-18 14:30:00');
+ 
+   if (date1.getTime() < date2.getTime() || date1.getTime() > date3.getTime()  ) {
+     alert("ATENÇÃO, QUIZ disponível no período: \n \n de 18/09/2021 às 09:00hs até 18/09/2021 às 14:30hs ");
+     return;
    }
+ 
 
    var string = localStorage.getItem("usuario") ;
    var obj = JSON.parse(string);
