@@ -503,10 +503,10 @@ certificado(){
     alert('ATENÇÃO, sua trilha ainda não foi complentada. É necessário assistir a terceira Palestra do Painel de Gestão 03 !!!')
     return;    
   }
-  if (! this.assistiuEvento99){
-    alert('ATENÇÃO, sua trilha ainda não foi complentada. É necessário assistir a palestra Principal do evento !!!')
-    return;    
-  } 
+//  if (! this.assistiuEvento99){
+    //alert('ATENÇÃO, sua trilha ainda não foi complentada. É necessário assistir a palestra Principal do evento !!!')
+//    return;    
+//  } 
 
   var string = localStorage.getItem("usuario") ;
   var obj = JSON.parse(string);
