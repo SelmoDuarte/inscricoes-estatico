@@ -69,13 +69,13 @@ export class ProductObject {
 
 export class PagamentoCartaoWireCard {
     installmentCount: string;
-    statementDescriptor: string = "CONAD 2021";
+    statementDescriptor: string = "CONAD 2022";
     fundingInstrument: FundingInstrumentCartaoObject;
     device: DeviceObject;
 }
 
 export class PagamentoBoletoWireCard {
-    statementDescriptor: string = "CONAD 2021";
+    statementDescriptor: string = "CONAD 2022";
     fundingInstrument: FundingInstrumentBoletoObject;
     device: DeviceObject;
 }

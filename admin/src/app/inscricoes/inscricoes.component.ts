@@ -37,9 +37,10 @@ export class InscricoesComponent implements OnInit, AfterViewInit {
   lista  = new Array();
   listaOriginal = new Array();;
   listaCarrinho: string[] = [];
-  valor = null;
+  valor ;
   ocultarCupom = true;
-  valorCupom: any = 0;
+  valorCupom;
+  valorDesconto;
   cupomValido = false;
   checkoutEmAndamento = false;
   //MOSTRA DIV PAGAMENTO CONFIRMADO
@@ -192,7 +193,7 @@ export class InscricoesComponent implements OnInit, AfterViewInit {
         response => {
           console.log("Status" + response.status);
           if (response.status.codigo == 0) {
-            this.valorCupom = Number(response.dados.valor).toFixed(2);  ;
+            this.valorCupom = response.dados.valor; 
             this.cupomValido = true;
             this.calcularValor();
           } else {
@@ -251,19 +252,25 @@ export class InscricoesComponent implements OnInit, AfterViewInit {
   calcularValor(){
     this.descontoInscritosCONAD();
     this.listaCarrinho = [] ;      
-    this.valor = 0;
+    this.valor = 0.0;
     var e: any;
     for (e of this.lista){
         const campo: HTMLInputElement =<HTMLInputElement>document.getElementById('id' + e.id);
         if (campo.checked){
-            this.valor = this.valor + Number(e.valor);
+            this.valor = parseFloat(this.valor + parseFloat(e.valor)).toFixed(2);
             this.listaCarrinho.push(e);
         }
     }
     if (this.valorCupom > 0){
-      this.valor = Number(this.valor - ((this.valor/this.valorCupom)*100)).toFixed(2);
+      console.log("A" + this.valor + "|" + this.valorCupom );
+      console.log("B" + ((40.00*this.valorCupom)/100));
+      var valorSemDesconto =   this.valor;
+      this.valor = (this.valor - ((this.valor*this.valorCupom)/100));
+      this.valor = parseFloat(this.valor).toFixed(2);
+      this.valorDesconto = valorSemDesconto - this.valor;
     }else{
-      this.valor = Number(this.valor).toFixed(2);
+      this.valor = this.valor;
+      this.valorDesconto = 0;
     }
     this.listaQtdParcelas  = [{ codigo: '1', descricao: 'A Vista' }];
     this.listaQtdParcelas.push({ codigo: '2', descricao: '2 x de R$ ' + Number(this.valor/2).toFixed(2) });
@@ -376,7 +383,7 @@ export class InscricoesComponent implements OnInit, AfterViewInit {
     console.log('Adicionar Pedido');
     // 2 PASSO - CLIENTE JÁ EXISTE NA BASE DA WIRECARD
     //           INSERE O PEDIDO NA WIRECARD            
-    this.subscription = this.serviceWireCard.addPedido(id_cliente, this.form, this.valorCupom, this.listaCarrinho)
+    this.subscription = this.serviceWireCard.addPedido(id_cliente, this.form, this.valorDesconto, this.listaCarrinho)
     .subscribe(
     response => {
         console.log("Pedido incluido: " + response.id);
@@ -471,7 +478,7 @@ export class InscricoesComponent implements OnInit, AfterViewInit {
 
   efetuarPagamentoBoleto(id_pedido){
 
-        // 4 PASSO - GERA PAGAMENTO PELO CARTÃO DE CRÉDITO
+        // 4 PASSO - GERA PAGAMENTO BOLETO
         this.subscription = this.serviceWireCard.addPagamentoBoleto(id_pedido, this.form)
         .subscribe(
         response => {

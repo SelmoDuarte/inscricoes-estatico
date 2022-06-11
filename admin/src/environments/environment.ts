@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  API: 'https://conad.adm.br/sistemas/inscricoes-api/api/'
+  API: 'https://conad.adm.br/sistemas/inscricoes-api/2022/api/'
 //API: 'http://localhost/adminweb-api-php/api/'
 };

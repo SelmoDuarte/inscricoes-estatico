@@ -81,7 +81,7 @@ export class WireCardService {
   }
 
 
-  addPedido(id_wirecard, form, valorCupom, listaProdutos) {
+  addPedido(id_wirecard, form, valorDesconto, listaProdutos) {
 
     let formObj = form.getRawValue(); 
 
@@ -89,7 +89,7 @@ export class WireCardService {
     pedidoWireCard.ownId = formObj.cpf ;
     pedidoWireCard.amount = new AmountObject();
     pedidoWireCard.amount.subtotals = new SubTotalObject();
-    pedidoWireCard.amount.subtotals.discount = Number(Number(valorCupom) * 100);;
+    pedidoWireCard.amount.subtotals.discount = valorDesconto *100;
 
     var e: any;
     for (e of listaProdutos){
@@ -166,7 +166,7 @@ export class WireCardService {
 
   addPagamentoBoleto(id_ord, f) {
 
-    var diasVencimento = 1;
+    var diasVencimento = 5;
     var dataVencimento = new Date(Date.now() + diasVencimento * 24*60*60*1000);
     let dataAtualFormatada = (this.adicionaZero(dataVencimento.getFullYear().toString()) + "-" + (this.adicionaZero(dataVencimento.getMonth()+1).toString()) + "-" + this.adicionaZero(dataVencimento.getDate()));
 
@@ -181,7 +181,7 @@ export class WireCardService {
       pagamentoWireCard.fundingInstrument.boleto = new BoletoObject();
       pagamentoWireCard.fundingInstrument.boleto.expirationDate = dataAtualFormatada;
       pagamentoWireCard.fundingInstrument.boleto.instructionLines = new InstructionLinesObject();
-      pagamentoWireCard.fundingInstrument.boleto.instructionLines.first = "CONAD 2021 - Congresso Nacional de Administração"
+      pagamentoWireCard.fundingInstrument.boleto.instructionLines.first = "CONAD 2022 - Congresso Nacional de Administração"
       pagamentoWireCard.fundingInstrument.boleto.instructionLines.second = "Inscrição para o evento";
       pagamentoWireCard.fundingInstrument.boleto.instructionLines.third = "";
 
