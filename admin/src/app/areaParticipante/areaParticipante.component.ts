@@ -413,54 +413,55 @@ verificarAcessoPalestras(){
   }  
  
 
-
-  for (a of this.listaAcessoPalestra){
-      if (a.id_evento == 11){
-        this.assistiuEvento11 = true;
-        this.assistiuEvento1 = this.assistiuEvento1 + 33;
-      }
-
-      if (a.id_evento == 12){        
-          this.assistiuEvento12 = true;
+  if (this.listaAcessoPalestra != null){
+    for (a of this.listaAcessoPalestra){
+        if (a.id_evento == 11){
+          this.assistiuEvento11 = true;
           this.assistiuEvento1 = this.assistiuEvento1 + 33;
-      }
+        }
 
-      if (a.id_evento == 13){
-          this.assistiuEvento13 = true;
-          this.assistiuEvento1 = this.assistiuEvento1 + 34;
-      }
+        if (a.id_evento == 12){        
+            this.assistiuEvento12 = true;
+            this.assistiuEvento1 = this.assistiuEvento1 + 33;
+        }
 
-      if (a.id_evento == 21){
-          this.assistiuEvento21 = true;
-          this.assistiuEvento2 = this.assistiuEvento2 + 33;
-      }
+        if (a.id_evento == 13){
+            this.assistiuEvento13 = true;
+            this.assistiuEvento1 = this.assistiuEvento1 + 34;
+        }
 
-      if (a.id_evento == 22){
-          this.assistiuEvento22 = true;
-          this.assistiuEvento2 = this.assistiuEvento2 + 33;
-      }
+        if (a.id_evento == 21){
+            this.assistiuEvento21 = true;
+            this.assistiuEvento2 = this.assistiuEvento2 + 33;
+        }
 
-      if (a.id_evento == 23){
-          this.assistiuEvento23 = true;
-          this.assistiuEvento2 = this.assistiuEvento2 + 34;
-      }
+        if (a.id_evento == 22){
+            this.assistiuEvento22 = true;
+            this.assistiuEvento2 = this.assistiuEvento2 + 33;
+        }
 
-      if (a.id_evento == 31){
-          this.assistiuEvento31 = true;
-      }
+        if (a.id_evento == 23){
+            this.assistiuEvento23 = true;
+            this.assistiuEvento2 = this.assistiuEvento2 + 34;
+        }
 
-      if (a.id_evento == 32){
-          this.assistiuEvento32 = true;
-      }
+        if (a.id_evento == 31){
+            this.assistiuEvento31 = true;
+        }
 
-      if (a.id_evento == 99){
-          this.assistiuEvento99 = 100;
-      }
-  }
-  const campo01: HTMLInputElement =<HTMLInputElement>document.getElementById('progressBarPainel01');
-  campo01.style.width = this.assistiuEvento1 +'%';
-  const campo02: HTMLInputElement =<HTMLInputElement>document.getElementById('progressBarPainel02');
-  campo02.style.width = this.assistiuEvento2 +'%';
+        if (a.id_evento == 32){
+            this.assistiuEvento32 = true;
+        }
+
+        if (a.id_evento == 99){
+            this.assistiuEvento99 = 100;
+        }
+    }
+    const campo01: HTMLInputElement =<HTMLInputElement>document.getElementById('progressBarPainel01');
+    campo01.style.width = this.assistiuEvento1 +'%';
+    const campo02: HTMLInputElement =<HTMLInputElement>document.getElementById('progressBarPainel02');
+    campo02.style.width = this.assistiuEvento2 +'%';
+}
 
 
 }

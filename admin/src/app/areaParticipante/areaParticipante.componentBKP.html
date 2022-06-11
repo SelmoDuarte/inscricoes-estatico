@@ -1,0 +1,463 @@
+<body>
+  <div class="container">
+  <p style="align-content: center">
+     <img *ngIf="carregando" class="rounded mx-auto d-block" src="assets/img/loading.gif">
+  </p>
+  <div class="row">
+
+    <div class="col-sm-9 col-md-9 col-lg-9">
+      <div class="alert alert-primary" role="alert">
+        <b>Agenda de Eventos:</b>  
+      </div>
+        
+        <div class="accordion" id="accordionExample">
+
+          <div class="card">
+            <div class="card-header" id="heading5">
+              
+                <div class="alert alert-success" style="cursor: pointer;" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6" role="alert">
+                  <div class="clearfix">
+                    <div [hidden]="! spinnerEvento99" class="spinner-border float-end text-success" role="status">
+                      <span class="visually-hidden"></span>
+                    </div>
+                   
+                    <div class="clearfix">
+                      <div class="spinner-border float-end" role="status">
+                        <span class="visually-hidden"> </span>
+                      </div>
+                      <b> Palestra (Bonus) </b>
+                    </div>
+                    
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                  </div>                  
+                </div>
+            </div>
+        
+            <div id="collapse6" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+              <div class="card-body">
+                <ul class="list-group">
+                  <li class="list-group-item" style="cursor: pointer;" title="Click para assitir esta palestra">
+                    <div class="row">
+                      <div class="col-12">
+                      <p><b>Adm. João Batista</b> </p>
+                      <iframe id="iframeAoVivo" width="100%" height="315" src="https://www.youtube.com/embed/-cciMHKvDGA" title="Adm. João Batista" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <!--p class="text-center"><br><button type="button" (click)="acessoStreaming(98)" class="btn btn-outline-primary"><i class="far fa-play-circle"></i> CHAT</button>&nbsp;&nbsp; <button type="button" (click)="acessoStreaming(99)" class="btn btn-outline-primary"><i class="far fa-play-circle"></i> Registrar Presença</button></p-->
+                    </div>
+                    </div>
+                </ul>      
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="card">
+            <div class="card-header" id="heading4">
+              
+                <div class="alert alert-dark" style="cursor: pointer;" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5" role="alert">
+                  <div class="clearfix">
+                    <div [hidden]="! spinnerEvento99" class="spinner-border float-end text-success" role="status">
+                      <span class="visually-hidden"></span>
+                    </div>
+                    <b> Evento Principal </b>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                  </div>                  
+                </div>
+            </div>
+        
+            <div id="collapse5" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+              <div class="card-body">
+                <ul class="list-group">
+                  <li class="list-group-item" style="cursor: pointer;" title="Click para assitir esta palestra">
+                    <div class="row">
+                      <div class="col-12">
+                      <p><b>Dia 17/09 - Sexta- feira</b> </p>
+                      <iframe id="iframeAoVivo" width="100%" height="315" src="https://www.youtube.com/embed/3wpIYAVeGpE" title="CONAD 2021 - Dia 01" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <!--p class="text-center"><br><button type="button" (click)="acessoStreaming(98)" class="btn btn-outline-primary"><i class="far fa-play-circle"></i> CHAT</button>&nbsp;&nbsp; <button type="button" (click)="acessoStreaming(99)" class="btn btn-outline-primary"><i class="far fa-play-circle"></i> Registrar Presença</button></p-->
+                    </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">                      
+                      <p></p><hr>
+                      <p></p>
+                      <p><b>Dia 18/09 - Sabado</b></p>
+                      <!--p><i>ATENÇÃO, estamos finalizando a edição das palestras ocorridas nesta data. Em breve disponibilizaremos neste canal !!!</i></p-->
+                      <iframe id="iframeAoVivo" width="100%" height="315" src="https://www.youtube.com/embed/1WP23osoup4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <!--p class="text-center"><br><button type="button" (click)="acessoStreaming(98)" class="btn btn-outline-primary"><i class="far fa-play-circle"></i> CHAT</button>&nbsp;&nbsp; <button type="button" (click)="acessoStreaming(99)" class="btn btn-outline-primary"><i class="far fa-play-circle"></i> Registrar Presença</button></p-->
+                    </div>
+                    </div>
+                </ul>      
+              </div>
+            </div>
+          </div>
+
+
+          <div class="card">
+            <div class="card-header" id="heading4">
+              
+                <div class="alert alert-dark" style="cursor: pointer;" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4" role="alert">
+                  <div class="clearfix">
+                    <div [hidden]="! spinnerEvento03" class="spinner-border float-end text-success" role="status">
+                      <span class="visually-hidden"></span>
+                    </div>
+                    <b> Apesentação de Trabalhos Científicos</b><p style="font-size: 70%;"><i>16/09 (quinta-feira) 08h às 18h</i></p>                  
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                  </div>                  
+                </div>
+            </div>
+        
+            <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+              <div class="card-body">
+                <ul class="list-group">
+                  <li class="list-group-item" style="cursor: pointer;" title="Click para assitir esta palestra">
+                    <div class="row">
+                      <div class="col-6">
+                        <p><b>Sala Rio Araguaia</b></p>
+                        <p><button type="button" (click)="acessoStreaming(31)" class="btn btn-outline-success"><i class="far fa-play-circle"></i> Entrar</button></p>
+                      </div>
+                        <div class="col-6">
+                          <p><b>Sala Serra Dourada</b></p>
+                          <p><button type="button" (click)="acessoStreaming(32)" class="btn btn-outline-danger"><i class="far fa-play-circle"></i> Entrar</button></p>
+                          </div>
+                          </div>
+                </ul>      
+              </div>
+            </div>
+          </div>
+
+          <div class="card" [hidden]="! evento01">
+            <div class="card-header" id="headingOne">
+                <div class="alert alert-dark" style="cursor: pointer;" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" role="alert">
+                  <div class="clearfix">                  
+                  <div [hidden]="! spinnerEvento01" class="spinner-border float-end text-success" role="status">
+                    <span class="visually-hidden"></span>
+                  </div>
+                  <b> Painel de Gestão 01</b><p style="font-size: 70%;"><i>17/09 (Sexta) 09h às 12h</i></p>
+                  </div>
+                  <div class="progress">
+                    <div id="progressBarPainel01" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 0%;" [attr.aria-valuenow]="assistiuEvento1" aria-valuemin="0" aria-valuemax="100">{{assistiuEvento1}}%</div>
+                  </div>                  
+                </div>
+            </div>
+        
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <ul class="list-group">
+                  <li class="list-group-item" style="cursor: pointer;" (click)="acessoStreaming(11)"  title="Click para assitir esta palestra">
+                    <div class="row">
+                      <div class="col-3">
+                        <img src="https://conad.adm.br/portal/wp-content/uploads/2021/06/Conad-MarcioDourado-1.jpg" class="rounded-circle img-fluid" >
+                      </div>
+                      <div class="col-9" style="font-size:80%;" >
+                        <p ><b>“Investimento na Era Digital: Homebrokers, bancos virtuais de investimentos e as novas formas de investir”</b></p>
+                        <p><i class="fa fa-user-tie" ></i> - Prof. Márcio Dourado</p>
+                        <p><button type="button" class="btn btn-outline-primary"> <i [hidden]="assistiuEvento11" class="far fa-play-circle"></i> <i [hidden]="! assistiuEvento11" class="far fa-check-circle" ></i> Assistir</button></p>
+    
+                      </div>
+                    </div>
+                    <li class="list-group-item" style="cursor: pointer;" (click)="acessoStreaming(12)" title="Click para assitir esta palestra">
+                      <div class="row">
+                        <div class="col-3">
+                          <img src="https://conad.adm.br/portal/wp-content/uploads/2021/06/IvanLourenco-2.jpg" class="rounded-circle img-fluid">
+                        </div>
+                        <div class="col-9"  style="font-size:80%;">
+                          <p><b>“Como as metodologias ágeis de gerenciamento de projetos podem melhorar os negócios”</b></p>
+                          <p><i class="fa fa-user-tie"></i> - Ivan Lourenço</p>
+                          <p><button type="button" class="btn btn-outline-primary"><i [hidden]="assistiuEvento12" class="far fa-play-circle"></i> <i [hidden]="! assistiuEvento12" class="far fa-check-circle" ></i> Assistir</button></p>
+      
+                        </div>
+                      </div>
+                    <li class="list-group-item" style="cursor: pointer;" (click)="acessoStreaming(13)" title="Click para assitir esta palestra">
+                      <div class="row">
+                        <div class="col-3">
+                          <img src="https://conad.adm.br/portal/wp-content/uploads/2021/06/RejaneDuarte-1.jpg" class="rounded-circle img-fluid">
+                        </div>
+                        <div class="col-9"  style="font-size:80%;">
+                          <p><b>“O Desafio da Implantação das Novas Tecnologias”</b></p>
+                          <p><i class="fa fa-user-tie"></i> - Rejane Duarte</p>
+                          <p><button type="button" class="btn btn-outline-primary"><i [hidden]="assistiuEvento13" class="far fa-play-circle"></i> <i [hidden]="! assistiuEvento13" class="far fa-check-circle" ></i> Assistir</button></p>
+ 
+                        </div>
+                      </div>
+                </ul>      
+              </div>
+            </div>
+          </div>
+          <div class="card" [hidden]="! evento02">
+            <div class="card-header" id="headingTwo">
+                  <div class="alert alert-dark" style="cursor: pointer;" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" role="alert">
+                    <div class="clearfix">                    
+                    <div [hidden]="! spinnerEvento02" class="spinner-border float-end text-success" role="status">
+                      <span class="visually-hidden"></span>
+                    </div>
+                    <b> Painel de Gestão 02</b><p style="font-size: 70%;"><i>17/09 (Sexta) 14h às 18h</i></p>                    
+                    </div>
+                    <div class="progress">
+                      <div id="progressBarPainel02" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 0%;" [attr.aria-valuenow]="assistiuEvento2" aria-valuemin="0" aria-valuemax="100">{{assistiuEvento2}}%</div>
+                    </div>                  
+                  </div>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                <ul class="list-group">
+                 
+                  <li class="list-group-item" style="cursor: pointer;" (click)="acessoStreaming(21)" title="Click para assitir esta palestra">
+                    <div class="row">
+                      <div class="col-3">
+                        <img src="https://conad.adm.br/portal/wp-content/uploads/2021/06/FelipeDaumas-1.jpg" class="rounded-circle img-fluid">
+                      </div>
+                      <div class="col-9"  style="font-size:80%;">
+                        <p><b>“Estratégias de Comunicação e Vendas na Internet”</b></p>
+                        <p><i class="fa fa-user-tie"></i> - Filipe Daumas</p>
+                        <p><button type="button" class="btn btn-outline-primary"><i [hidden]="assistiuEvento21" class="far fa-play-circle"></i> <i [hidden]="! assistiuEvento21" class="far fa-check-circle" ></i> Assistir</button></p>
+    
+                      </div>
+                    </div>
+                    <li class="list-group-item" style="cursor: pointer;" (click)="acessoStreaming(22)" title="Click para assitir esta palestra">
+                      <div class="row">
+                        <div class="col-3">
+                          <img src="https://conad.adm.br/portal/wp-content/uploads/2021/06/RafaelMaciel-1.jpg" class="rounded-circle img-fluid">
+                        </div>
+                        <div class="col-9"  style="font-size:80%;">
+                          <p><b>“Desafios da LGPD nos primeiros anos de sua vigência”</b></p>
+                          <p><i class="fa fa-user-tie"></i> - Rafael Maciel</p>
+                          <p><button type="button" class="btn btn-outline-primary"><i [hidden]="assistiuEvento22" class="far fa-play-circle"></i> <i [hidden]="! assistiuEvento22" class="far fa-check-circle" ></i> Assistir</button></p>
+      
+                        </div>
+                      </div>
+                    <li class="list-group-item" style="cursor: pointer;" (click)="acessoStreaming(23)" title="Click para assitir esta palestra">
+                      <div class="row">
+                        <div class="col-3">
+                          <img src="https://conad.adm.br/portal/wp-content/uploads/2021/06/AdrianoSouza-1.jpg" class="rounded-circle img-fluid">
+                        </div>
+                        <div class="col-9" style="font-size:80%;">
+                          <p><b>“Panorama e Tendências da automação de processos de negócios”</b></p>
+                          <p><i class="fa fa-user-tie"></i> - Adriano Souza Pereira</p>
+                          <p><button type="button" class="btn btn-outline-primary"><i [hidden]="assistiuEvento23" class="far fa-play-circle"></i> <i [hidden]="! assistiuEvento23" class="far fa-check-circle" ></i> Assistir</button></p>
+      
+                        </div>
+                      </div>
+                </ul>      
+              </div>
+            </div>
+          </div>
+        </div>
+     </div>
+     <!--div class="col-sm-4 col-md-4 col-lg-4">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+           <span class="text-muted">Meus Eventos</span>
+           <span class="badge badge-secondary badge-pill">{{listaMeusEventos.length}}</span>
+        </h4>
+        <ul *ngFor="let reg of listaMeusEventos" class="list-group mb-3 z-depth-1">
+           <li class="list-group-item d-flex justify-content-between lh-condensed">
+               <div class="col-sm-8 col-md-8 col-lg-8">
+                  <h6 class="my-0">{{reg.descricao}}</h6>
+               </div>
+               <div class="col-sm-4 col-md-4 col-lg-4 text-center align-middle">
+                     <p style="font-size: 80%;" [ngClass]="reg.status" >{{reg.status_descricao}}</p>
+               </div>
+           </li>
+        </ul>
+        <ul class="list-group mb-3 z-depth-1">
+           <li  class="list-group-item d-flex justify-content-between bg-light">
+              <div [hidden]= "! possuiCaravana()" class="text-success">
+               <p class="text-muted">Minha Caravana</p>
+             
+              </div>
+        
+           </li>
+           <li class="list-group-item d-flex justify-content-between">
+              <span></span>
+              <strong>{{usuarioLogado.caravana}}</strong>
+              <button [hidden]= "! possuiCaravana()" type="button" (click)="sairCaravana()" title="Sair desta Caravana" class="btn btn-link"><i class="fa fa-times"></i></button>
+
+           </li>
+        </ul>
+        <nav [hidden]= "possuiCaravana()" class="navbar alert-primary">
+         <button type="button" (click)="selecionarCaravana(contentCaravana)" style="text-decoration: none;" class="btn btn-link"><i class="fa fa-bus"></i> - INFORME SUA CARAVANA</button>
+      </nav>        
+     </div-->
+
+
+    <div class="col-sm-3 col-md-3 col-lg-3" >
+      <div class="alert alert-primary" role="alert">
+          <b>Menu:</b>
+      </div>
+      <nav class="navbar alert-primary"  style="font-size:80%;">
+         <a class="nav-link" routerLink="/inscricoes"> <i class="fa fa-cart-plus"></i> - INSCRICOES PAGAMENTOS </a>
+      </nav>
+      <br>
+      <nav class="navbar alert-primary" style="font-size:80%;">
+         <button type="button" (click)="alterarSenha(content)" class="btn btn-link" style="font-size:90%;text-decoration: none;"><i class="fa fa-unlock-alt"></i> - ALTERAR SENHA</button>
+
+      </nav>
+      <br>
+      <nav class="navbar alert-primary" style="font-size:80%;">
+         <a class="nav-link" routerLink="/usuario"> <i class="fa fa-users-cog"></i> - ATUALIZAR DADOS </a>
+      </nav>
+      <br>
+      <nav class="navbar alert-primary" style="font-size:80%;">
+         <button type="button" (click)="certificado()" class="btn btn-link" style="font-size:90%;text-decoration: none;"><i class="fa fa-flag-checkered"></i> - CERTIFICADO</button>
+      </nav>
+      <!--br>
+      <nav class="navbar alert-primary" style="font-size:80%;">
+         <a class="nav-link" href="https://www.conad.adm.br/ojs/" target="_blank"> <i class="fa fa-file-pdf"></i> - ENVIAR TRABALHO </a>
+      </nav-->
+      <br>
+      <nav class="navbar alert-primary" style="font-size:80%;">
+        <button type="button" (click)="quiz()" class="btn btn-link" style="font-size:90%;text-decoration: none;"><i class="fa fa-question-circle"></i> - QUIZ</button>
+     </nav>
+      <br>
+      <nav class="navbar alert-primary" style="font-size:80%;">
+        <button type="button" (click)="fichaAvaliacao()" class="btn btn-link" style="font-size:90%;text-decoration: none;"><i class="fa fa-paper-plane"></i> - FICHA DE AVALIAÇÃO</button>
+     </nav>
+      <br>
+
+      <nav class="navbar alert-primary" style="font-size:80%;">
+         <a class="nav-link"  href="#" (click)="logoff()"> <i class="fa fa-sign-out-alt"></i> - LOGOFF </a>
+      </nav>
+      <br>
+      <nav [hidden]= "possuiCaravana()" class="navbar alert-primary"  style="font-size:80%;">
+        <button type="button" (click)="selecionarCaravana(contentCaravana)" class="btn btn-link"  style="font-size:90%;text-decoration: none;"><i class="fa fa-bus"></i> - INFORME SUA CARAVANA</button>
+     </nav>        
+  
+
+      <ul class="list-group mb-3 z-depth-1">
+        <li  class="list-group-item d-flex justify-content-between bg-light">
+           <div [hidden]= "! possuiCaravana()" class="text-success">
+            <p class="text-muted">Minha Caravana</p>
+          
+           </div>
+     
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+           <span></span>
+           <strong>{{usuarioLogado.caravana}}</strong>
+           <button [hidden]= "! possuiCaravana()" type="button" (click)="sairCaravana()" title="Sair desta Caravana" class="btn btn-link"><i class="fa fa-times"></i></button>
+
+        </li>
+     </ul>
+   </div>
+  
+  </div>  
+  
+  </div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+   <div class="modal-header">
+     <h4 class="modal-title" id="modal-basic-title">Alterar Senha</h4>
+     <button type="button" class="close" aria-label="Close" (click)="d('EXIT')">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+   <div class="modal-body">
+     <div class="col-12">
+       <p *ngFor="let alert of alerts">
+         <ngb-alert [type]="alert.type" (close)="close(alert)">
+           <div [innerHTML]="alert.message"></div>
+         </ngb-alert>
+       </p>
+     </div>
+ 
+     <div class="col-12 col-sm-12" style="margin-top:10px">
+       <div class="card bg-light mb-12">
+         <div style="cursor: pointer;" (click)="show('ocultarDadosPessoais')">
+           <div class="card-header alert-primary"><i class="fa fa-user-tie"></i> Dados do Usuário </div>
+         </div>
+         <div [hidden]="ocultarDadosPessoais" class="card-body">
+           <div class="row">
+             <div class=" col-md-12" >
+               <div class="form-label-group">
+                 <label for="inputEmail">Usuário</label>
+                 <input #loginField [(ngModel)]="usuario.login" type="text" class="form-control" required value="" disabled 
+                   autocomplete="off">
+               </div>
+           
+               <div class="form-label-group">
+                 <label for="inputPassword">Senha Anterior</label>
+                 <input [(ngModel)]="usuario.password_anterior" type="password" id="inputPassword" class="form-control"
+                   placeholder="Password" required>
+               </div>
+             </div>
+             <div class=" col-md-6" >
+ 
+               <div class="form-label-group">
+                 <label for="inputPassword">Nova Senha</label>
+                 <input [(ngModel)]="usuario.password" type="password" id="inputPassword" class="form-control"
+                   placeholder="Password" required>
+               </div>
+             </div>
+             <div class=" col-md-6" >
+ 
+               <div class="form-label-group">
+                 <label for="inputPassword">Repita Nova Senha</label>
+                 <input [(ngModel)]="usuario.password_conferir" type="password" id="inputPassword" class="form-control"
+                   placeholder="Password" required>
+               </div>
+             </div>
+           
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>     
+ 
+   <div class="modal-footer">
+     <button type="button" class="btn btn-outline-dark" (click)="c('SAVE')">Confirmar</button>
+   </div>
+ </ng-template>
+ 
+
+ <ng-template #contentCaravana let-c="close" let-d="dismiss">
+   <div class="modal-header">
+     <h4 class="modal-title" id="modal-basic-title">Caravana Virtual</h4>
+     <button type="button" class="close" aria-label="Close" (click)="d('EXIT')">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+   <div class="modal-body">
+     <div class="col-12">
+       <p *ngFor="let alert of alerts">
+         <ngb-alert [type]="alert.type" (close)="close(alert)">
+           <div [innerHTML]="alert.message"></div>
+         </ngb-alert>
+       </p>
+     </div>
+ 
+     <div class="col-12 col-sm-12" style="margin-top:10px">
+       <div class="card bg-light mb-12">
+         <div style="cursor: pointer;" (click)="show('ocultarDadosPessoais')">
+           <div class="card-header alert-primary"><i class="fa fa-bus"></i> Selecione uma caravana </div>
+         </div>
+         <div [hidden]="ocultarDadosPessoais" class="card-body">
+           <div class="row">
+             <div class=" col-md-12" >
+               <div class="form-label-group">
+                 <label for="inputEmail"></label>
+                   <select  [(ngModel)]="usuario.caravana" class="form-control" placeholder="">
+                     <option *ngFor="let t of listaCaravanas" [value]="t.descricao">{{ t.descricao }}</option>
+                   </select>                   
+               </div>
+           
+            </div>
+           </div>
+         </div>
+         </div>
+     </div>     
+    </div> 
+ 
+   <div class="modal-footer">
+     <button type="button" class="btn btn-outline-dark" (click)="c('SAVE')">Confirmar</button>
+   </div>
+ </ng-template>
+
+
+
+</body>

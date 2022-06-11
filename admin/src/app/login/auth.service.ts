@@ -42,8 +42,7 @@ export class AuthService {
   }
 
   validarCPF(usuario: Usuario) {
-    console.log(usuario);
-
+   
     return this.http.post(this.API_VALIDAR_CPF, usuario, this.httpOptions)
       .pipe(
         tap(console.log)

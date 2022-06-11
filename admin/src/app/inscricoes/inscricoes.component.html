@@ -35,8 +35,8 @@
                                           <tr *ngFor="let reg of lista">
                                              <td   class="align-middle" style=" background: transparent;">
                                                 <div [ngClass]="reg.status">
-                                                   <div class="custom-control custom-checkbox" id="div{{reg.id}}">
-                                                      <input type="checkbox" class="custom-control-input" id="id{{reg.id}}" (change)="calcularValor()" >
+                                                   <div  class="custom-control custom-checkbox" id="div{{reg.id}}">
+                                                      <input type="checkbox"  class="custom-control-input" id="id{{reg.id}}" (change)="calcularValor()" >
                                                       <label class="custom-control-label" for="id{{reg.id}}" > - </label>
                                                    </div>
                                                 </div>
@@ -47,7 +47,7 @@
                                                 <i [hidden]= "reg.valor != '0'" class="text-success"><br><b>(Gratuita para participantes do evento principal)</b></i>                                       
                                              </td>
                                              <td class="float-right">
-                                                <span [hidden]="reg.status=='AUTHORIZED'" >{{reg.valor | number : '1.2-2' }}</span><br>
+                                                <span [hidden]="reg.status=='AUTHORIZED' || reg.id== 1 || reg.id== 2" >{{reg.valor | number : '1.2-2' }}</span><br>
                                                 <span class="alert-success" [hidden]="reg.status!='AUTHORIZED'"><b>CONFIRMADO</b></span>
                                              </td>
                                           </tr>
@@ -275,7 +275,7 @@
                                        <div class="col-12 col-sm-12" [hidden]= "valor == 0">
                                           <label><b>Pagar com:</b></label><br>                  
                                           <div class="custom-control custom-radio custom-control-inline">
-                                             <input type="radio" class="custom-control-input" id="boleto" name="meioPagamento" value="1" (change)="selecionarTipoPagamento()" disabled>
+                                             <input type="radio" class="custom-control-input" id="boleto" name="meioPagamento" value="1" (change)="selecionarTipoPagamento()" >
                                              <label class="custom-control-label" for="boleto"><i class="fa fa-file-invoice-dollar"></i> - Boleto</label>
                                           </div>
                                           <div class="custom-control custom-radio custom-control-inline">

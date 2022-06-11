@@ -25,6 +25,7 @@ import { InscricoesComponent } from './inscricoes/inscricoes.component';
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
     HomeComponent,
     LoginComponent,
     UsuarioComponent,

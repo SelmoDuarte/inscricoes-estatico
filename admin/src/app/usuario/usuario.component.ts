@@ -33,7 +33,7 @@ export class UsuarioComponent implements OnInit, AfterViewInit {
   paises = [];
   estados = [];
   cidades = [];
-  listaTipos: any = [{ codigo: '1', descricao: 'Administrador e Tecnólogo' }, { codigo: '2', descricao: 'Estudante' }, { codigo: '3', descricao: 'Outros Profissionais' }];
+  listaTipos: any = [{ codigo: '1', descricao: 'Administrador/Tecnólogo/Professor' }, { codigo: '2', descricao: 'Estudante' }, { codigo: '3', descricao: 'Outros Profissionais' }];
   carregando = true;
   ocultarDadosPessoais = false;
   ocultarEndereco = false;
